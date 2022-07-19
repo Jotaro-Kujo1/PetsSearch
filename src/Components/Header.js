@@ -6,7 +6,7 @@ import Home from "../Pages/Home";
 import SeePet from "../Pages/SeePet";
 import About from "../Pages/About";
 import Profile from "../Pages/Profile";
-import MapPet from "../Pages/MapPet";
+import MapPet from "../Pages/ForMap/MapPet";
 
 export default class Header extends Component{
     render() {
@@ -52,6 +52,7 @@ export default class Header extends Component{
                         <Route path="/profile" element={<Profile/>}/>
                     </Routes>
                 </Router>
+
         </>
         );
     }
