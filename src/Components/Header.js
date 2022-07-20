@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import {Button, Container, Form, FormControl, Nav, Navbar} from "react-bootstrap";
+import { Container, Form, FormControl, Nav, Navbar} from "react-bootstrap";
 import logo from './Vadim_koshak_chisto_pazhilaya_glotka_shorst.png'
 import {BrowserRouter as Router, Route,Routes, Link} from "react-router-dom";
 import Home from "../Pages/Home";
@@ -7,17 +7,19 @@ import SeePet from "../Pages/SeePet";
 import About from "../Pages/About";
 import Profile from "../Pages/Profile";
 import MapPet from "../Pages/ForMap/MapPet";
+import {Stack, Typography} from "@mui/material";
+import Button from '@mui/material/Button';
 
 export default class Header extends Component{
     render() {
         return (
             <>
             <Navbar sticky="top" collapseOnSelect expand="md" bg="dark" variant="dark">
-                <Container>
+                <Container >
                     <Navbar.Brand href="/">
                         <img
                             src={logo}
-                            height="30"
+                            height="40"
                             width="30"
                             className="d-inline-block align-top"
                             alt="Logo"
@@ -33,14 +35,16 @@ export default class Header extends Component{
                             <Nav.Link href="/profile">Profile</Nav.Link>
                         </Nav>
                     </Navbar.Collapse>
-                    <Form>
-                        <FormControl
-                            type="text"
-                            placeholder="Search"
-                            className="mr-sm-2"
-                        />
-                    </Form>
-                    <Button variant="outline-info">Search</Button>
+                    <Router>
+                        <Routes>
+                            <Route path="/singIn" component="signInButton"/>
+                            <Route path="/singIn" component="signInButton"/>
+                        </Routes>
+                    </Router>
+                    <Stack spacing={2} direction="row">
+                        <Button variant="contained">Registration</Button>
+                        <Button variant="outlined">Sign in</Button>
+                    </Stack>
                 </Container>
             </Navbar>
                 <Router>
@@ -52,7 +56,6 @@ export default class Header extends Component{
                         <Route path="/profile" element={<Profile/>}/>
                     </Routes>
                 </Router>
-
         </>
         );
     }

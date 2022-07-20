@@ -1,15 +1,35 @@
 import React from 'react'
 import {render} from 'react-dom'
-import {YMaps, Map, Placemark} from '@pbe/react-yandex-maps'
+import {YMaps, Map, Placemark, SearchControl, useYMaps, GeolocationControl} from '@pbe/react-yandex-maps'
 import Header from "../../Components/Header";
 import {Component} from 'react'
+import * as PropTypes from "prop-types";
 
+
+const mapData = {
+    center: [59.12, 37.78],
+    zoom: 10
+};
+
+const coordinates = [
+    [59.12, 37.78],
+    [61.12, 39.79]
+];
 
 const MapFunc = () => {
     return (
         <YMaps>
             <div>
-                <Map defaultState={{ center: [55.75, 37.57], zoom: 9 }} />
+                <Map defaultState={mapData}>
+                    {coordinates.map(coordinate => <Placemark geometry={coordinate}/>)}
+
+                    <SearchControl options={{
+                        float:"right"
+                    }}/>
+                    <GeolocationControl options={{
+                        float: "left"
+                    }}/>
+                </Map>
             </div>
         </YMaps>
     )
