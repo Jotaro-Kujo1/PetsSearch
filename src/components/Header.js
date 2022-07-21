@@ -9,6 +9,9 @@ import Profile from "../Pages/Profile";
 import MapPet from "../Pages/ForMap/MapPet";
 import {Stack, Typography} from "@mui/material";
 import Button from '@mui/material/Button';
+import {ModalProvider} from '../contexts';
+import {Controls, Modal} from "../components";
+
 
 export default class Header extends Component{
     render() {
@@ -41,10 +44,12 @@ export default class Header extends Component{
                             <Route path="/singIn" component="signInButton"/>
                         </Routes>
                     </Router>
-                    <Stack spacing={2} direction="row">
-                        <Button variant="contained">Registration</Button>
-                        <Button variant="outlined">Sign in</Button>
-                    </Stack>
+
+                    <ModalProvider>
+                        <Controls/>
+                    </ModalProvider>
+
+
                 </Container>
             </Navbar>
                 <Router>

@@ -1,7 +1,7 @@
 import React from 'react'
 import {render} from 'react-dom'
 import {YMaps, Map, Placemark, SearchControl, useYMaps, GeolocationControl} from '@pbe/react-yandex-maps'
-import Header from "../../Components/Header";
+import Header from "../../components/Header";
 import {Component} from 'react'
 import * as PropTypes from "prop-types";
 
