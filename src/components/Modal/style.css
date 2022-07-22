@@ -31,7 +31,7 @@
     animation: showBackdrop .3s ease-out;
 }
 
-.modal {
+.mymodal {
     background: #ffffff;
     width: 800px;
     height: 600px;
@@ -41,18 +41,18 @@
     animation: showModal .3s ease-out;
 }
 
-.modal-header {
+.mymodal-header {
     padding: 10px 20px;
     border-bottom: 1px solid rgb(219, 219, 219);
 
 }
 
-.modal-header h3 {
+.mymodal-header h3 {
     margin: 0;
     font-size: 20px;
 }
 
-.modal-body {
+.mymodal-body {
     padding: 10px 20px;
 }
 
@@ -60,7 +60,7 @@
     opacity: 0;
 }
 
-.backdrop-hide .modal {
+.backdrop-hide .mymodal {
     opacity: 0;
     transform: translateY(-500px);
 }

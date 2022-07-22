@@ -16,8 +16,8 @@
     return (
         <Stack spacing={2} direction="row">
          <Button variant="contained" onClick=
-             {handleClickRegistrationButton}>Registration</Button>
-         <Button variant="outlined">Sign in</Button>
+             {handleClickRegistrationButton} data-toggle="modal">Registration</Button>
+         <Button variant="outlined" data-bs-dismiss="modal">Sign in</Button>
         </Stack>
     )
  }
