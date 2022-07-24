@@ -9,7 +9,7 @@
 
   const handleClickRegistrationButton = () => {
       openModal({
-          title: 'Modal zebra',
+          title: 'Registration',
           children: "MODAL MODAL MODAL"
       });
   }
