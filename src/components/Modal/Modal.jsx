@@ -7,6 +7,8 @@ import TextField from '@mui/material/TextField';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import Button from "@mui/material/Button";
 import {Stack} from "@mui/material";
+import User from "../User/User";
+
 
 
  export const Modal = (props) => {
@@ -25,6 +27,8 @@ import {Stack} from "@mui/material";
 
      const backdropClasses = closing ? 'backdrop backdrop-hide' : 'backdrop';
 
+
+
     return (
         <div className={backdropClasses} onClick={handleClose}>
             <div className="mymodal" onClick={(event) => event.stopPropagation()}>
@@ -32,14 +36,7 @@ import {Stack} from "@mui/material";
                     <h3>{title}</h3>
                 </div>
                 <div className="mymodal-body">
-                    <Box sx={{ display: 'flex', alignItems: 'flex-end', }}>
-                        <AccountCircle sx={{ color: 'action.active', mr: 1, my: 0.5 }} />
-                        <TextField id="input-with-sx" label="Login" variant="standard" />
-                    </Box>
-                    <Box sx={{ display: 'flex', alignItems: 'flex-end' }}>
-                        <AccountCircle sx={{ color: 'action.active', mr: 1, my: 0.5 }} />
-                        <TextField id="input-with-sx" label="Password" variant="standard" />
-                    </Box>
+                    <User/>
                 </div>
                 <div className="mymodal-footer">
                     <Button variant="contained">Start</Button>
