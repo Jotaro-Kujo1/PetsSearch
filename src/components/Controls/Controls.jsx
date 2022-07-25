@@ -9,15 +9,14 @@
 
   const handleClickRegistrationButton = () => {
       openModal({
-          title: 'Registration',
-          children: "MODAL MODAL MODAL"
+          title: 'Registration'
       });
   }
+
     return (
         <Stack spacing={2} direction="row">
          <Button variant="contained" onClick=
              {handleClickRegistrationButton} data-toggle="modal">Registration</Button>
-         <Button variant="outlined" data-bs-dismiss="modal">Sign in</Button>
         </Stack>
     )
  }

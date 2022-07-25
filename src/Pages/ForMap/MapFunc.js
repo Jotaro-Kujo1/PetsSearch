@@ -7,7 +7,7 @@ import * as PropTypes from "prop-types";
 
 
 const mapData = {
-    center: [59.12, 37.78],
+    center: [59.1323, 37.9092],
     zoom: 10
 };
 

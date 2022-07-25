@@ -11,6 +11,8 @@ import {Stack, Typography} from "@mui/material";
 import Button from '@mui/material/Button';
 import {ModalProvider} from '../contexts';
 import {Controls, Modal} from "../components";
+import {ControlsSignIn} from "./Controls/ControlsSignIn";
+import {ModalProviderSignIn} from "../contexts/ModalContext/ModalContextProviderSignIn";
 
 
 export default class Header extends Component{
@@ -45,11 +47,15 @@ export default class Header extends Component{
                         </Routes>
                     </Router>
 
-                    <ModalProvider>
-                        <Controls/>
-                    </ModalProvider>
+                    <Stack spacing={2} direction="row">
+                        <ModalProvider>
+                            <Controls/>
+                        </ModalProvider>
 
-
+                        <ModalProviderSignIn>
+                            <ControlsSignIn/>
+                        </ModalProviderSignIn>
+                    </Stack>
                 </Container>
             </Navbar>
                 <Router>
