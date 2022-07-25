@@ -13,6 +13,14 @@ export default function User () {
     const handleClick = () => {
         const newUser = {login,password};
         console.log(newUser);
+        fetch("http://localhost:8080/forUsers/user",{
+            method:"POST",
+            headers:{"Content-Type":"application/json"},
+            body:JSON.stringify(newUser)
+        }
+    ).then(()=>{
+        console.log("New user added");
+    })
     }
 
     return (
