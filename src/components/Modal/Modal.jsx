@@ -38,9 +38,7 @@ import User from "../User/User";
                 <div className="mymodal-body">
                     <User/>
                 </div>
-                <div className="mymodal-footer">
-                    <Button variant="contained">Start</Button>
-                </div>
+
             </div>
         </div>
     )

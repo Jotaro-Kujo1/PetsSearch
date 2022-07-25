@@ -3,11 +3,17 @@ import Box from "@mui/material/Box";
 import AccountCircle from "@mui/icons-material/AccountCircle";
 import TextField from "@mui/material/TextField";
 import React from "react";
+import Button from "@mui/material/Button";
+import './style.css';
 
 export default function User () {
     const[login,setLogin] = useState('');
     const[password,setPassword] = useState('');
-    const[email,setEmail] = useState('');
+
+    const handleClick = () => {
+        const newUser = {login,password};
+        console.log(newUser);
+    }
 
     return (
         <>
@@ -23,8 +29,10 @@ export default function User () {
                    value={password}
                    onChange={e=>setPassword(e.target.value)}/>
         </Box>
-            {login}
-            {password}
+        <div className="startBtn">
+            <Button variant="contained" onClick={handleClick}>Start</Button>
+        </div>
+
         </>
     )
 }
