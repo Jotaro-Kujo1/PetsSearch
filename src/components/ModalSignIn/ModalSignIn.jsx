@@ -7,7 +7,7 @@ import TextField from '@mui/material/TextField';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import Button from "@mui/material/Button";
 import {Stack} from "@mui/material";
-
+import UserSignIn from "../User/UserSignIn";
 
 export const ModalSignIn = (props) => {
     const {children, title} = props;
@@ -32,21 +32,7 @@ export const ModalSignIn = (props) => {
                     <h3>{title}</h3>
                 </div>
                 <div className="mymodal-body">
-                    <Box sx={{ display: 'flex', alignItems: 'flex-end', }}>
-                        <AccountCircle sx={{ color: 'action.active', mr: 1, my: 0.5 }} />
-                        <TextField id="input-with-sx" label="Login" variant="standard" />
-                    </Box>
-                    <Box sx={{ display: 'flex', alignItems: 'flex-end' }}>
-                        <AccountCircle sx={{ color: 'action.active', mr: 1, my: 0.5 }} />
-                        <TextField id="input-with-sx" label="Password" variant="standard" />
-                    </Box>
-                    <Box sx={{ display: 'flex', alignItems: 'flex-end' }}>
-                        <AccountCircle sx={{ color: 'action.active', mr: 1, my: 0.5 }} />
-                        <TextField id="input-with-sx" label="E-mail" variant="standard" />
-                    </Box>
-                </div>
-                <div className="mymodal-footer">
-                    <Button variant="contained">Start</Button>
+                    <UserSignIn/>
                 </div>
             </div>
         </div>

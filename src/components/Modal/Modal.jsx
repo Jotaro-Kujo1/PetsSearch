@@ -38,7 +38,6 @@ import User from "../User/User";
                 <div className="mymodal-body">
                     <User/>
                 </div>
-
             </div>
         </div>
     )
