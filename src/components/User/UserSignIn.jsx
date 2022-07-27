@@ -22,15 +22,9 @@ export default function UserSignIn () {
             body:JSON.stringify(newUser)
         })
             .then((response) => {
-            setState(response.status);
+            console.log("Status is" + response.status);
             }
         )
-
-        if(state!=0) {
-            if ((state >= 200 && state < 300)) {
-                console.log("Success" + login + state);
-            } else console.log("User not found" + state)
-        }
     }
 
 
