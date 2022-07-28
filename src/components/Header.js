@@ -1,11 +1,11 @@
-import React, {Component} from "react";
+import React, {Component, useState} from "react";
 import { Container, Form, FormControl, Nav, Navbar} from "react-bootstrap";
 import logo from './Vadim_koshak_chisto_pazhilaya_glotka_shorst.png'
 import {BrowserRouter as Router, Route,Routes, Link} from "react-router-dom";
 import Home from "../Pages/Home";
 import SeePet from "../Pages/SeePet";
 import About from "../Pages/About";
-import Profile from "../Pages/Profile";
+import {Profile} from "../Pages/Profile";
 import MapPet from "../Pages/ForMap/MapPet";
 import {Stack, Typography} from "@mui/material";
 import Button from '@mui/material/Button';
@@ -13,10 +13,15 @@ import {ModalProvider} from '../contexts';
 import {Controls, Modal} from "../components";
 import {ControlsSignIn} from "./Controls/ControlsSignIn";
 import {ModalProviderSignIn} from "../contexts/ModalContext/ModalContextProviderSignIn";
+import {ControlsProfile} from "./Controls/ControlsProfile";
 
 
-export default class Header extends Component{
-    render() {
+export const Header = () =>{
+    const[state,setState]=useState(true);
+
+    const handleState = (state) => {
+        setState(state);
+    }
         return (
             <>
             <Navbar sticky="top" collapseOnSelect expand="md" bg="dark" variant="dark">
@@ -47,14 +52,15 @@ export default class Header extends Component{
                         </Routes>
                     </Router>
 
-                    <Stack spacing={2} direction="row">
+                    <Stack spacing={3} direction="row">
                         <ModalProvider>
-                            <Controls/>
+                            <Controls onChange={handleState}/>
                         </ModalProvider>
 
                         <ModalProviderSignIn>
-                            <ControlsSignIn/>
+                            <ControlsSignIn onChange={handleState}/>
                         </ModalProviderSignIn>
+                        <ControlsProfile state={state}/>
                     </Stack>
                 </Container>
             </Navbar>
@@ -64,10 +70,10 @@ export default class Header extends Component{
                         <Route path="/map" element={<MapPet/>}/>
                         <Route path="/see" element={<SeePet/>}/>
                         <Route path="/about" element={<About/>}/>
-                        <Route path="/profile" element={<Profile/>}/>
+                        <Route path="/profile" element={<Profile/>} code={state}/>
                     </Routes>
                 </Router>
         </>
+
         );
-    }
 }

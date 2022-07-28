@@ -1,11 +1,11 @@
-import {Component} from "react";
+import {Component, useState} from "react";
 
-export default class Profile extends Component {
-    render() {
+export const Profile = ({code}) => {
         return (
             <div>
                 Profile
+                {code}
             </div>
         )
-    }
+
 }

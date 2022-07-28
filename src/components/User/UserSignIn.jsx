@@ -46,7 +46,6 @@ export default function UserSignIn () {
             <div className="startBtn">
                 <Button variant="contained" onClick={handleClick}>Start</Button>
             </div>
-
         </>
     )
 }

@@ -1,6 +1,6 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Header from "./components/Header";
+import {Header} from "./components/Header";
 import React from "react";
 import {AppBar, Box, Container, IconButton, Toolbar, Typography} from "@mui/material";
 import {makeStyles} from '@mui/styles'

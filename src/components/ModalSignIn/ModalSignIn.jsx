@@ -34,6 +34,7 @@ export const ModalSignIn = (props) => {
                 <div className="mymodal-body">
                     <UserSignIn/>
                 </div>
+
             </div>
         </div>
     )
