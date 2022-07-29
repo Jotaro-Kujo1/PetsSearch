@@ -47,15 +47,10 @@ export default function UserSignIn () {
                         label="Invalid username"
                         variant="standard"
                     />
-                </div>
-                </Box>
-                <Box sx={{display: 'flex', alignItems: 'flex-end',}}>
-                    <AccountCircle sx={{color: 'action.active', mr: 1, my: 0.5}}/>
-                    <div>
                     <TextField
                         error
                         id="standard-error"
-                        label="Invalid password"
+                        label="or password"
                         variant="standard"
                     />
                 </div>
