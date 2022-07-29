@@ -6,7 +6,7 @@ export const ControlsProfile = ({state}) => {
 console.log(state);
     return (
         <Stack spacing={2} direction="row">
-            {!state && <Button variant="contained">Profile</Button>}
+            <Button variant="contained">Profile</Button>
         </Stack>
     )
 }

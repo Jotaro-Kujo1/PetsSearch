@@ -1,16 +1,18 @@
-import {useEffect, useState} from "react";
+import {useContext, useState} from "react";
 import Box from "@mui/material/Box";
 import AccountCircle from "@mui/icons-material/AccountCircle";
 import TextField from "@mui/material/TextField";
 import React from "react";
 import Button from "@mui/material/Button";
 import './style.css';
+import {Context} from './context'
 
 
 export default function UserSignIn () {
     const[login,setLogin] = useState('');
     const[password,setPassword] = useState('');
-    const[state,setState] = useState(0);
+    const {state,setState} = useContext(Context);
+
 
 
     const handleClick = () => {
@@ -23,6 +25,8 @@ export default function UserSignIn () {
         })
             .then((response) => {
             console.log("Status is" + response.status);
+                setState(response.status);
+                console.log(state);
             }
         )
     }
