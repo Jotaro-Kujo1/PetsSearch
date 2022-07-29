@@ -1,11 +1,10 @@
-import React, { useContext, useState} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import { Container, Nav, Navbar} from "react-bootstrap";
 import logo from './Vadim_koshak_chisto_pazhilaya_glotka_shorst.png'
 import {BrowserRouter as Router, Route,Routes, Link} from "react-router-dom";
 import Home from "../Pages/Home";
 import SeePet from "../Pages/SeePet";
 import About from "../Pages/About";
-import {Profile} from "../Pages/Profile";
 import MapPet from "../Pages/ForMap/MapPet";
 import {Stack} from "@mui/material";
 import {ModalProvider} from '../contexts';
@@ -16,9 +15,13 @@ import {ControlsProfile} from "./Controls/ControlsProfile";
 import {Context} from './User/context'
 
 
+
 export const Header = () =>{
 
-    const {state} = useContext(Context);
+
+    const {state,setState} = useContext(Context);
+
+
 
     if(state >= 200 && state < 300) {
         return (
@@ -41,7 +44,6 @@ export const Header = () =>{
                                 <Nav.Link href="/map">Map</Nav.Link>
                                 <Nav.Link href="/see">See your pet</Nav.Link>
                                 <Nav.Link href="/about">About us</Nav.Link>
-                                <Nav.Link href="/profile">Profile</Nav.Link>
                             </Nav>
                         </Navbar.Collapse>
                         <Router>
@@ -52,7 +54,6 @@ export const Header = () =>{
                         </Router>
 
                         <Stack spacing={3} direction="row">
-
                             <ControlsProfile/>
                         </Stack>
                     </Container>
@@ -63,13 +64,13 @@ export const Header = () =>{
                         <Route path="/map" element={<MapPet/>}/>
                         <Route path="/see" element={<SeePet/>}/>
                         <Route path="/about" element={<About/>}/>
-                        <Route path="/profile" element={<Profile/>}/>
                     </Routes>
                 </Router>
             </>
 
         );
-    }else {
+    }
+    else {
         return (
             <>
                 <Navbar sticky="top" collapseOnSelect expand="md" bg="dark" variant="dark">
@@ -90,7 +91,6 @@ export const Header = () =>{
                                 <Nav.Link href="/map">Map</Nav.Link>
                                 <Nav.Link href="/see">See your pet</Nav.Link>
                                 <Nav.Link href="/about">About us</Nav.Link>
-                                <Nav.Link href="/profile">Profile</Nav.Link>
                             </Nav>
                         </Navbar.Collapse>
                         <Router>
@@ -120,7 +120,6 @@ export const Header = () =>{
                         <Route path="/map" element={<MapPet/>}/>
                         <Route path="/see" element={<SeePet/>}/>
                         <Route path="/about" element={<About/>}/>
-                        <Route path="/profile" element={<Profile/>} />
                     </Routes>
                 </Router>
             </>

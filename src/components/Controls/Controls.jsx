@@ -4,7 +4,7 @@
  import {ModalContext} from '../../contexts'
 
 
- export const Controls = ({onChange}) => {
+ export const Controls = () => {
   const {openModal} = useContext(ModalContext);
 
 
