@@ -20,10 +20,10 @@ export const Header = () =>{
 
 
     const {state,setState} = useContext(Context);
+    const local = localStorage.getItem('state');
+    const session = sessionStorage.getItem('state');
 
-
-
-    if(state >= 200 && state < 300) {
+    if(local!= null || session!=null){
         return (
             <>
                 <Navbar sticky="top" collapseOnSelect expand="md" bg="dark" variant="dark">
@@ -67,8 +67,8 @@ export const Header = () =>{
                     </Routes>
                 </Router>
             </>
-
         );
+        sessionStorage.clear();
     }
     else {
         return (
