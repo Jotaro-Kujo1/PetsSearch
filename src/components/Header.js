@@ -24,7 +24,7 @@ export const Header = () =>{
     const local = localStorage.getItem('state');
     const session = sessionStorage.getItem('state');
 
-    if(local!= null || session!=null){
+    if((local!= null || session!=null) && local!= 404 && session!=404){
         return (
             <>
                 <Navbar sticky="top" collapseOnSelect expand="md" bg="dark" variant="dark">

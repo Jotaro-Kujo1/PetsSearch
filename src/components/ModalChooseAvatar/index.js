@@ -1,0 +1,2 @@
+export {ModalChooseAvatar} from './ModalChooseAvatar'
+

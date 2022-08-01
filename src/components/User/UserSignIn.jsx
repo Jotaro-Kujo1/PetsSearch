@@ -17,7 +17,6 @@ export default function UserSignIn () {
     const[status,setStatus]=useState(0);
 
     const handleCheckBox = () => {
-        localStorage.setItem('save',true);
         localStorage.setItem('state',status);
     }
 
@@ -64,7 +63,7 @@ export default function UserSignIn () {
                 </div>
                 </Box>
         <div className="startBtn">
-            <Button variant="contained" onClick={handleReload}>Try again</Button>
+            <Button variant="contained" onClick={handleReload} data-bs-dismiss="modal">Try again</Button>
         </div>
             </>
         )

@@ -2,7 +2,7 @@ import {Stack} from "@mui/material";
 import Button from "@mui/material/Button";
 import React from "react";
 
-export const ControlsProfile = ({state}) => {
+export const ControlsProfile = () => {
 
     const onClickHandler = () => {
         window.location.assign('http://localhost:3000/profile');

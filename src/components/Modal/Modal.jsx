@@ -1,12 +1,6 @@
 import React, {useContext, useState} from 'react'
 import './style.css'
 import { ModalContext } from "../../contexts";
-import Box from '@mui/material/Box';
-
-import TextField from '@mui/material/TextField';
-import AccountCircle from '@mui/icons-material/AccountCircle';
-import Button from "@mui/material/Button";
-import {Stack} from "@mui/material";
 import User from "../User/User";
 
 
