@@ -3,10 +3,14 @@ import Button from "@mui/material/Button";
 import React from "react";
 
 export const ControlsProfile = ({state}) => {
-console.log(state);
+
+    const onClickHandler = () => {
+        window.location.assign('http://localhost:3000/profile');
+    }
+
     return (
         <Stack spacing={2} direction="row">
-            <Button variant="contained">Profile</Button>
+            <Button variant="contained" onClick={onClickHandler}>Profile</Button>
         </Stack>
     )
 }

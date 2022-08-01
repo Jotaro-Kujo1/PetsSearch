@@ -6,6 +6,7 @@ import Home from "../Pages/Home";
 import SeePet from "../Pages/SeePet";
 import About from "../Pages/About";
 import MapPet from "../Pages/ForMap/MapPet";
+import {Profile} from "../Pages/ForProfile/Profile"
 import {Stack} from "@mui/material";
 import {ModalProvider} from '../contexts';
 import {Controls, Modal} from "../components";
@@ -64,6 +65,7 @@ export const Header = () =>{
                         <Route path="/map" element={<MapPet/>}/>
                         <Route path="/see" element={<SeePet/>}/>
                         <Route path="/about" element={<About/>}/>
+                        <Route path="/profile" element={<Profile/>}/>
                     </Routes>
                 </Router>
             </>

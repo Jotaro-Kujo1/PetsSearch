@@ -85,10 +85,11 @@ export default function UserSignIn () {
                 </Box>
                 <div className="startBtn">
                     <Button variant="contained" onClick={handleClick}>Start</Button>
+                    <FormControlLabel control={<Checkbox />} onClick={()=>{
+                        localStorage.setItem('state',status);}
+                    } label="Save" />
                 </div>
-                <FormControlLabel control={<Checkbox />} onClick={()=>{
-                    localStorage.setItem('state',status);}
-                } label="Save data" />
+
             </>
         )
     }
