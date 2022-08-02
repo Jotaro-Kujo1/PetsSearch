@@ -18,7 +18,7 @@ export const ControlsChooseAvatar = () => {
 
     return (
         <Stack spacing={2} direction="row">
-            <Button className="btnSignIn" variant="outlined" data-bs-dismiss="modal" onClick={handleClickChooseAvatar}>Choose avatar</Button>
+            <Button className="btnChooseAvatar" variant="outlined" data-bs-dismiss="modal" onClick={handleClickChooseAvatar}>Choose avatar</Button>
         </Stack>
     )
 }

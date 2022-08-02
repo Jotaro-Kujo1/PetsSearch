@@ -27,6 +27,7 @@ export default function UserSignIn () {
     const handleClick = () => {
         const newUser = {login,password};
         console.log(newUser);
+        setLogin(login);
         fetch("http://localhost:8080/forUsers/user/checkUser",{
             method:"POST",
             headers:{"Content-Type":"application/json"},
@@ -70,6 +71,7 @@ export default function UserSignIn () {
             </>
         )
     }else {
+        localStorage.setItem('login',login);
         return (
             <>
                 <div className="textBoxs">

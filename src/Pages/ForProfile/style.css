@@ -1,3 +1,37 @@
 .d-inline-block align-top {
     border-radius: 50%;
 }
+
+.myProfPic {
+    border: 3px solid black;
+}
+
+.imgSettings {
+    padding: 15px 200px;
+    margin: 35px 0px 7px 7px;
+    width: 300px;
+}
+
+
+
+.login {
+    width: 300px;
+    position: relative;
+    right: 80px;
+    text-align: center;
+}
+
+.btnChooseAvatar {
+    padding: 0px 200px;
+}
+
+.postBtn {
+    position: relative;
+    right: 200px;
+}
+
+.searchedBtn {
+    position: relative;
+    right: 200px;
+}
+

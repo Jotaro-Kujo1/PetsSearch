@@ -288,12 +288,12 @@ export const ModalChooseAvatar = (props) => {
                     </Stack>
                     <Stack spacing={5} direction="row">
                         <img
-                            src={twentyfifth}
+                            src={twentyfirst}
                             height="50"
                             width="50"
                             className="rounded-circle z-depth-0, img-light"
                             onClick={() => {
-                                localStorage.setItem('picId',twentyfifth);
+                                localStorage.setItem('picId',twentyfirst);
                                 window.location.reload();
                             }}
                             alt="21"

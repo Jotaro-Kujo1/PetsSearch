@@ -1,5 +1,5 @@
 import React, {useContext, useState} from 'react'
-import './style.css'
+import './styleSingIn.css'
 import { ModalContext } from "../../contexts";
 import UserSignIn from "../User/UserSignIn";
 
