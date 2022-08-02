@@ -6,6 +6,29 @@ import {ModalContextProviderChooseAvatar} from "../../contexts/ModalContext/Moda
 import {Stack} from "@mui/material";
 import Button from "@mui/material/Button";
 
+const areaHandler = () => {
+    document.getElementById("search").style.display = "none";
+    if(document.getElementById("posts").style.display === "none"){
+        document.getElementById("posts").style.display = "block";
+    } else if(document.getElementById("posts").style.display === "block") {
+        document.getElementById("posts").style.display = "none";
+    } else{
+        document.getElementById("posts").style.display = "block";
+    }
+
+}
+
+const searchHandler = () => {
+    document.getElementById("posts").style.display = "none";
+    if(document.getElementById("search").style.display === "none"){
+        document.getElementById("search").style.display = "block";
+    } else if(document.getElementById("search").style.display === "block"){
+        document.getElementById("search").style.display = "none";
+    } else{
+        document.getElementById("search").style.display = "block";
+    }
+}
+
 
 export const Profile = () =>{
     if(localStorage.getItem('picId')==null){
@@ -28,7 +51,7 @@ export const Profile = () =>{
                         </ModalContextProviderChooseAvatar>
                     </div>
                     <div className="postBtn">
-                        <Button className="btnChooseAvatar" variant="outlined" data-bs-dismiss="modal">Posts</Button>
+                        <Button className="btnChooseAvatar" variant="outlined" data-bs-dismiss="modal" onClick={areaHandler}>Posts</Button>
                     </div>
                     <div className="searchedBtn">
                         <Button className="btnChooseAvatar" variant="outlined" data-bs-dismiss="modal">Searched</Button>
@@ -56,12 +79,21 @@ export const Profile = () =>{
                 </ModalContextProviderChooseAvatar>
                 </div>
                     <div className="postBtn">
-                    <Button className="btnChooseAvatar" variant="outlined" data-bs-dismiss="modal">Posts</Button>
+                    <Button className="btnChooseAvatar" variant="outlined" data-bs-dismiss="modal" onClick={areaHandler}>Posts</Button>
                     </div>
                     <div className="searchedBtn">
-                    <Button className="btnChooseAvatar" variant="outlined" data-bs-dismiss="modal">Searched</Button>
+                    <Button className="btnChooseAvatar" variant="outlined" data-bs-dismiss="modal" onClick={searchHandler}>Searched</Button>
                     </div>
                 </Stack>
+
+                <div id="posts">
+                    <h3>TEST POST</h3>
+                </div>
+
+                <div id="search">
+                    <h3>TEST SEARCH</h3>
+                </div>
+
             </>
         );
     }

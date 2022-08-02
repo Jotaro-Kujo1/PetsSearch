@@ -35,3 +35,20 @@
     right: 200px;
 }
 
+#posts {
+    position: relative;
+    width:500px;
+    height: auto;
+    left: 700px;
+    text-align: center;
+    display: none;
+}
+
+#search {
+    position: relative;
+    width:500px;
+    height: auto;
+    left: 700px;
+    text-align: center;
+    display: none;
+}
