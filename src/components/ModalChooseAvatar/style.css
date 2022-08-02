@@ -39,6 +39,7 @@
     border-radius: 10px;
     transition: all .3s;
     animation: showModal .3s ease-out;
+    overflow: auto;
 }
 
 .mymodal-header {

@@ -45,6 +45,7 @@ export default function UserSignIn () {
     if(state == 404){
         return (
             <>
+                <div className="textBoxs">
                 <Box sx={{display: 'flex', alignItems: 'flex-end',}}>
                     <AccountCircle sx={{color: 'action.active', mr: 1, my: 0.5}}/>
                 <div>
@@ -65,11 +66,13 @@ export default function UserSignIn () {
         <div className="startBtn">
             <Button variant="contained" onClick={handleReload} data-bs-dismiss="modal">Try again</Button>
         </div>
+                </div>
             </>
         )
     }else {
         return (
             <>
+                <div className="textBoxs">
                 <Box sx={{display: 'flex', alignItems: 'flex-end',}}>
                     <AccountCircle sx={{color: 'action.active', mr: 1, my: 0.5}}/>
                     <TextField id="input-with-sx" label="Login" variant="standard"
@@ -88,7 +91,7 @@ export default function UserSignIn () {
                         localStorage.setItem('state',status);}
                     } label="Save" />
                 </div>
-
+                </div>
             </>
         )
     }

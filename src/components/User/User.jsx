@@ -33,6 +33,7 @@ export default function User () {
     if(state==404){
         return (
             <>
+                <div className="textBoxs">
                 <Box sx={{display: 'flex', alignItems: 'flex-end',}}>
                     <AccountCircle sx={{color: 'action.active', mr: 1, my: 0.5}}/>
                     <div>
@@ -47,11 +48,13 @@ export default function User () {
                 <div className="startBtn">
                     <Button variant="contained" onClick={handleReload}>Try again</Button>
                 </div>
+                </div>
             </>
         )
     }else {
         return (
             <>
+                <div className="textBoxs">
                 <Box sx={{display: 'flex', alignItems: 'flex-end',}}>
                     <AccountCircle sx={{color: 'action.active', mr: 1, my: 0.5}}/>
                     <TextField id="input-with-sx" label="Login" variant="standard"
@@ -67,7 +70,7 @@ export default function User () {
                 <div className="startBtn">
                     <Button variant="contained" onClick={handleClick}>Start</Button>
                 </div>
-
+                </div>
             </>
         )
     }
