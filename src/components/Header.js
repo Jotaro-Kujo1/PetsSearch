@@ -14,6 +14,10 @@ import {ControlsSignIn} from "./Controls/ControlsSignIn";
 import {ModalProviderSignIn} from "../contexts/ModalContext/ModalContextProviderSignIn";
 import {ControlsProfile} from "./Controls/ControlsProfile";
 import {Context} from './User/context'
+import {ControlsNewPost} from "./Controls/ControlsNewPost";
+import {Post} from "../Pages/ForPosts/Post";
+import ChatRoom from "../Pages/ChatRoom";
+
 
 
 
@@ -45,6 +49,7 @@ export const Header = () =>{
                                 <Nav.Link href="/map">Map</Nav.Link>
                                 <Nav.Link href="/see">See your pet</Nav.Link>
                                 <Nav.Link href="/about">About us</Nav.Link>
+                                <Nav.Link href="/messenger">Messenger</Nav.Link>
                             </Nav>
                         </Navbar.Collapse>
                         <Router>
@@ -56,6 +61,7 @@ export const Header = () =>{
 
                         <Stack spacing={3} direction="row">
                             <ControlsProfile/>
+                            <ControlsNewPost/>
                         </Stack>
                     </Container>
                 </Navbar>
@@ -66,6 +72,8 @@ export const Header = () =>{
                         <Route path="/see" element={<SeePet/>}/>
                         <Route path="/about" element={<About/>}/>
                         <Route path="/profile" element={<Profile/>}/>
+                        <Route path="/messenger" element={<ChatRoom/>}/>
+                        <Route path="/posts" element={<Post/>}/>
                     </Routes>
                 </Router>
             </>
@@ -110,9 +118,6 @@ export const Header = () =>{
                             <ModalProviderSignIn>
                                 <ControlsSignIn />
                             </ModalProviderSignIn>
-
-
-
                         </Stack>
                     </Container>
                 </Navbar>

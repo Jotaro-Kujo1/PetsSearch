@@ -88,6 +88,18 @@ export const Profile = () =>{
 
                 <div id="posts">
                     <h3>TEST POST</h3>
+                    <p>
+                        2 files changed, 52 insertions(+), 3 deletions(-)
+                        PS C:\Javist\PetsEnterprise\Pets\client\src> git push origin master
+                        Enumerating objects: 13, done.
+                        Counting objects: 100% (13/13), done.
+                        Delta compression using up to 4 threads
+                        Compressing objects: 100% (7/7), done.
+                        Writing objects: 100% (7/7), 1015 bytes | 1015.00 KiB/s, done.
+                        Total 7 (delta 5), reused 0 (delta 0), pack-reused 0
+                        remote: Resolving deltas: 100% (5/5), completed with 5 local objects.
+
+                    </p>
                 </div>
 
                 <div id="search">
