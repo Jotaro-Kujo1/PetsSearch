@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import {over} from 'stompjs';
 import SockJS from 'sockjs-client';
 import './style.css'
+import Button from "@mui/material/Button";
+import {Stack} from "@mui/material";
 
 var stompClient =null;
 const ChatRoom = () => {
@@ -9,7 +11,7 @@ const ChatRoom = () => {
     const [publicChats, setPublicChats] = useState([]);
     const [tab,setTab] =useState("CHATROOM");
     const [userData, setUserData] = useState({
-        username: '',
+        username: localStorage.getItem('login'),
         receivername: '',
         connected: false,
         message: ''
@@ -23,6 +25,7 @@ const ChatRoom = () => {
         stompClient = over(Sock);
         stompClient.connect({},onConnected, onError);
     }
+
 
     const onConnected = () => {
         setUserData({...userData,"connected": true});
@@ -109,14 +112,6 @@ const ChatRoom = () => {
         }
     }
 
-    const handleUsername=(event)=>{
-        const {value}=event.target;
-        setUserData({...userData,"username": value});
-    }
-
-    const registerUser=()=>{
-        connect();
-    }
     return (
         <div className="container">
             {userData.connected?
@@ -141,8 +136,8 @@ const ChatRoom = () => {
                         </ul>
 
                         <div className="send-message">
-                            <input type="text" className="input-message" placeholder="enter the message" value={userData.message} onChange={handleMessage} />
-                            <button type="button" className="send-button" onClick={sendValue}>send</button>
+                            <input type="text" className="input-message" placeholder="Enter the message" value={userData.message} onChange={handleMessage} />
+                            <button type="button" className="send-button" onClick={sendValue}>Send</button>
                         </div>
                     </div>}
                     {tab!=="CHATROOM" && <div className="chat-content">
@@ -157,25 +152,16 @@ const ChatRoom = () => {
                         </ul>
 
                         <div className="send-message">
-                            <input type="text" className="input-message" placeholder="enter the message" value={userData.message} onChange={handleMessage} />
-                            <button type="button" className="send-button" onClick={sendPrivateValue}>send</button>
+                            <input type="text" className="input-message" placeholder="Enter the message" value={userData.message} onChange={handleMessage} />
+                            <button type="button" className="send-button" onClick={sendPrivateValue}>Send</button>
                         </div>
                     </div>}
                 </div>
                 :
-                <div className="register">
-                    <input
-                        id="user-name"
-                        placeholder="Enter your name"
-                        name="userName"
-                        value={userData.username}
-                        onChange={handleUsername}
-                        margin="normal"
-                    />
-                    <button type="button" onClick={registerUser}>
-                        connect
-                    </button>
-                </div>}
+                <Stack spacing={2} direction="row">
+                    <Button variant="contained" onClick={connect} >Start</Button>
+                </Stack>
+            }
         </div>
     )
 }

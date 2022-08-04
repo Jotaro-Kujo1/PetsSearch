@@ -17,6 +17,8 @@ import {Context} from './User/context'
 import {ControlsNewPost} from "./Controls/ControlsNewPost";
 import {Post} from "../Pages/ForPosts/Post";
 import ChatRoom from "../Pages/ChatRoom";
+import SockJS from "sockjs-client";
+import {over} from "stompjs";
 
 
 
@@ -27,6 +29,8 @@ export const Header = () =>{
     const {state,setState} = useContext(Context);
     const local = localStorage.getItem('state');
     const session = sessionStorage.getItem('state');
+
+
 
     if((local!= null || session!=null) && local!= 404 && session!=404){
         return (
