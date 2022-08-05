@@ -5,11 +5,13 @@ import './style.css'
 import Button from "@mui/material/Button";
 import {Stack} from "@mui/material";
 
+
 var stompClient =null;
 const ChatRoom = () => {
     const [privateChats, setPrivateChats] = useState(new Map());
     const [publicChats, setPublicChats] = useState([]);
     const [tab,setTab] =useState("CHATROOM");
+    const[time,setTime]=useState('');
     const [userData, setUserData] = useState({
         username: localStorage.getItem('login'),
         receivername: '',
@@ -60,6 +62,7 @@ const ChatRoom = () => {
 
     const onPrivateMessage = (payload)=>{
         console.log(payload);
+        setTime(new Date());
         var payloadData = JSON.parse(payload.body);
         if(privateChats.get(payloadData.senderName)){
             privateChats.get(payloadData.senderName).push(payloadData);
@@ -81,6 +84,9 @@ const ChatRoom = () => {
         const {value}=event.target;
         setUserData({...userData,"message": value});
     }
+
+
+
     const sendValue=()=>{
         if (stompClient) {
             var chatMessage = {
@@ -129,6 +135,7 @@ const ChatRoom = () => {
                             {publicChats.map((chat,index)=>(
                                 <li className={`message ${chat.senderName === userData.username && "self"}`} key={index}>
                                     {chat.senderName !== userData.username && <div className="avatar">{chat.senderName}</div>}
+
                                     <div className="message-data">{chat.message}</div>
                                     {chat.senderName === userData.username && <div className="avatar self">{chat.senderName}</div>}
                                 </li>
@@ -159,7 +166,9 @@ const ChatRoom = () => {
                 </div>
                 :
                 <Stack spacing={2} direction="row">
-                    <Button variant="contained" onClick={connect} >Start</Button>
+                    <div className="startBtnArea">
+                        <Button className="startBtn" variant="contained" onClick={connect} >Start</Button>
+                    </div>
                 </Stack>
             }
         </div>

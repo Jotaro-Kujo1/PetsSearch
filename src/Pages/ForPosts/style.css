@@ -1,0 +1,23 @@
+.description {
+    position: relative;
+    left: 800px;
+    top: 100px;
+}
+
+.address {
+    position: relative;
+    left: 400px;
+    top: 200px;
+}
+
+.imgBtn {
+    position: relative;
+    left: 200px;
+    top: 250px;
+}
+
+.publicBtn {
+    position: relative;
+    left: 220px;
+    top: 250px;
+}

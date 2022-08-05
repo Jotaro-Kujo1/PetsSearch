@@ -19,7 +19,7 @@ button{
 
 .chat-box{
     margin:40px 50px;
-    height: 600px;
+    height: 1000px;
     padding: 10px;
     display: flex;
     flex-direction: row;
@@ -94,7 +94,6 @@ ul {
     width: auto;
     display: flex;
     flex-direction: row;
-    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
     margin: 5px 10px;
 }
 .message-data{
@@ -102,4 +101,22 @@ ul {
 }
 .message.self{
     justify-content: end;
+}
+
+.startBtnArea {
+    display: flex;
+    padding: 400px 500px;
+}
+
+.startBtn {
+    height: 100px;
+    width: 300px;
+}
+
+.d-inline-block align-top {
+    border-radius: 50%;
+}
+
+.profPic {
+    border: 3px solid black;
 }
