@@ -1,7 +1,7 @@
 .description {
     position: relative;
     left: 800px;
-    top: 100px;
+    top: 150px;
 }
 
 .address {
@@ -18,6 +18,12 @@
 
 .publicBtn {
     position: relative;
-    left: 220px;
+    left: 215px;
     top: 250px;
+}
+
+.image {
+    position: relative;
+    right: 250px;
+    top: 145px;
 }
