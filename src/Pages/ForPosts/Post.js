@@ -25,8 +25,8 @@ export const Post = () => {
 
 
     const handleClick = () => {
-        var img = [];
-        const newPost = {img,description,address,user_name};
+
+        const newPost = {description,address,user_name};
         fetch("http://localhost:8080/posts/createPost",{
                 method:"POST",
                 headers:{"Content-Type":"application/json"},
@@ -38,17 +38,23 @@ export const Post = () => {
     }
 
     const test = () => {
+        let img = []
         let file = new FormData();
-        var img = [];
         file.set("file",selectedImage);
         fetch("http://localhost:8080/posts/byteConverter", {
-            mode: "no-cors",
+            mode: "cors",
             method: "POST",
             body: file
-        }).then((response) => {
-            console.log(response.status);
-            img = response.body;
-            console.log(img);
+        }).then(async (response) => {
+            const reader = response.body.getReader();
+            while (true) {
+                const {done, value} = await reader.read();
+                if(done){
+                    console.log("END");
+                    break;
+                }
+                console.log(value);
+            }
         })
     }
 
