@@ -14,7 +14,8 @@ export const Post = () => {
     const user_name = localStorage.getItem('login');
     const[description,setDescription] = useState('');
     const[address,setAddress] = useState('');
-
+    var img;
+    var handler;
 
     useEffect(()=>{
         if(selectedImage) {
@@ -26,7 +27,7 @@ export const Post = () => {
 
     const handleClick = () => {
 
-        const newPost = {description,address,user_name};
+        const newPost = {img,description,address,user_name};
         fetch("http://localhost:8080/posts/createPost",{
                 method:"POST",
                 headers:{"Content-Type":"application/json"},
@@ -38,7 +39,6 @@ export const Post = () => {
     }
 
     const test = () => {
-        let img = []
         let file = new FormData();
         file.set("file",selectedImage);
         fetch("http://localhost:8080/posts/byteConverter", {
@@ -50,11 +50,23 @@ export const Post = () => {
             while (true) {
                 const {done, value} = await reader.read();
                 if(done){
-                    console.log("END");
                     break;
                 }
-                console.log(value);
+                //img = value;
+                //console.log(img.length);
+                //console.log(img);
+                handler = btoa(String.fromCharCode.apply(null,new Uint8Array(value)));
+                console.log(handler);
             }
+        })
+        const newPost = {description,address,user_name,handler};
+        fetch("http://localhost:8080/posts/createPost",{
+                method:"POST",
+                headers:{"Content-Type":"application/json"},
+                body:JSON.stringify(newPost)
+            }
+        ).then((response) => {
+            console.log(response.status);
         })
     }
 
