@@ -14,7 +14,9 @@ export const Post = () => {
     const user_name = localStorage.getItem('login');
     const[description,setDescription] = useState('');
     const[address,setAddress] = useState('');
+
     var img;
+    var handler;
 
 
     useEffect(()=>{
@@ -55,11 +57,11 @@ export const Post = () => {
                 //img = value;
                 //console.log(img.length);
                 //console.log(img);
-                img = btoa(String.fromCharCode.apply(null,new Uint8Array(value)));
-                console.log(img);
+                handler = btoa(String.fromCharCode.apply(null,new Uint8Array(value)));
+                console.log(handler);
             }
         })
-        const newPost = {img,description,address,user_name};
+        const newPost = {description,address,user_name,handler};
         fetch("http://localhost:8080/posts/createPost",{
                 method:"POST",
                 headers:{"Content-Type":"application/json"},
