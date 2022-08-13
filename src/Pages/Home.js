@@ -1,33 +1,25 @@
-import {Component} from "react";
-import Button from "@mui/material/Button";
-import React from "react";
+import React, {useEffect} from "react";
+
 
 export const Home = () => {
-    var img = [];
+    const [ans, setAns] = React.useState([]);
 
-    const loadHandler = () => {
-        fetch("http://localhost:8080/posts/getAllPosts", {
-            method: "GET",
-            headers: {"Content-Type": "application/json"},
-        }).then(async (response) => {
-            console.log(response.status);
-            const reader = response.body.getReader();
-            while (true) {
-                const {done, value} = await reader.read();
-                if (done) {
-                    break;
-                }
-                img = value;
-                console.log(img.length);
-                console.log(img);
 
-                //handler = btoa(String.fromCharCode.apply(null,new Uint8Array(value)));
-                //console.log(handler);
-            }
-        })
-
+    const test = async () => {
+        const res = await fetch("http://localhost:8080/posts/getAllPosts");
+        const data = await res.json();
+        setAns(data);
     }
+
+    useEffect(()=>{
+        test();
+    },[]);
+
+    console.log(ans);
+    console.log(ans.length);
     return (
-        <Button variant="contained" onClick={loadHandler}>Start</Button>
+        <>
+            {JSON.stringify(ans)}
+        </>
     )
 }
