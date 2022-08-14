@@ -27,18 +27,7 @@ export const Post = () => {
 
 
 
-    const handleClick = () => {
 
-        const newPost = {img,description,address,user_name};
-        fetch("http://localhost:8080/posts/createPost",{
-                method:"POST",
-                headers:{"Content-Type":"application/json"},
-                body:JSON.stringify(newPost)
-        }
-        ).then((response) => {
-            console.log(response.status);
-        })
-    }
 
     const test = () => {
         let file = new FormData();
@@ -54,15 +43,15 @@ export const Post = () => {
                 if(done){
                     break;
                 }
-                //img = value;
-                //console.log(img.length);
-                //console.log(img);
+
                 handler = btoa(String.fromCharCode.apply(null,new Uint8Array(value)));
                 console.log(handler);
+
             }
         })
-        const newPost = {description,address,user_name,handler};
+        const newPost = {img,description,address,user_name,handler};
         fetch("http://localhost:8080/posts/createPost",{
+                mode:"cors",
                 method:"POST",
                 headers:{"Content-Type":"application/json"},
                 body:JSON.stringify(newPost)

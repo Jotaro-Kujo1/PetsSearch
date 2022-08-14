@@ -30,11 +30,19 @@ const searchHandler = () => {
 }
 
 
+
+
 export const Profile = () =>{
+    var posts = JSON.parse(localStorage.getItem("posts"));
+    console.log(posts.length);
+    var item = posts[0];
+    var str = "data:image/jpeg;base64," + item["handler"];
+
+    console.log(item["description"]);
+
     if(localStorage.getItem('picId')==null){
         return (
             <>
-
                 <div className="imgSettings">
                 <img
                     src={def}
@@ -87,18 +95,9 @@ export const Profile = () =>{
                 </Stack>
 
                 <div id="posts">
-                    <h3>TEST POST</h3>
+                    <h3>My Posts</h3>
                     <p>
-                        2 files changed, 52 insertions(+), 3 deletions(-)
-                        PS C:\Javist\PetsEnterprise\Pets\client\src> git push origin master
-                        Enumerating objects: 13, done.
-                        Counting objects: 100% (13/13), done.
-                        Delta compression using up to 4 threads
-                        Compressing objects: 100% (7/7), done.
-                        Writing objects: 100% (7/7), 1015 bytes | 1015.00 KiB/s, done.
-                        Total 7 (delta 5), reused 0 (delta 0), pack-reused 0
-                        remote: Resolving deltas: 100% (5/5), completed with 5 local objects.
-
+                        <img src={str} width="300px" height="300px"/>
                     </p>
                 </div>
 
