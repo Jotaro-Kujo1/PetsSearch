@@ -11,6 +11,7 @@ export const Home = () => {
         const res = await fetch("http://localhost:8080/posts/getAllPosts");
         const data = await res.json();
         setAns(data);
+        localStorage.setItem("posts", JSON.stringify(data));
     }
 
 
@@ -19,13 +20,10 @@ export const Home = () => {
         test();
     },[]);
 
-    console.log(ans);
-    console.log(ans.length);
 
     return (
         <>
             {JSON.stringify(ans)}
-
         </>
     )
 }

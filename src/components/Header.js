@@ -2,7 +2,7 @@ import React, {useContext, useEffect, useState} from "react";
 import { Container, Nav, Navbar} from "react-bootstrap";
 import logo from './Vadim_koshak_chisto_pazhilaya_glotka_shorst.png'
 import {BrowserRouter as Router, Route,Routes, Link} from "react-router-dom";
-import {Home} from "../Pages/Home";
+import {Home} from "../Pages/ForPosts/Home";
 import SeePet from "../Pages/SeePet";
 import About from "../Pages/About";
 import MapPet from "../Pages/ForMap/MapPet";
