@@ -3,7 +3,7 @@ import React from "react";
 import './style.css'
 import {ControlsChooseAvatar} from "../../components/Controls/ControlsChooseAvatar";
 import {ModalContextProviderChooseAvatar} from "../../contexts/ModalContext/ModalContextProviderChooseAvatar";
-import {Stack} from "@mui/material";
+import {Stack, TextareaAutosize} from "@mui/material";
 import Button from "@mui/material/Button";
 
 const areaHandler = () => {
@@ -34,11 +34,27 @@ const searchHandler = () => {
 
 export const Profile = () =>{
     var posts = JSON.parse(localStorage.getItem("posts"));
-    console.log(posts.length);
-    var item = posts[0];
-    var str = "data:image/jpeg;base64," + item["handler"];
-
-    console.log(item["description"]);
+    const elements = posts.map(post =>
+        <>
+            <div className="textArea">
+            <TextareaAutosize className="description"
+                              aria-label="minimum height"
+                              minRows={6}
+                              style={{width: 400}}
+                              value={post["description"]}
+            />
+            <TextareaAutosize className="address"
+                              aria-label="minimum height"
+                              minRows={1}
+                              style={{width: 200}}
+                              value={post["address"]}
+            />
+            </div>
+            <div className="img">
+            <img className="image" src={"data:image/jpeg;base64," + post["handler"]} height="280px" width="230px"/>
+            </div>
+        </>
+    )
 
     if(localStorage.getItem('picId')==null){
         return (
@@ -95,10 +111,8 @@ export const Profile = () =>{
                 </Stack>
 
                 <div id="posts">
-                    <h3>My Posts</h3>
-                    <p>
-                        <img src={str} width="300px" height="300px"/>
-                    </p>
+                    <h3 align="center">My Posts</h3>
+                    {elements}
                 </div>
 
                 <div id="search">
