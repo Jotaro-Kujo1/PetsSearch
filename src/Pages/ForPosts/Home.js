@@ -1,12 +1,13 @@
 import React, {useEffect, useState} from "react";
-import SendIcon from "@mui/icons-material/Send";
-import Button from "@mui/material/Button";
+import {TextareaAutosize} from "@mui/material";
+import {PostRenderer} from "./PostRenderer";
 
 
 export const Home = () => {
 
     const [ans, setAns] = useState([]);
     const[items,setItems] = useState([])
+
 
     const test = async () => {
         const res = await fetch("http://localhost:8080/posts/getAllPosts");
@@ -24,7 +25,9 @@ export const Home = () => {
 
     return (
         <>
-            {JSON.stringify(ans)}
+            <div width="600px" height="auto">
+                <PostRenderer/>
+            </div>
         </>
     )
 }

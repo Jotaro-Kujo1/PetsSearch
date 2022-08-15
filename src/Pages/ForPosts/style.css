@@ -27,3 +27,19 @@
     right: 250px;
     top: 145px;
 }
+
+.textArea {
+    position: relative;
+    left: 80px;
+}
+
+.img {
+    position: relative;
+    left: 850px;
+    top: -150px;
+}
+
+.title{
+    position: relative;
+    top: 100px;
+}
