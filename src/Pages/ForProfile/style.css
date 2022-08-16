@@ -16,6 +16,7 @@
 .textArea {
     position: relative;
     left: 80px;
+    font-family: "Regular";
 }
 
 .img {
@@ -29,6 +30,13 @@
     position: relative;
     right: 80px;
     text-align: center;
+}
+
+.date {
+    position: relative;
+    left: 650px;
+    font-style: inherit;
+    font-family: "Regular";
 }
 
 .btnChooseAvatar {
@@ -57,6 +65,8 @@
     text-align: center;
     display: none;
 }
+
+
 
 
 

@@ -1,3 +1,11 @@
 .App {
   height: 100vh;
 }
+
+
+@font-face {
+  font-family: "Regular";
+  src: url("../src/fonts/Regular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}

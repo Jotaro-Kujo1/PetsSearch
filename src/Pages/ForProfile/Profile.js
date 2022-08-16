@@ -5,6 +5,8 @@ import {ControlsChooseAvatar} from "../../components/Controls/ControlsChooseAvat
 import {ModalContextProviderChooseAvatar} from "../../contexts/ModalContext/ModalContextProviderChooseAvatar";
 import {Stack, TextareaAutosize} from "@mui/material";
 import Button from "@mui/material/Button";
+import {useEffect, useState} from "react";
+
 
 const areaHandler = () => {
     document.getElementById("search").style.display = "none";
@@ -33,25 +35,36 @@ const searchHandler = () => {
 
 
 export const Profile = () =>{
+
     var posts = JSON.parse(localStorage.getItem("posts"));
-    const elements = posts.map(post =>
+    var res = [];
+    for(var i =0;i<posts.length;i++){
+        let tmp = posts[i];
+        if(tmp["user_name"]===localStorage.getItem("login")){
+            res[i] = posts[i];
+        }
+    }
+    const elements = res.map(post =>
         <>
             <div className="textArea">
-            <TextareaAutosize className="description"
-                              aria-label="minimum height"
-                              minRows={6}
-                              style={{width: 400}}
-                              value={post["description"]}
-            />
-            <TextareaAutosize className="address"
-                              aria-label="minimum height"
-                              minRows={1}
-                              style={{width: 200}}
-                              value={post["address"]}
-            />
+                <TextareaAutosize className="description"
+                                  aria-label="minimum height"
+                                  minRows={6}
+                                  style={{width: 400}}
+                                  value={post["description"]}
+                />
+                <TextareaAutosize className="address"
+                                  aria-label="minimum height"
+                                  minRows={1}
+                                  style={{width: 200}}
+                                  value={post["address"]}
+                />
             </div>
             <div className="img">
-            <img className="image" src={"data:image/jpeg;base64," + post["handler"]} height="280px" width="230px"/>
+                <img className="image" src={"data:image/jpeg;base64," + post["handler"]} height="280px" width="230px"/>
+            </div>
+            <div className="date">
+                <p>{post["date"]}</p>
             </div>
         </>
     )
@@ -118,7 +131,6 @@ export const Profile = () =>{
                 <div id="search">
                     <h3>TEST SEARCH</h3>
                 </div>
-
             </>
         );
     }
