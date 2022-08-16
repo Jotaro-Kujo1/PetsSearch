@@ -30,6 +30,7 @@
     position: relative;
     right: 80px;
     text-align: center;
+    font-family: "Regular";
 }
 
 .date {
@@ -55,6 +56,7 @@
 
 #posts {
     display: none;
+    font-family: "Regular";
 }
 
 #search {
@@ -64,6 +66,7 @@
     left: 700px;
     text-align: center;
     display: none;
+    font-family: "Regular";
 }
 
 

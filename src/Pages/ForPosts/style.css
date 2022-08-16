@@ -31,6 +31,7 @@
 .textArea {
     position: relative;
     left: 80px;
+    font-family: "Regular";
 }
 
 .img {
@@ -42,4 +43,12 @@
 .title{
     position: relative;
     top: 100px;
+    font-family: "Regular";
+}
+
+.date {
+    position: relative;
+    left: 650px;
+    font-style: inherit;
+    font-family: "Regular";
 }

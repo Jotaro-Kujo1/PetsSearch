@@ -23,6 +23,9 @@ export const PostRenderer = () => {
             <div className="img">
                 <img className="image" src={"data:image/jpeg;base64," + post["handler"]} height="280px" width="230px"/>
             </div>
+            <div className="date">
+                <p>{post["date"]}</p>
+            </div>
         </>
     )
 
