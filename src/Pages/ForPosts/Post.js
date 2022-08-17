@@ -15,6 +15,7 @@ export const Post = () => {
     const[description,setDescription] = useState('');
     const[address,setAddress] = useState('');
 
+
     var img;
     var handler;
 
@@ -72,13 +73,16 @@ export const Post = () => {
                 style={{ width: 400 }}
                               onChange={e => setDescription(e.target.value)}
         />
+
             <TextareaAutosize className="address"
                 aria-label="minimum height"
                 minRows={1}
-                placeholder="Input address"
-                style={{ width: 200 }}
+                placeholder="пр.Победы 167,Заягорбский"
+                style={{ width: 300 }}
                               onChange={e => setAddress(e.target.value)}
         />
+
+
             <IconButton color="primary" aria-label="upload picture" component="label" className="imgBtn">
                 <input hidden accept="image/*" type="file" onChange={e => setSelectedImage(e.target.files[0])}/>
                 <PhotoCamera/>

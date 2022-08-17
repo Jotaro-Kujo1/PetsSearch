@@ -2,29 +2,31 @@
     position: relative;
     left: 800px;
     top: 150px;
+    font-family: "Regular";
 }
 
 .address {
     position: relative;
     left: 400px;
     top: 200px;
+    font-family: "Regular";
 }
 
 .imgBtn {
     position: relative;
-    left: 200px;
+    left: 100px;
     top: 250px;
 }
 
 .publicBtn {
     position: relative;
-    left: 215px;
+    left: 125px;
     top: 250px;
 }
 
 .image {
     position: relative;
-    right: 250px;
+    right: 350px;
     top: 145px;
 }
 

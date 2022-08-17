@@ -16,7 +16,7 @@ export const PostRenderer = () => {
                 <TextareaAutosize className="address"
                                   aria-label="minimum height"
                                   minRows={1}
-                                  style={{width: 200}}
+                                  style={{width: 300}}
                                   value={post["address"]}
                 />
             </div>
