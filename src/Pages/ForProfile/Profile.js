@@ -3,9 +3,9 @@ import React from "react";
 import './style.css'
 import {ControlsChooseAvatar} from "../../components/Controls/ControlsChooseAvatar";
 import {ModalContextProviderChooseAvatar} from "../../contexts/ModalContext/ModalContextProviderChooseAvatar";
-import {Stack, TextareaAutosize} from "@mui/material";
+import {IconButton, Stack, TextareaAutosize} from "@mui/material";
 import Button from "@mui/material/Button";
-import {useEffect, useState} from "react";
+import {Delete} from "@mui/icons-material";
 
 
 const areaHandler = () => {
@@ -31,8 +31,18 @@ const searchHandler = () => {
     }
 }
 
+const deleteHandler = (id) => {
 
-
+    fetch("http://localhost:8080/posts/post/" + id, {
+        method: "DELETE",
+        body: id
+    })
+        .then((response) => {
+                console.log("DELETED");
+                console.log(response.status);
+            }
+        )
+}
 
 export const Profile = () =>{
 
@@ -66,6 +76,10 @@ export const Profile = () =>{
             <div className="date">
                 <p>{post["date"]}</p>
             </div>
+            <IconButton color="primary" aria-label="upload picture" component="label" className="delBtn" onClick={() => deleteHandler(post["id"])}>
+                <Delete/>
+            </IconButton>
+
         </>
     )
 

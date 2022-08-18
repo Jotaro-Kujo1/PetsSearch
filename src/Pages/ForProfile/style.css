@@ -54,6 +54,12 @@
     right: 200px;
 }
 
+.delBtn{
+    position: relative;
+    left: 880px;
+    top: -80px;
+}
+
 #posts {
     display: none;
     font-family: "Regular";
