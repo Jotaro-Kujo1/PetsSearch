@@ -30,7 +30,7 @@ export const Post = () => {
 
 
 
-    const test = () => {
+    const byteConverter = () => {
         let file = new FormData();
         file.set("file",selectedImage);
         fetch("http://localhost:8080/posts/byteConverter", {
@@ -47,9 +47,12 @@ export const Post = () => {
 
                 handler = btoa(String.fromCharCode.apply(null,new Uint8Array(value)));
                 console.log(handler);
-
+                savePost();
             }
         })
+    }
+
+    const savePost = () => {
         const newPost = {img,description,address,user_name,handler};
         fetch("http://localhost:8080/posts/createPost",{
                 mode:"cors",
@@ -87,7 +90,7 @@ export const Post = () => {
                 <input hidden accept="image/*" type="file" onChange={e => setSelectedImage(e.target.files[0])}/>
                 <PhotoCamera/>
             </IconButton>
-            <Button variant="contained" className="publicBtn" startIcon={<SendIcon/>} onClick={test}>Public post</Button>
+            <Button variant="contained" className="publicBtn" startIcon={<SendIcon/>} onClick={byteConverter}>Public post</Button>
             <img className="image" src={url} height="280px" width="230px"/>
         </>
     )
