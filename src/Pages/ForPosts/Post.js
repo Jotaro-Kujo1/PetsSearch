@@ -29,7 +29,6 @@ export const Post = () => {
 
 
 
-
     const byteConverter = () => {
         let file = new FormData();
         file.set("file",selectedImage);
@@ -71,7 +70,7 @@ export const Post = () => {
         <>
             <TextareaAutosize className="description"
                 aria-label="minimum height"
-                minRows={6}
+                minRows={5}
                 placeholder="Input description"
                 style={{ width: 400 }}
                               onChange={e => setDescription(e.target.value)}

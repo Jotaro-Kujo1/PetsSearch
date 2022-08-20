@@ -9,17 +9,20 @@ export const Home = () => {
     const[items,setItems] = useState([])
 
 
-    const test = async () => {
-        const res = await fetch("http://localhost:8080/posts/getAllPosts");
+    const query = async () => {
+        let res;
+        if(localStorage.getItem('area') === ('' || 'Все')) {
+            res = await fetch("http://localhost:8080/posts/getAllPosts");
+        }else{
+            res = await fetch("http://localhost:8080/posts/getAllForArea/" + localStorage.getItem('area'));
+        }
         const data = await res.json();
         setAns(data);
         localStorage.setItem("posts", JSON.stringify(data));
     }
 
-
-
     useEffect(()=>{
-        test();
+        query();
     },[]);
 
 

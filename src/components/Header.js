@@ -17,13 +17,13 @@ import {Context} from './User/context'
 import {ControlsNewPost} from "./Controls/ControlsNewPost";
 import {Post} from "../Pages/ForPosts/Post";
 import ChatRoom from "../Pages/ChatRoom";
+import {AreaDropDown} from "../Pages/ForPosts/AreaDropDown";
 
 
 
 
 
 export const Header = () =>{
-
 
     const {state,setState} = useContext(Context);
     const local = localStorage.getItem('state');
@@ -65,6 +65,7 @@ export const Header = () =>{
                         <Stack spacing={3} direction="row">
                             <ControlsProfile/>
                             <ControlsNewPost/>
+                            <AreaDropDown/>
                         </Stack>
                     </Container>
                 </Navbar>

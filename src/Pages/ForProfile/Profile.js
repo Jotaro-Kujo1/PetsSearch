@@ -6,6 +6,7 @@ import {ModalContextProviderChooseAvatar} from "../../contexts/ModalContext/Moda
 import {IconButton, Stack, TextareaAutosize} from "@mui/material";
 import Button from "@mui/material/Button";
 import {Delete} from "@mui/icons-material";
+import {useEffect} from "react";
 
 
 const areaHandler = () => {

@@ -16,7 +16,7 @@
 .textArea {
     position: relative;
     left: 80px;
-    font-family: "Regular";
+    font-family: "YanoneKaffeesatz-Regular";
 }
 
 .img {
@@ -30,14 +30,14 @@
     position: relative;
     right: 80px;
     text-align: center;
-    font-family: "Regular";
+    font-family: "YanoneKaffeesatz-Regular";
 }
 
 .date {
     position: relative;
     left: 650px;
     font-style: inherit;
-    font-family: "Regular";
+    font-family: "YanoneKaffeesatz-Regular";
 }
 
 .btnChooseAvatar {
@@ -62,7 +62,7 @@
 
 #posts {
     display: none;
-    font-family: "Regular";
+    font-family: "YanoneKaffeesatz-Regular";
 }
 
 #search {
@@ -72,7 +72,7 @@
     left: 700px;
     text-align: center;
     display: none;
-    font-family: "Regular";
+    font-family: "YanoneKaffeesatz-Regular";
 }
 
 

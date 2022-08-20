@@ -2,14 +2,16 @@
     position: relative;
     left: 800px;
     top: 150px;
-    font-family: "Regular";
+    font-family: "YanoneKaffeesatz-Regular";
+    font-size: 20px;
 }
 
 .address {
     position: relative;
     left: 400px;
     top: 200px;
-    font-family: "Regular";
+    font-family: "YanoneKaffeesatz-Regular";
+    font-size: 18px;
 }
 
 .imgBtn {
@@ -27,30 +29,37 @@
 .image {
     position: relative;
     right: 350px;
-    top: 145px;
+    top: 137px;
 }
 
 .textArea {
     position: relative;
     left: 80px;
-    font-family: "Regular";
+    font-family: "YanoneKaffeesatz-Regular";
 }
 
 .img {
     position: relative;
     left: 850px;
-    top: -150px;
+    top: -120px;
+}
+
+.imgCont{
+    position: relative;
+    right: 350px;
+    top: 107px;
 }
 
 .title{
     position: relative;
     top: 100px;
-    font-family: "Regular";
+    font-family: "YanoneKaffeesatz-Regular";
 }
 
 .date {
     position: relative;
-    left: 650px;
+    top:-25px;
     font-style: inherit;
-    font-family: "Regular";
+    font-family: "YanoneKaffeesatz-Regular";
+    font-size: 18px;
 }
