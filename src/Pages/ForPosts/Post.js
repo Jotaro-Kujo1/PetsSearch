@@ -4,7 +4,10 @@ import {PhotoCamera} from "@mui/icons-material";
 import Button from "@mui/material/Button";
 import SendIcon from '@mui/icons-material/Send';
 import React, {useEffect, useState} from "react";
-import axios from 'axios';
+
+import {useContext} from "react";
+
+
 
 
 
@@ -16,6 +19,7 @@ export const Post = () => {
     const[address,setAddress] = useState('');
 
 
+
     var img;
     var handler;
 
@@ -25,7 +29,6 @@ export const Post = () => {
             setUrl(URL.createObjectURL(selectedImage));
         }
     },[selectedImage]);
-
 
 
 
@@ -61,6 +64,9 @@ export const Post = () => {
             }
         ).then((response) => {
             console.log(response.status);
+            if(response.status >= 200 && response.status < 300){
+                window.location.assign('http://localhost:3000');
+            }
         })
     }
 
@@ -89,7 +95,7 @@ export const Post = () => {
                 <input hidden accept="image/*" type="file" onChange={e => setSelectedImage(e.target.files[0])}/>
                 <PhotoCamera/>
             </IconButton>
-            <Button variant="contained" className="publicBtn" startIcon={<SendIcon/>} onClick={byteConverter}>Public post</Button>
+                <Button variant="contained" className="publicBtn" startIcon={<SendIcon/>} onClick={byteConverter}>Public post</Button>
             <img className="image" src={url} height="280px" width="230px"/>
         </>
     )

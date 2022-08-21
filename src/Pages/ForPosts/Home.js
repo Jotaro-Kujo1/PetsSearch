@@ -11,7 +11,7 @@ export const Home = () => {
 
     const query = async () => {
         let res;
-        if(localStorage.getItem('area') === ('' || 'Все')) {
+        if((localStorage.getItem('area') === '') || (localStorage.getItem('area')==='Все')) {
             res = await fetch("http://localhost:8080/posts/getAllPosts");
         }else{
             res = await fetch("http://localhost:8080/posts/getAllForArea/" + localStorage.getItem('area'));
