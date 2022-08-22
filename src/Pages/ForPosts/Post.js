@@ -17,7 +17,8 @@ export const Post = () => {
     const user_name = localStorage.getItem('login');
     const[description,setDescription] = useState('');
     const[address,setAddress] = useState('');
-
+    const[lost,setLost]=useState(false);
+    const[searched,setSearched]=useState(false);
 
 
     var img;
@@ -55,7 +56,15 @@ export const Post = () => {
     }
 
     const savePost = (handler) => {
-        const newPost = {img,description,address,user_name,handler};
+        let bool_state;
+        let date = '';
+        let area = '';
+        if(lost===true){
+            bool_state = true;
+        }else if(searched===true){
+            bool_state = false;
+        }
+        const newPost = {img,description,address,user_name,handler,date,area,bool_state};
         fetch("http://localhost:8080/posts/createPost",{
                 mode:"cors",
                 method:"POST",
@@ -102,10 +111,10 @@ export const Post = () => {
 
             <img className="image" src={url} height="280px" width="230px"/>
             <div className="checkBox">
-                <FormControlLabel control={<Checkbox />}label="Пропал" className="checkboxLabel"/>
+                <FormControlLabel className="text" control={<Checkbox />} onChange={() => setLost(true)} label="Пропал"/>
             </div>
             <div className="checkBox">
-                <FormControlLabel className="text" control={<Checkbox />}label="Найден"/>
+                <FormControlLabel className="text" control={<Checkbox />} onChange={()=>setSearched(true)} label="Найден"/>
             </div>
         </>
     )
