@@ -41,6 +41,7 @@ const deleteHandler = (id) => {
         .then((response) => {
                 console.log("DELETED");
                 console.log(response.status);
+                window.location.assign('http://localhost:3000');
             }
         )
 }
@@ -71,8 +72,10 @@ export const Profile = () =>{
                                   value={post["address"]}
                 />
             </div>
+            <div class="profileImg">
             <div className="img">
                 <img className="image" src={"data:image/jpeg;base64," + post["handler"]} height="280px" width="230px"/>
+            </div>
             </div>
             <div className="date">
                 <p>{post["date"]}</p>

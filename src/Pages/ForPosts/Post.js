@@ -1,4 +1,4 @@
-import {IconButton, TextareaAutosize} from "@mui/material";
+import {Checkbox, FormControlLabel, IconButton, TextareaAutosize} from "@mui/material";
 import './style.css'
 import {PhotoCamera} from "@mui/icons-material";
 import Button from "@mui/material/Button";
@@ -21,7 +21,7 @@ export const Post = () => {
 
 
     var img;
-    var handler;
+
 
 
     useEffect(()=>{
@@ -47,14 +47,14 @@ export const Post = () => {
                     break;
                 }
 
-                handler = btoa(String.fromCharCode.apply(null,new Uint8Array(value)));
+                let handler = btoa(String.fromCharCode.apply(null,new Uint8Array(value)));
                 console.log(handler);
-                savePost();
+                savePost(handler);
             }
         })
     }
 
-    const savePost = () => {
+    const savePost = (handler) => {
         const newPost = {img,description,address,user_name,handler};
         fetch("http://localhost:8080/posts/createPost",{
                 mode:"cors",
@@ -74,6 +74,7 @@ export const Post = () => {
 
     return (
         <>
+
             <TextareaAutosize className="description"
                 aria-label="minimum height"
                 minRows={5}
@@ -81,6 +82,8 @@ export const Post = () => {
                 style={{ width: 400 }}
                               onChange={e => setDescription(e.target.value)}
         />
+
+
 
             <TextareaAutosize className="address"
                 aria-label="minimum height"
@@ -96,6 +99,12 @@ export const Post = () => {
                 <PhotoCamera/>
             </IconButton>
                 <Button variant="contained" className="publicBtn" startIcon={<SendIcon/>} onClick={byteConverter}>Public post</Button>
+            <div className="checkBox">
+                <FormControlLabel control={<Checkbox />}label="Пропал" className="checkboxLabel"/>
+            </div>
+            <div className="checkBox">
+                <FormControlLabel className="text" control={<Checkbox />}label="Найден"/>
+            </div>
             <img className="image" src={url} height="280px" width="230px"/>
         </>
     )

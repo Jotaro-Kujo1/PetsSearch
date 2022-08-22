@@ -1,6 +1,9 @@
 import {TextareaAutosize} from "@mui/material";
 import React from "react";
 import './style.css';
+import MailIcon from '@mui/icons-material/Mail';
+import Button from "@mui/material/Button";
+
 
 export const PostRenderer = () => {
     var area;
@@ -26,12 +29,16 @@ export const PostRenderer = () => {
                                       value={post["address"]}
                     />
                 </div>
+                <Button variant="contained" className="messageBtn" startIcon={<MailIcon/>}>Send message</Button>
                 <div className="img">
                     <img className="imgCont" src={"data:image/jpeg;base64," + post["handler"]} height="280px"
                          width="230px"/>
                 </div>
                 <div className="date">
                     <p>{post["date"]}</p>
+                </div>
+                <div className="userName">
+                    <p>{post["user_name"]}</p>
                 </div>
             </>
         )

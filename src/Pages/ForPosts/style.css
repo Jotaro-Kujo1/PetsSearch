@@ -9,7 +9,7 @@
 .address {
     position: relative;
     left: 400px;
-    top: 200px;
+    top: 190px;
     font-family: "YanoneKaffeesatz-Regular";
     font-size: 18px;
 }
@@ -47,7 +47,7 @@
 .imgCont{
     position: relative;
     right: 350px;
-    top: 107px;
+    top: 70px;
 }
 
 .title{
@@ -55,12 +55,28 @@
     top: 100px;
     font-family: "YanoneKaffeesatz-Regular";
 }
-
+.messageBtn{
+    position: relative;
+    left: 880px;
+    top: 200px;
+}
 .date {
     position: relative;
-    top:-25px;
+    top:-60px;
     font-style: inherit;
     font-family: "YanoneKaffeesatz-Regular";
     font-size: 18px;
 }
+
+.checkBox{
+    position: relative;
+    left: 805px;
+    top: 260px;
+    font-family: "YanoneKaffeesatz-Regular";
+    font-size: 18px;
+}
+
+
+
+
 
