@@ -12,7 +12,7 @@ export const PostRenderer = () => {
     }else area = localStorage.getItem('area');
     var posts = JSON.parse(localStorage.getItem("posts"));
     let elements = null;
-    if(posts!=null) {
+    if(posts.length!=0) {
         elements = posts.map(post =>
             <>
                 <div className="textArea">
@@ -37,12 +37,11 @@ export const PostRenderer = () => {
                 <div className="date">
                     <p>{post["date"]}</p>
                 </div>
-                <div className="userName">
-                    <p>{post["user_name"]}</p>
-                </div>
             </>
         )
     }
+
+
 
     return (
         <>

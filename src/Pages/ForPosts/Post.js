@@ -5,7 +5,7 @@ import Button from "@mui/material/Button";
 import SendIcon from '@mui/icons-material/Send';
 import React, {useEffect, useState} from "react";
 
-import {useContext} from "react";
+
 
 
 
@@ -99,13 +99,14 @@ export const Post = () => {
                 <PhotoCamera/>
             </IconButton>
                 <Button variant="contained" className="publicBtn" startIcon={<SendIcon/>} onClick={byteConverter}>Public post</Button>
+
+            <img className="image" src={url} height="280px" width="230px"/>
             <div className="checkBox">
                 <FormControlLabel control={<Checkbox />}label="Пропал" className="checkboxLabel"/>
             </div>
             <div className="checkBox">
                 <FormControlLabel className="text" control={<Checkbox />}label="Найден"/>
             </div>
-            <img className="image" src={url} height="280px" width="230px"/>
         </>
     )
 }
