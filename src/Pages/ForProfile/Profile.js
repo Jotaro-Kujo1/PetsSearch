@@ -77,7 +77,7 @@ export const Profile = () =>{
                 <img className="image" src={"data:image/jpeg;base64," + post["handler"]} height="280px" width="230px"/>
             </div>
             </div>
-            <div className="date">
+            <div className="dateProf">
                 <p>{post["date"]}</p>
             </div>
             <IconButton color="primary" aria-label="upload picture" component="label" className="delBtn" onClick={() => deleteHandler(post["id"])}>

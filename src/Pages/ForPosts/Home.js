@@ -12,9 +12,9 @@ export const Home = () => {
     const query = async () => {
         let res;
         if((localStorage.getItem('area') === '') || (localStorage.getItem('area')==='Все')) {
-            res = await fetch("http://localhost:8080/posts/getAllPosts");
+            res = await fetch("http://localhost:8080/posts/getAllPosts/lost");
         }else{
-            res = await fetch("http://localhost:8080/posts/getAllForArea/" + localStorage.getItem('area'));
+            res = await fetch("http://localhost:8080/posts/getLostForArea/" + localStorage.getItem('area'));
         }
         const data = await res.json();
         setAns(data);

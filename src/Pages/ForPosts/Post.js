@@ -56,15 +56,15 @@ export const Post = () => {
     }
 
     const savePost = (handler) => {
-        let bool_state;
+        let state;
         let date = '';
         let area = '';
         if(lost===true){
-            bool_state = true;
+            state = true;
         }else if(searched===true){
-            bool_state = false;
+            state = false;
         }
-        const newPost = {img,description,address,user_name,handler,date,area,bool_state};
+        const newPost = {img,description,address,user_name,handler,date,area,state};
         fetch("http://localhost:8080/posts/createPost",{
                 mode:"cors",
                 method:"POST",

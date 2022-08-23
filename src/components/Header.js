@@ -3,7 +3,7 @@ import { Container, Nav, Navbar} from "react-bootstrap";
 import logo from './Vadim_koshak_chisto_pazhilaya_glotka_shorst.png'
 import {BrowserRouter as Router, Route,Routes, Link} from "react-router-dom";
 import {Home} from "../Pages/ForPosts/Home";
-import SeePet from "../Pages/SeePet";
+import SeePet from "../Pages/ForSearchedPets/SeePet";
 import About from "../Pages/About";
 import MapPet from "../Pages/ForMap/MapPet";
 import {Profile} from "../Pages/ForProfile/Profile"
@@ -48,10 +48,9 @@ export const Header = () =>{
                         <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
                         <Navbar.Collapse id="responsive-navbar-nav">
                             <Nav className="mr-auto">
-                                <Nav.Link href="/">Posts</Nav.Link>
+                                <Nav.Link href="/">Lost</Nav.Link>
+                                <Nav.Link href="/see">Searched</Nav.Link>
                                 <Nav.Link href="/map">Map</Nav.Link>
-                                <Nav.Link href="/see">See your pet</Nav.Link>
-                                <Nav.Link href="/about">About us</Nav.Link>
                                 <Nav.Link href="/messenger">Messenger</Nav.Link>
                             </Nav>
                         </Navbar.Collapse>
@@ -72,9 +71,8 @@ export const Header = () =>{
                 <Router>
                     <Routes>
                         <Route path="/" element={<Home/>}/>
-                        <Route path="/map" element={<MapPet/>}/>
                         <Route path="/see" element={<SeePet/>}/>
-                        <Route path="/about" element={<About/>}/>
+                        <Route path="/map" element={<MapPet/>}/>
                         <Route path="/profile" element={<Profile/>}/>
                         <Route path="/messenger" element={<ChatRoom/>}/>
                         <Route path="/posts" element={<Post/>}/>
@@ -101,10 +99,9 @@ export const Header = () =>{
                         <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
                         <Navbar.Collapse id="responsive-navbar-nav">
                             <Nav className="mr-auto">
-                                <Nav.Link href="/">Posts</Nav.Link>
+                                <Nav.Link href="/">Lost</Nav.Link>
+                                <Nav.Link href="/see">Searched</Nav.Link>
                                 <Nav.Link href="/map">Map</Nav.Link>
-                                <Nav.Link href="/see">See your pet</Nav.Link>
-                                <Nav.Link href="/about">About us</Nav.Link>
                             </Nav>
                         </Navbar.Collapse>
                         <Router>
@@ -128,9 +125,8 @@ export const Header = () =>{
                 <Router>
                     <Routes>
                         <Route path="/" element={<Home/>}/>
-                        <Route path="/map" element={<MapPet/>}/>
                         <Route path="/see" element={<SeePet/>}/>
-                        <Route path="/about" element={<About/>}/>
+                        <Route path="/map" element={<MapPet/>}/>
                     </Routes>
                 </Router>
             </>
