@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from "react";
-import {TextareaAutosize} from "@mui/material";
 import {PostRenderer} from "./PostRenderer";
 
 
@@ -28,7 +27,7 @@ export const Home = () => {
 
     return (
         <>
-            <div width="600px" height="auto">
+            <div width="600px" height="auto" className="body">
                 <PostRenderer/>
             </div>
         </>
