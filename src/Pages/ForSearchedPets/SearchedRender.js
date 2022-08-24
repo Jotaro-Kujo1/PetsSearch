@@ -3,13 +3,12 @@ import Button from "@mui/material/Button";
 import MailIcon from "@mui/icons-material/Mail";
 import React from "react";
 
-export const SearchedRender = () => {
+export const SearchedRender = (props) => {
     var area;
     if (localStorage.getItem('area') === '') {
         area = 'Все';
     } else area = localStorage.getItem('area');
-    var posts = [];
-    posts = JSON.parse(localStorage.getItem("postsSearched"));
+    var posts = props.data;
     let elements = null;
     elements = Array.isArray(posts) ? posts.map(post =>
         <>

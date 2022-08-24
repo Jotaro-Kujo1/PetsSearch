@@ -15,7 +15,7 @@ export const SeePet = () => {
         }
         const data = await res.json();
         setAns(data);
-        localStorage.setItem("postsSearched", JSON.stringify(data));
+        //localStorage.setItem("postsSearched", JSON.stringify(data));
     }
 
     useEffect(()=>{
@@ -26,7 +26,7 @@ export const SeePet = () => {
     return (
         <>
             <div width="600px" height="auto" >
-                <SearchedRender/>
+                <SearchedRender data={ans}/>
             </div>
         </>
     )

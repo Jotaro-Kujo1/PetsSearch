@@ -17,7 +17,7 @@ export const Home = () => {
         }
         const data = await res.json();
         setAns(data);
-        localStorage.setItem("posts", JSON.stringify(data));
+        //localStorage.setItem("posts", JSON.stringify(data));
     }
 
     useEffect(()=>{
@@ -27,8 +27,8 @@ export const Home = () => {
 
     return (
         <>
-            <div width="600px" height="auto" className="body">
-                <PostRenderer/>
+            <div width="600px" height="auto">
+                <PostRenderer data={ans}/>
             </div>
         </>
     )

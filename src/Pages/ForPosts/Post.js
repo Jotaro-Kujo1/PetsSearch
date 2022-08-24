@@ -14,7 +14,7 @@ import React, {useEffect, useState} from "react";
 export const Post = () => {
     const [selectedImage,setSelectedImage] = useState(null);
     const[url,setUrl] = useState(null);
-    const user = localStorage.getItem('login');
+    const login = localStorage.getItem('login');
     const[description,setDescription] = useState('');
     const[address,setAddress] = useState('');
     const[lost,setLost]=useState(false);
@@ -49,7 +49,7 @@ export const Post = () => {
                 }
 
                 let handler = btoa(String.fromCharCode.apply(null,new Uint8Array(value)));
-                console.log(handler);
+                //console.log(handler);
                 savePost(handler);
             }
         })
@@ -64,7 +64,8 @@ export const Post = () => {
         }else if(searched===true){
             state = false;
         }
-        const newPost = {img,description,address,user,handler,date,area,state};
+        const newPost = {img,description,address,login,handler,date,area,state};
+        console.log(newPost);
         fetch("http://localhost:8080/posts/createPost",{
                 mode:"cors",
                 method:"POST",
@@ -74,7 +75,7 @@ export const Post = () => {
         ).then((response) => {
             console.log(response.status);
             if(response.status >= 200 && response.status < 300){
-                window.location.assign('http://localhost:3000');
+                window.location.assign('http://localhost:3000/Profile');
             }
         })
     }
