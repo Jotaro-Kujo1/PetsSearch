@@ -75,7 +75,7 @@
 .delBtn{
     position: relative;
     left: 880px;
-    top: -120px;
+    top: 210px;
 }
 
 .profileImg {
@@ -90,11 +90,6 @@
 }
 
 #search {
-    position: relative;
-    width:500px;
-    height: auto;
-    left: 700px;
-    text-align: center;
     display: none;
     font-family: "YanoneKaffeesatz-Regular";
 }

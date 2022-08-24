@@ -9,6 +9,7 @@ import {Delete} from "@mui/icons-material";
 import {useEffect} from "react";
 import {LostRender} from "./LostRender";
 import {useState} from "react";
+import {SearchedRender} from "./SearchedRender";
 
 
 const areaHandler = () => {
@@ -112,7 +113,7 @@ export const Profile = () =>{
                 </div>
 
                 <div id="search">
-                    <h3>TEST SEARCH</h3>
+                    <SearchedRender/>
                 </div>
             </>
         );

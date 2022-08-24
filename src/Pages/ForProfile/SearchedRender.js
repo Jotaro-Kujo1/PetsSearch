@@ -2,7 +2,6 @@ import {IconButton, TextareaAutosize} from "@mui/material";
 import {Delete} from "@mui/icons-material";
 import React from "react";
 
-
 const deleteHandler = (id) => {
 
     fetch("http://localhost:8080/posts/post/" + id, {
@@ -17,18 +16,19 @@ const deleteHandler = (id) => {
         )
 }
 
-export const LostRender = () => {
+
+export const SearchedRender = () => {
     var posts = [];
-    var postsLost = [];
+    var postsSearched = [];
     posts = JSON.parse(localStorage.getItem("postsByUser"));
 
     for(var i=0;i<posts.length;i++){
         let temp = posts[i];
-        if(temp["state"] === true) postsLost.push(temp);
+        if(temp["state"] === false) postsSearched.push(temp);
     }
 
     let elements = null;
-    elements = Array.isArray(postsLost) ? postsLost.map(post =>
+    elements = Array.isArray(postsSearched) ? postsSearched.map(post =>
         <>
             <div className="textArea">
                 <TextareaAutosize className="description"
@@ -60,7 +60,7 @@ export const LostRender = () => {
     return (
         <>
             <div>
-                <h3 align="center">My Lost</h3>
+                <h3 align="center">My Searched</h3>
                 {elements}
             </div>
         </>
