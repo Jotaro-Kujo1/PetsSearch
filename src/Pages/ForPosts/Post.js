@@ -14,7 +14,7 @@ import React, {useEffect, useState} from "react";
 export const Post = () => {
     const [selectedImage,setSelectedImage] = useState(null);
     const[url,setUrl] = useState(null);
-    const user_name = localStorage.getItem('login');
+    const user = localStorage.getItem('login');
     const[description,setDescription] = useState('');
     const[address,setAddress] = useState('');
     const[lost,setLost]=useState(false);
@@ -64,7 +64,7 @@ export const Post = () => {
         }else if(searched===true){
             state = false;
         }
-        const newPost = {img,description,address,user_name,handler,date,area,state};
+        const newPost = {img,description,address,user,handler,date,area,state};
         fetch("http://localhost:8080/posts/createPost",{
                 mode:"cors",
                 method:"POST",

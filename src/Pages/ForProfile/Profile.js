@@ -7,6 +7,8 @@ import {IconButton, Stack, TextareaAutosize} from "@mui/material";
 import Button from "@mui/material/Button";
 import {Delete} from "@mui/icons-material";
 import {useEffect} from "react";
+import {LostRender} from "./LostRender";
+import {useState} from "react";
 
 
 const areaHandler = () => {
@@ -32,60 +34,24 @@ const searchHandler = () => {
     }
 }
 
-const deleteHandler = (id) => {
 
-    fetch("http://localhost:8080/posts/post/" + id, {
-        method: "DELETE",
-        body: id
-    })
-        .then((response) => {
-                console.log("DELETED");
-                console.log(response.status);
-                window.location.assign('http://localhost:3000');
-            }
-        )
-}
 
 export const Profile = () =>{
+    const [ans, setAns] = useState([]);
 
-    var posts = JSON.parse(localStorage.getItem("posts"));
-    var res = [];
-    for(var i =0;i<posts.length;i++){
-        let tmp = posts[i];
-        if(tmp["user_name"]===localStorage.getItem("login")){
-            res[i] = posts[i];
-        }
+
+
+    const query = async () => {
+        let res = await fetch("http://localhost:8080/posts/getAllUsersPosts/" + localStorage.getItem('login'));
+        const data = await res.json();
+        setAns(data);
+        localStorage.setItem("postsByUser", JSON.stringify(data));
     }
-    const elements = res.map(post =>
-        <>
-            <div className="textArea">
-                <TextareaAutosize className="description"
-                                  aria-label="minimum height"
-                                  minRows={6}
-                                  style={{width: 400}}
-                                  value={post["description"]}
-                />
-                <TextareaAutosize className="address"
-                                  aria-label="minimum height"
-                                  minRows={1}
-                                  style={{width: 300}}
-                                  value={post["address"]}
-                />
-            </div>
-            <div class="profileImg">
-            <div className="img">
-                <img className="image" src={"data:image/jpeg;base64," + post["handler"]} height="280px" width="230px"/>
-            </div>
-            </div>
-            <div className="dateProf">
-                <p>{post["date"]}</p>
-            </div>
-            <IconButton color="primary" aria-label="upload picture" component="label" className="delBtn" onClick={() => deleteHandler(post["id"])}>
-                <Delete/>
-            </IconButton>
 
-        </>
-    )
+    useEffect(()=>{
+        query();
+    },[]);
+
 
     if(localStorage.getItem('picId')==null){
         return (
@@ -142,8 +108,7 @@ export const Profile = () =>{
                 </Stack>
 
                 <div id="posts">
-                    <h3 align="center">My Posts</h3>
-                    {elements}
+                    <LostRender/>
                 </div>
 
                 <div id="search">
