@@ -10,7 +10,6 @@ import React, {useEffect, useState} from "react";
 
 
 
-
 export const Post = () => {
     const [selectedImage,setSelectedImage] = useState(null);
     const[url,setUrl] = useState(null);
@@ -48,7 +47,10 @@ export const Post = () => {
                     break;
                 }
 
-                let handler = btoa(String.fromCharCode.apply(null,new Uint8Array(value)));
+                //let handler = btoa(String.fromCharCode.apply(null,new Uint8Array(value)));
+                let handler = btoa(new Uint8Array(value).reduce(function(data,byte){
+                    return data + String.fromCharCode(byte);
+                },''));
                 //console.log(handler);
                 savePost(handler);
             }
@@ -110,7 +112,8 @@ export const Post = () => {
             </IconButton>
                 <Button variant="contained" className="publicBtn" startIcon={<SendIcon/>} onClick={byteConverter}>Public post</Button>
 
-            <img className="image" src={url} height="280px" width="230px"/>
+            <img className="image" src={url} height="280px" width="230px" />
+
             <div className="checkBox">
                 <FormControlLabel className="text" control={<Checkbox />} onChange={() => setLost(true)} label="Пропал"/>
             </div>
