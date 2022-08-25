@@ -48,6 +48,17 @@ export const ModalChooseAvatar = (props) => {
         localStorage.setItem('picId',tmp);
     }
 
+    const updatePicture = () => {
+        let login = localStorage.getItem('login');
+        let profimg = localStorage.getItem('picId');
+        fetch("http://localhost:8080/posts/updatePicture?login=" + login + "&profimg=" + profimg,{
+                method:"POST"
+            }
+        ).then((response) => {
+            console.log(response.status);
+        })
+    }
+
     const backdropClasses = closing ? 'backdrop backdrop-hide' : 'backdrop';
 
     return (
@@ -66,6 +77,7 @@ export const ModalChooseAvatar = (props) => {
                             className="rounded-circle z-depth-0, img-light"
                             onClick={() => {
                                 localStorage.setItem('picId',first);
+                                updatePicture();
                                 window.location.reload();
                             }}
                             alt="1"
@@ -77,6 +89,7 @@ export const ModalChooseAvatar = (props) => {
                             className="rounded-circle z-depth-0, img-light"
                             onClick={() => {
                                 localStorage.setItem('picId',second);
+                                updatePicture();
                                 window.location.reload();
                             }}
                             alt="2"
@@ -88,6 +101,7 @@ export const ModalChooseAvatar = (props) => {
                             className="rounded-circle z-depth-0, img-light"
                             onClick={() => {
                                 localStorage.setItem('picId',third);
+                                updatePicture();
                                 window.location.reload();
                             }}
                             alt="3"
