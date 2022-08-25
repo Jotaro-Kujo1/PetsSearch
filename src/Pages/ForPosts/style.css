@@ -6,6 +6,24 @@
     font-size: 20px;
 }
 
+.profImg{
+    position: relative;
+    left: 600px;
+    top: 190px;
+}
+
+.myPostPic{
+    border: 1px solid black;
+}
+
+.loginWithPic{
+    position: relative;
+    font-family: "YanoneKaffeesatz-Regular";
+    font-size: 26px;
+    left: 660px;
+    top:150px;
+}
+
 .address {
     position: relative;
     left: 400px;

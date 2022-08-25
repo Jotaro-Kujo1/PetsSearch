@@ -14,6 +14,16 @@ export const PostRenderer = (props) => {
     let elements = null;
     elements = Array.isArray(posts) ? posts.map(post =>
         <>
+            <div className="profImg">
+                <img
+                    src={post["profimg"]}
+                    height="50"
+                    width="50"
+                    className="rounded-circle z-depth-0, myPostPic"
+                    alt="userImg"
+                />
+            </div>
+            <p className="loginWithPic">{post["login"]}</p>
             <div className="textArea">
                 <TextareaAutosize className="description"
                                   aria-label="minimum height"

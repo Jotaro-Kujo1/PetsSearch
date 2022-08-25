@@ -23,7 +23,6 @@ export const Post = () => {
     var img;
 
 
-
     useEffect(()=>{
         if(selectedImage) {
             setUrl(URL.createObjectURL(selectedImage));
@@ -66,7 +65,8 @@ export const Post = () => {
         }else if(searched===true){
             state = false;
         }
-        const newPost = {img,description,address,login,handler,date,area,state};
+        let profimg = localStorage.getItem('picId');
+        const newPost = {img,description,address,login,handler,date,area,state,profimg};
         console.log(newPost);
         fetch("http://localhost:8080/posts/createPost",{
                 mode:"cors",
