@@ -17,10 +17,10 @@ const deleteHandler = (id) => {
         )
 }
 
-export const LostRender = () => {
-    var posts = [];
+export const LostRender = (props) => {
+    var posts = props.data;
     var postsLost = [];
-    posts = JSON.parse(localStorage.getItem("postsByUser"));
+    //posts = JSON.parse(localStorage.getItem("postsByUser"));
 
     for(var i=0;i<posts.length;i++){
         let temp = posts[i];

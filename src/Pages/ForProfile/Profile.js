@@ -46,7 +46,7 @@ export const Profile = () =>{
         let res = await fetch("http://localhost:8080/posts/getAllUsersPosts/" + localStorage.getItem('login'));
         const data = await res.json();
         setAns(data);
-        localStorage.setItem("postsByUser", JSON.stringify(data));
+        //localStorage.setItem("postsByUser", JSON.stringify(data));
     }
 
     useEffect(()=>{
@@ -109,11 +109,11 @@ export const Profile = () =>{
                 </Stack>
 
                 <div id="posts">
-                    <LostRender/>
+                    <LostRender data={ans}/>
                 </div>
 
                 <div id="search">
-                    <SearchedRender/>
+                    <SearchedRender data={ans}/>
                 </div>
             </>
         );
