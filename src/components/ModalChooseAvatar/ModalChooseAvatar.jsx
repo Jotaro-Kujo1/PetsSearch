@@ -109,6 +109,7 @@ export const ModalChooseAvatar = (props) => {
                         <img
                             onClick={() => {
                                 localStorage.setItem('picId',fourth);
+                                updatePicture();
                                 window.location.reload();
                             }}
                             src={fourth}
@@ -120,6 +121,7 @@ export const ModalChooseAvatar = (props) => {
                         <img
                             onClick={() => {
                                 localStorage.setItem('picId',fifth);
+                                updatePicture();
                                 window.location.reload();
                             }}
                             src={fifth}
@@ -137,6 +139,7 @@ export const ModalChooseAvatar = (props) => {
                             className="rounded-circle z-depth-0, img-light"
                             onClick={() => {
                                 localStorage.setItem('picId',sixth);
+                                updatePicture();
                                 window.location.reload();
                             }}
                             alt="6"
@@ -148,6 +151,7 @@ export const ModalChooseAvatar = (props) => {
                             className="rounded-circle z-depth-0, img-light"
                             onClick={() => {
                                 localStorage.setItem('picId',seventh);
+                                updatePicture();
                                 window.location.reload();
                             }}
                             alt="7"
@@ -159,6 +163,7 @@ export const ModalChooseAvatar = (props) => {
                             className="rounded-circle z-depth-0, img-light"
                             onClick={() => {
                                 localStorage.setItem('picId',eighth);
+                                updatePicture();
                                 window.location.reload();
                             }}
                             alt="8"
@@ -170,6 +175,7 @@ export const ModalChooseAvatar = (props) => {
                             className="rounded-circle z-depth-0, img-light"
                             onClick={() => {
                                 localStorage.setItem('picId',ninth);
+                                updatePicture();
                                 window.location.reload();
                             }}
                             alt="9"
@@ -181,6 +187,7 @@ export const ModalChooseAvatar = (props) => {
                             className="rounded-circle z-depth-0, img-light"
                             onClick={() => {
                                 localStorage.setItem('picId',tenth);
+                                updatePicture();
                                 window.location.reload();
                             }}
                             alt="10"
@@ -194,6 +201,7 @@ export const ModalChooseAvatar = (props) => {
                             className="rounded-circle z-depth-0, img-light"
                             onClick={() => {
                                 localStorage.setItem('picId',eleventh);
+                                updatePicture();
                                 window.location.reload();
                             }}
                             alt="11"
@@ -205,6 +213,7 @@ export const ModalChooseAvatar = (props) => {
                             className="rounded-circle z-depth-0, img-light"
                             onClick={() => {
                                 localStorage.setItem('picId',twelfth);
+                                updatePicture();
                                 window.location.reload();
                             }}
                             alt="12"
@@ -216,6 +225,7 @@ export const ModalChooseAvatar = (props) => {
                             className="rounded-circle z-depth-0, img-light"
                             onClick={() => {
                                 localStorage.setItem('picId',thirteenth);
+                                updatePicture();
                                 window.location.reload();
                             }}
                             alt="13"
@@ -227,6 +237,7 @@ export const ModalChooseAvatar = (props) => {
                             className="rounded-circle z-depth-0, img-light"
                             onClick={() => {
                                 localStorage.setItem('picId',fourteenth);
+                                updatePicture();
                                 window.location.reload();
                             }}
                             alt="14"
@@ -238,6 +249,7 @@ export const ModalChooseAvatar = (props) => {
                             className="rounded-circle z-depth-0, img-light"
                             onClick={() => {
                                 localStorage.setItem('picId',fifteenth);
+                                updatePicture();
                                 window.location.reload();
                             }}
                             alt="15"
@@ -251,6 +263,7 @@ export const ModalChooseAvatar = (props) => {
                             className="rounded-circle z-depth-0, img-light"
                             onClick={() => {
                                 localStorage.setItem('picId',sixteenth);
+                                updatePicture();
                                 window.location.reload();
                             }}
                             alt="16"
@@ -262,6 +275,7 @@ export const ModalChooseAvatar = (props) => {
                             className="rounded-circle z-depth-0, img-light"
                             onClick={() => {
                                 localStorage.setItem('picId',seventeenth);
+                                updatePicture();
                                 window.location.reload();
                             }}
                             alt="17"
@@ -273,6 +287,7 @@ export const ModalChooseAvatar = (props) => {
                             className="rounded-circle z-depth-0, img-light"
                             onClick={() => {
                                 localStorage.setItem('picId',eighteenth);
+                                updatePicture();
                                 window.location.reload();
                             }}
                             alt="18"
@@ -284,6 +299,7 @@ export const ModalChooseAvatar = (props) => {
                             className="rounded-circle z-depth-0, img-light"
                             onClick={() => {
                                 localStorage.setItem('picId',nineteenth);
+                                updatePicture();
                                 window.location.reload();
                             }}
                             alt="19"
@@ -295,6 +311,7 @@ export const ModalChooseAvatar = (props) => {
                             className="rounded-circle z-depth-0, img-light"
                             onClick={() => {
                                 localStorage.setItem('picId',twentieth);
+                                updatePicture();
                                 window.location.reload();
                             }}
                             alt="20"
@@ -308,6 +325,7 @@ export const ModalChooseAvatar = (props) => {
                             className="rounded-circle z-depth-0, img-light"
                             onClick={() => {
                                 localStorage.setItem('picId',twentyfirst);
+                                updatePicture();
                                 window.location.reload();
                             }}
                             alt="21"
@@ -319,6 +337,7 @@ export const ModalChooseAvatar = (props) => {
                             className="rounded-circle z-depth-0, img-light"
                             onClick={() => {
                                 localStorage.setItem('picId',twentysecond);
+                                updatePicture();
                                 window.location.reload();
                             }}
                             alt="22"
@@ -330,6 +349,7 @@ export const ModalChooseAvatar = (props) => {
                             className="rounded-circle z-depth-0, img-light"
                             onClick={() => {
                                 localStorage.setItem('picId',twentythird);
+                                updatePicture();
                                 window.location.reload();
                             }}
                             alt="23"
@@ -341,6 +361,7 @@ export const ModalChooseAvatar = (props) => {
                             className="rounded-circle z-depth-0, img-light"
                             onClick={() => {
                                 localStorage.setItem('picId',twentyfourth);
+                                updatePicture();
                                 window.location.reload();
                             }}
                             alt="24"
@@ -352,6 +373,7 @@ export const ModalChooseAvatar = (props) => {
                             className="rounded-circle z-depth-0, img-light"
                             onClick={() => {
                                 localStorage.setItem('picId',twentyfifth);
+                                updatePicture();
                                 window.location.reload();
                             }}
                             alt="25"
