@@ -23,7 +23,7 @@ export const PostRenderer = (props) => {
                     onClick={() => {
                         userHandler.push(post['login']);
                         userHandler.push(post['profimg']);
-                        localStorage.setItem('userHandler',userHandler);
+                        localStorage.setItem("userHandler", JSON.stringify(userHandler));
                         window.location.assign('http://localhost:3000/another');
                     }}
                     alt="userImg"

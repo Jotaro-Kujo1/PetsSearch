@@ -12,6 +12,40 @@
     width: 300px;
 
 }
-.login{
+.loginInAnPr{
+    width: 300px;
+    position: relative;
+    right: 80px;
     text-align: center;
+    font-family: "YanoneKaffeesatz-Regular";
+}
+
+.lostBtnAn {
+    position: relative;
+    left: 210px;
+}
+
+.searchedBtnAn {
+    position: relative;
+    left: 210px;
+}
+
+.mailBtn{
+    position: relative;
+    left: 210px;
+}
+
+#posts {
+    display: none;
+    font-family: "YanoneKaffeesatz-Regular";
+}
+
+#search {
+    display: none;
+    font-family: "YanoneKaffeesatz-Regular";
+}
+
+.textAreaAnother{
+    position: relative;
+    top: -40px;
 }
