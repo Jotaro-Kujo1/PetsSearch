@@ -13,16 +13,18 @@
 
 }
 
+
+
 .textArea {
     position: relative;
-    left: 80px;
+    left: 0px;
     font-family: "YanoneKaffeesatz-Regular";
 }
 
-.img {
+.imgProfile {
     position: relative;
     left: 950px;
-    top: -150px;
+    top: -183px;
 }
 
 .login {
@@ -33,11 +35,13 @@
     font-family: "YanoneKaffeesatz-Regular";
 }
 
-.date {
+.dateProfile {
     position: relative;
     left: 660px;
+    top: -100px;
     font-style: inherit;
     font-family: "YanoneKaffeesatz-Regular";
+    font-size: 18px;
 }
 
 
@@ -74,8 +78,8 @@
 
 .delBtn{
     position: relative;
-    left: 880px;
-    top: 210px;
+    left: 850px;
+    top: 175px;
 }
 
 .profileImg {

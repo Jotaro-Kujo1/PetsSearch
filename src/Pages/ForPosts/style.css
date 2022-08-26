@@ -1,33 +1,41 @@
 .description {
     position: relative;
-    left: 800px;
-    top: 150px;
+    left: 850px;
+    top: 120px;
     font-family: "YanoneKaffeesatz-Regular";
     font-size: 20px;
 }
 
-.profImg{
-    position: relative;
-    left: 600px;
-    top: 190px;
+
+
+.profImg:hover{
+    opacity: .2;
 }
 
 .myPostPic{
     border: 1px solid black;
+    position: relative;
+    left: 600px;
+    top: 170px;
 }
+
+.myPostPic:hover{
+    opacity: .2;
+}
+
 
 .loginWithPic{
     position: relative;
     font-family: "YanoneKaffeesatz-Regular";
     font-size: 26px;
     left: 660px;
-    top:150px;
+    top:130px;
 }
 
 .address {
     position: relative;
-    left: 400px;
-    top: 190px;
+    left: 450px;
+    top: 160px;
     font-family: "YanoneKaffeesatz-Regular";
     font-size: 18px;
 }
@@ -58,8 +66,8 @@
 
 .img {
     position: relative;
-    left: 850px;
-    top: -120px;
+    left: 950px;
+    top: -150px;
 }
 
 .imgCont{
@@ -75,12 +83,13 @@
 }
 .messageBtn{
     position: relative;
-    left: 880px;
+    left: 150px;
     top: 200px;
 }
 .date {
     position: relative;
-    top:-60px;
+    top:-70px;
+    left: 662px;
     font-style: inherit;
     font-family: "YanoneKaffeesatz-Regular";
     font-size: 18px;
@@ -93,6 +102,11 @@
     font-family: "YanoneKaffeesatz-Regular";
     font-size: 18px;
 }
+
+
+
+
+
 
 
 

@@ -6,6 +6,7 @@ import Button from "@mui/material/Button";
 
 
 export const PostRenderer = (props) => {
+    var userHandler = [];
     var area;
     if (localStorage.getItem('area') === '') {
         area = 'Все';
@@ -14,17 +15,22 @@ export const PostRenderer = (props) => {
     let elements = null;
     elements = Array.isArray(posts) ? posts.map(post =>
         <>
-            <div className="profImg">
                 <img
                     src={post["profimg"]}
                     height="50"
                     width="50"
                     className="rounded-circle z-depth-0, myPostPic"
+                    onClick={() => {
+                        userHandler.push(post['login']);
+                        userHandler.push(post['profimg']);
+                        localStorage.setItem('userHandler',userHandler);
+                        window.location.assign('http://localhost:3000/another');
+                    }}
                     alt="userImg"
                 />
-            </div>
-            <p className="loginWithPic">{post["login"]}</p>
-            <div className="textArea">
+                <p className="loginWithPic">{post["login"]}</p>
+
+
                 <TextareaAutosize className="description"
                                   aria-label="minimum height"
                                   minRows={6}
@@ -37,7 +43,7 @@ export const PostRenderer = (props) => {
                                   style={{width: 300}}
                                   value={post["address"]}
                 />
-            </div>
+
             <Button variant="contained" className="messageBtn" startIcon={<MailIcon/>}>Send message</Button>
             <div className="img">
                 <img className="imgCont" src={"data:image/jpeg;base64," + post["handler"]} height="280px"

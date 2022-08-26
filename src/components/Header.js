@@ -17,6 +17,7 @@ import {ControlsNewPost} from "./Controls/ControlsNewPost";
 import {Post} from "../Pages/ForPosts/Post";
 import ChatRoom from "../Pages/ChatRoom";
 import {AreaDropDown} from "../Pages/ForPosts/AreaDropDown";
+import {AnotherProfile} from "../Pages/ForAnothersUsersProfile/AnotherProfile";
 
 
 
@@ -75,6 +76,7 @@ export const Header = () =>{
                         <Route path="/profile" element={<Profile/>}/>
                         <Route path="/messenger" element={<ChatRoom/>}/>
                         <Route path="/posts" element={<Post/>}/>
+                        <Route path="/another" element={<AnotherProfile/>}/>
                     </Routes>
                 </Router>
             </>

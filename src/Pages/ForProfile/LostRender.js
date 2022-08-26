@@ -1,6 +1,7 @@
 import {IconButton, TextareaAutosize} from "@mui/material";
 import {Delete} from "@mui/icons-material";
 import React from "react";
+import './styleProfile.css';
 
 
 const deleteHandler = (id) => {
@@ -47,11 +48,11 @@ export const LostRender = (props) => {
             <IconButton color="primary" aria-label="upload picture" component="label" className="delBtn" onClick={()=>deleteHandler(post["id"])}>
                 <Delete/>
             </IconButton>
-            <div className="img">
+            <div className="imgProfile">
                 <img className="imgCont" src={"data:image/jpeg;base64," + post["handler"]} height="280px"
                      width="230px"/>
             </div>
-            <div className="date">
+            <div className="dateProfile">
                 <p>{post["date"]}</p>
             </div>
         </>

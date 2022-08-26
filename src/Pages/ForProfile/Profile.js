@@ -1,6 +1,6 @@
 import def from './def.png'
 import React from "react";
-import './style.css'
+import './styleProfile.css'
 import {ControlsChooseAvatar} from "../../components/Controls/ControlsChooseAvatar";
 import {ModalContextProviderChooseAvatar} from "../../contexts/ModalContext/ModalContextProviderChooseAvatar";
 import {IconButton, Stack, TextareaAutosize} from "@mui/material";

@@ -1,6 +1,7 @@
 import {IconButton, TextareaAutosize} from "@mui/material";
 import {Delete} from "@mui/icons-material";
 import React from "react";
+import './styleProfile.css';
 
 const deleteHandler = (id) => {
 
