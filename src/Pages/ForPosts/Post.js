@@ -106,18 +106,18 @@ export const Post = () => {
         />
 
 
-            <IconButton color="primary" aria-label="upload picture" component="label" className="imgBtn">
+            <IconButton color="primary" aria-label="upload picture" component="label" className="imgBtnCreate">
                 <input hidden accept="image/*" type="file" onChange={e => setSelectedImage(e.target.files[0])}/>
                 <PhotoCamera/>
             </IconButton>
-                <Button variant="contained" className="publicBtn" startIcon={<SendIcon/>} onClick={byteConverter}>Public post</Button>
+                <Button variant="contained" className="publicBtnCreate" startIcon={<SendIcon/>} onClick={byteConverter}>Public post</Button>
 
-            <img className="image" src={url} height="280px" width="230px" />
+            <img className="imageCreatePost" src={url} height="280px" width="230px" />
 
-            <div className="checkBox">
+            <div className="checkBoxCreate">
                 <FormControlLabel className="text" control={<Checkbox />} onChange={() => setLost(true)} label="Пропал"/>
             </div>
-            <div className="checkBox">
+            <div className="checkBoxCreate">
                 <FormControlLabel className="text" control={<Checkbox />} onChange={()=>setSearched(true)} label="Найден"/>
             </div>
         </>

@@ -103,6 +103,30 @@
     font-size: 18px;
 }
 
+.imageCreatePost{
+    position: relative;
+    right: 285px;
+    top: 108px;
+}
+
+.imgBtnCreate{
+    position: relative;
+    left: 150px;
+    top: 215px;
+}
+
+.publicBtnCreate{
+    position: relative;
+    left: 175px;
+    top: 215px;
+}
+
+.checkBoxCreate{
+    position: relative;
+    left: 850px;
+    top: 110px;
+}
+
 
 
 
