@@ -45,7 +45,7 @@ export default function User () {
                         />
                     </div>
                 </Box>
-                <div className="startBtn">
+                <div className="tryAgainBtn">
                     <Button variant="contained" onClick={handleReload}>Try again</Button>
                 </div>
                 </div>

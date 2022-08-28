@@ -64,7 +64,7 @@ export default function UserSignIn () {
                     />
                 </div>
                 </Box>
-        <div className="startBtn">
+        <div className="tryAgainBtn">
             <Button variant="contained" onClick={handleReload} data-bs-dismiss="modal">Try again</Button>
         </div>
                 </div>
