@@ -10,7 +10,7 @@ export const Home = () => {
 
     const query = async () => {
         let res;
-        if((localStorage.getItem('area') === '') || (localStorage.getItem('area')==='Все')) {
+        if((localStorage.getItem('area')==='Все') || localStorage.getItem('area') === null) {
             res = await fetch("http://localhost:8080/posts/getAllPosts/lost");
         }else{
             res = await fetch("http://localhost:8080/posts/getLostForArea/" + localStorage.getItem('area'));

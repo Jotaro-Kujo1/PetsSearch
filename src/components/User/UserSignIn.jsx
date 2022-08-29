@@ -16,9 +16,7 @@ export default function UserSignIn () {
     const {state,setState} = useContext(Context);
     const[status,setStatus]=useState(0);
 
-    const handleCheckBox = () => {
-        localStorage.setItem('state',status);
-    }
+
 
     const handleReload = () => {
         window.location.reload();
