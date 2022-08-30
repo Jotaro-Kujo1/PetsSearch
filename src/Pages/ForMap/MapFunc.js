@@ -1,27 +1,36 @@
 import React from 'react'
-import {render} from 'react-dom'
-import {YMaps, Map, Placemark, SearchControl, useYMaps, GeolocationControl} from '@pbe/react-yandex-maps'
-import Header from "../../components/Header";
-import {Component} from 'react'
-import * as PropTypes from "prop-types";
+import {YMaps, Map, Placemark, SearchControl, GeolocationControl} from '@pbe/react-yandex-maps'
+import img from '../../components/Vadim_koshak_chisto_pazhilaya_glotka_shorst.png';
+
 
 
 const mapData = {
-    center: [59.1323, 37.9092],
-    zoom: 10
+    center: [59.12058163487952,37.93101910549927],
+    zoom: 13
 };
 
 const coordinates = [
-    [59.12, 37.78],
-    [61.12, 39.79]
+    [59.12058163487952,37.93101910549927]
 ];
 
+
 const MapFunc = () => {
+
     return (
-        <YMaps>
+        <YMaps
+        query={{
+            ns: "use-load-option",
+            apikey: "a66d81e4-fd08-4377-b69e-0759eb4ce555"
+        }}>
             <div>
-                <Map defaultState={mapData}>
-                    {coordinates.map(coordinate => <Placemark geometry={coordinate}/>)}
+                <Map defaultState={mapData} width="1000px" height="700px">
+                    {coordinates.map(coordinate => <Placemark geometry={
+                        coordinate
+                    }options={{
+                        iconLayout: 'default#image',
+                        iconImageHref: img,
+                    }}
+                    />)}
 
                     <SearchControl options={{
                         float:"right"
