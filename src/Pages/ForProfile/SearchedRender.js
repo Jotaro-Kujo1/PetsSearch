@@ -21,7 +21,7 @@ const deleteHandler = (id) => {
 export const SearchedRender = (props) => {
     var posts = props.data;
     var postsSearched = [];
-    //posts = JSON.parse(localStorage.getItem("postsByUser"));
+
 
     for(var i=0;i<posts.length;i++){
         let temp = posts[i];
@@ -49,10 +49,10 @@ export const SearchedRender = (props) => {
                 <Delete/>
             </IconButton>
             <div className="img">
-                <img className="imgCont" src={"data:image/jpeg;base64," + post["handler"]} height="280px"
+                <img className="imgContSearched" src={"data:image/jpeg;base64," + post["handler"]} height="280px"
                      width="230px"/>
             </div>
-            <div className="date">
+            <div className="dateSearched">
                 <p>{post["date"]}</p>
             </div>
         </>

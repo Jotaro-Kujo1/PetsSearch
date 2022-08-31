@@ -88,6 +88,44 @@
     top: -30px;
 }
 
+.imgContSearched{
+    position: relative;
+    right: 350px;
+    top:35px;
+}
+
+.dateSearched{
+    position: relative;
+    left: 660px;
+    top: -100px;
+    font-style: inherit;
+    font-family: "YanoneKaffeesatz-Regular";
+    font-size: 18px;
+}
+
+.imgContSearchedMain{
+    position: relative;
+    right: 350px;
+    top:40px;
+}
+
+.messageBtnSearched{
+    position: relative;
+    left: 850px;
+    top: 170px;
+}
+
+.myPostPicSearched{
+    border: 1px solid black;
+    position: relative;
+    left: 600px;
+    top: 170px;
+}
+.myPostPicSearched:hover{
+    opacity: .2;
+}
+
+
 #posts {
     display: none;
     font-family: "YanoneKaffeesatz-Regular";

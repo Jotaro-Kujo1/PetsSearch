@@ -13,7 +13,7 @@ export const AnotherSearchRender = (props) => {
     let elements = null;
     elements = Array.isArray(postsLost) ? postsLost.map(post =>
         <>
-            <div className="textArea">
+            <div className="textAreaAnother">
                 <TextareaAutosize className="description"
                                   aria-label="minimum height"
                                   minRows={6}
