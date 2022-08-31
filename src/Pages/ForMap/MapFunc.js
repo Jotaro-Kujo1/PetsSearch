@@ -13,17 +13,17 @@ const mapData = {
 
 
 const MapFunc = (props) => {
-    const dataArr = props.data.reverse();
-    for(var i=0;i<dataArr.length;i++){
-        dataArr[i] = parseFloat(dataArr[i]);
+    var dataArr = props.data;
+    let tmp = dataArr[0];
+    console.log(dataArr)
+
+    var coord = [];
+    var counter = 0;
+    for(var i=0;i<(dataArr.length)/2;i++){
+        coord.push([dataArr[counter], dataArr[counter+1]]);
+        counter +=2;
     }
-    console.log(dataArr);
 
-
-    const coordinates = [
-        [dataArr[1],dataArr[0]],
-
-    ];
 
     return (
         <YMaps
@@ -33,7 +33,7 @@ const MapFunc = (props) => {
         }}>
             <div>
                 <Map defaultState={mapData} width="1000px" height="700px">
-                    {coordinates.map(coordinate => <Placemark geometry={
+                    {coord.map(coordinate => <Placemark geometry={
                         coordinate
                     }options={{
                         iconLayout: 'default#image',
