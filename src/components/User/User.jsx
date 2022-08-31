@@ -29,6 +29,7 @@ export default function User () {
         console.log(response.status);
         setState(response.status);
         sessionStorage.setItem('state',response.status);
+        if(response.status >= 200 && response.status < 300) window.location.href = "Profile";
     })
     }
 

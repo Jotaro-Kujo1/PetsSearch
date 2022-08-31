@@ -1,6 +1,6 @@
 import React from 'react'
 import {YMaps, Map, Placemark, SearchControl, GeolocationControl} from '@pbe/react-yandex-maps'
-import img from '../../components/Vadim_koshak_chisto_pazhilaya_glotka_shorst.png';
+import img from './zoo.png';
 
 
 
@@ -9,12 +9,21 @@ const mapData = {
     zoom: 13
 };
 
-const coordinates = [
-    [59.12058163487952,37.93101910549927]
-];
 
 
-const MapFunc = () => {
+
+const MapFunc = (props) => {
+    const dataArr = props.data.reverse();
+    for(var i=0;i<dataArr.length;i++){
+        dataArr[i] = parseFloat(dataArr[i]);
+    }
+    console.log(dataArr);
+
+
+    const coordinates = [
+        [dataArr[1],dataArr[0]],
+
+    ];
 
     return (
         <YMaps

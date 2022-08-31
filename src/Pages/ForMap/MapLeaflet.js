@@ -6,10 +6,19 @@ import L from 'leaflet';
 
 
 
+
 L.Icon.Default.imagePath = "https://unpkg.com/leaflet@1.5.0/dist/images/";
 
 
-export const MapLeaflet = () => {
+
+export const MapLeaflet = (props) => {
+    const dataArr = props.data.reverse();
+    for(var i=0;i<dataArr.length;i++){
+        dataArr[i] = parseFloat(dataArr[i]);
+    }
+    console.log(dataArr);
+
+
     const state = {
         lat: 59.12058163487952,
         lng: 37.93101910549927,
@@ -20,7 +29,8 @@ export const MapLeaflet = () => {
         [59.08571869271766,37.920858673493846],
         [59.09390737257021,37.92345923002168],
         [59.123070571879545,37.99804260829917],
-        [59.12056530210493,37.93108361957637]
+        [59.12056530210493,37.93108361957637],
+        [dataArr[1],dataArr[0]]
     ]
 
 
@@ -34,6 +44,7 @@ export const MapLeaflet = () => {
         </Marker>
         </>
     ) : console.log(data.type);
+
 
     return (
         <>

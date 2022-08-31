@@ -4,7 +4,7 @@ import logo from './Vadim_koshak_chisto_pazhilaya_glotka_shorst.png'
 import {BrowserRouter as Router, Route,Routes, Link} from "react-router-dom";
 import {Home} from "../Pages/ForPosts/Home";
 import {SeePet} from "../Pages/ForSearchedPets/SeePet";
-import MapPet from "../Pages/ForMap/MapPet";
+import {MapPet} from "../Pages/ForMap/MapPet";
 import {Profile} from "../Pages/ForProfile/Profile"
 import {Stack} from "@mui/material";
 import {ModalProvider} from '../contexts';
