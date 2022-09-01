@@ -2,6 +2,7 @@ import './style.css';
 import MapFunc from "./MapFunc";
 import {useEffect, useState} from "react";
 
+
 export const MapPet = () => {
     const [ans, setAns] = useState([]);
     const [adr,setAdr] = useState([]);
@@ -24,27 +25,17 @@ export const MapPet = () => {
         setNewDataArr(tmpArr);
     }
 
-/*
-    const arrTreatment = () => {
-        for(var i=0;i<ans.length;i++){
-            let tmp = ans[i];
-            tmp[0] = parseFloat(tmp[0]);
-            tmp[1] = parseFloat(tmp[1]);
-            ans[i] = tmp.reverse();
-        }
-    }
-
-
-     */
 
     const queryToYandex = async () => {
         let res;
         res = await fetch("http://localhost:8080/posts/getAllPosts");
         const data = await res.json();
+
         for(var i=0;i<data.length;i++){
             let tmp = data[i];
             adr.push(tmp["address"]);
         }
+
 
         for(var j =0;j<adr.length;j++){
             let tmpArr = adr[j].split(' ');
@@ -74,9 +65,11 @@ export const MapPet = () => {
 
     return (
         <>
-            <div className="map">
-                <MapFunc data={newDataArr}/>
+            <div id="containerMap">
+                <div className="map">
+                    <MapFunc data={newDataArr}/>
+                </div>
             </div>
-            </>
+        </>
         );
     }

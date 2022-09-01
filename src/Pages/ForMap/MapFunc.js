@@ -14,16 +14,13 @@ const mapData = {
 
 const MapFunc = (props) => {
     var dataArr = props.data;
-    let tmp = dataArr[0];
-    console.log(dataArr)
-
     var coord = [];
     var counter = 0;
+
     for(var i=0;i<(dataArr.length)/2;i++){
         coord.push([dataArr[counter], dataArr[counter+1]]);
         counter +=2;
     }
-
 
     return (
         <YMaps
@@ -32,13 +29,18 @@ const MapFunc = (props) => {
             apikey: "a66d81e4-fd08-4377-b69e-0759eb4ce555"
         }}>
             <div>
-                <Map defaultState={mapData} width="1000px" height="700px">
+                <Map defaultState={mapData} width="100vw" height="100vh">
                     {coord.map(coordinate => <Placemark geometry={
                         coordinate
                     }options={{
                         iconLayout: 'default#image',
                         iconImageHref: img,
-                    }}
+                    }}properties={{
+                        //hintContent: 'Это хинт',
+                        //balloonContentBody: '<div>{desc[0]}</div>'
+                    }}modules={
+                        ['geoObject.addon.balloon', 'geoObject.addon.hint']
+                    }
                     />)}
 
                     <SearchControl options={{

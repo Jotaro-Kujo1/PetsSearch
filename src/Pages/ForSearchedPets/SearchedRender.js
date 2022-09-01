@@ -27,7 +27,7 @@ export const SearchedRender = (props) => {
                 alt="userImg"
             />
             <p className="loginWithPic">{post["login"]}</p>
-            <div className="textArea">
+            <div>
                 <TextareaAutosize className="description"
                                   aria-label="minimum height"
                                   minRows={6}
