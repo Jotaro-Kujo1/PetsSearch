@@ -16,11 +16,10 @@ const ChatRoom = () => {
         username: localStorage.getItem('login'),
         receivername: '',
         connected: false,
-        message: ''
+        message: '',
+        date: ''
     });
-    useEffect(() => {
-        console.log(userData);
-    }, [userData]);
+
 
     useEffect(()=>{
         connect();
@@ -110,7 +109,8 @@ const ChatRoom = () => {
                 senderName: userData.username,
                 receiverName:tab,
                 message: userData.message,
-                status:"MESSAGE"
+                status:"MESSAGE",
+                date: userData.date
             };
 
             if(userData.username !== tab){
@@ -157,6 +157,7 @@ const ChatRoom = () => {
                                 <li className={`message ${chat.senderName === userData.username && "self"}`} key={index}>
                                     {chat.senderName !== userData.username && <div className="avatar">{chat.senderName}</div>}
                                     <div className="message-data">{chat.message}</div>
+
                                     {chat.senderName === userData.username && <div className="avatar self">{chat.senderName}</div>}
                                 </li>
                             ))}

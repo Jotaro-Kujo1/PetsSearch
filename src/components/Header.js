@@ -18,6 +18,7 @@ import {Post} from "../Pages/ForPosts/Post";
 import ChatRoom from "../Pages/ChatRoom";
 import {AreaDropDown} from "../Pages/ForPosts/AreaDropDown";
 import {AnotherProfile} from "../Pages/ForAnothersUsersProfile/AnotherProfile";
+import {Messenger} from '../Pages/ForChat/Messenger';
 
 
 
@@ -74,7 +75,7 @@ export const Header = () =>{
                         <Route path="/see" element={<SeePet/>}/>
                         <Route path="/map" element={<MapPet/>}/>
                         <Route path="/profile" element={<Profile/>}/>
-                        <Route path="/messenger" element={<ChatRoom/>}/>
+                        <Route path="/messenger" element={<Messenger/>}/>
                         <Route path="/posts" element={<Post/>}/>
                         <Route path="/another" element={<AnotherProfile/>}/>
                     </Routes>
