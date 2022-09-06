@@ -100,7 +100,7 @@ export const Post = () => {
             <TextareaAutosize className="address"
                 aria-label="minimum height"
                 minRows={1}
-                placeholder="пр.Победы 167,Заягорбский"
+                placeholder="Октябрьский 72,Зашекснинский"
                 style={{ width: 300 }}
                               onChange={e => setAddress(e.target.value)}
         />

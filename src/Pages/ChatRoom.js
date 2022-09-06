@@ -22,6 +22,10 @@ const ChatRoom = () => {
         console.log(userData);
     }, [userData]);
 
+    useEffect(()=>{
+        connect();
+    },[]);
+
     const connect =()=>{
         let Sock = new SockJS('http://localhost:8080/ws');
         stompClient = over(Sock);
@@ -120,7 +124,7 @@ const ChatRoom = () => {
 
     return (
         <div className="container">
-            {userData.connected?
+
                 <div className="chat-box">
                     <div className="member-list">
                         <ul>
@@ -164,13 +168,7 @@ const ChatRoom = () => {
                         </div>
                     </div>}
                 </div>
-                :
-                <Stack spacing={2} direction="row">
-                    <div className="startBtnArea">
-                        <Button className="startBtn" variant="contained" onClick={connect} >Start</Button>
-                    </div>
-                </Stack>
-            }
+
         </div>
     )
 }
