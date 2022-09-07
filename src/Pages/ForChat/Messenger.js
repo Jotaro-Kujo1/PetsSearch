@@ -3,6 +3,7 @@ import './messenger.css';
 import {Conversation} from "./Conversations/Conversation";
 import {Message} from "./Message/Message";
 import Button from "@mui/material/Button";
+import {ChatOnline} from "./ChatOnline/ChatOnline";
 
 export const Messenger = () => {
     return(
@@ -40,7 +41,9 @@ export const Messenger = () => {
             </div>
             <div className="chatOnline">
                 <div className="chatOnlineWrapper">
-                    online
+                    <ChatOnline/>
+                    <ChatOnline/>
+                    <ChatOnline/>
                 </div>
             </div>
         </div>
