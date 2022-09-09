@@ -7,6 +7,7 @@ import Button from "@mui/material/Button";
 
 export const PostRenderer = (props) => {
     var userHandler = [];
+    var conversationHandler = [];
     var area;
     if (localStorage.getItem('area') === '') {
         area = 'Все';
@@ -44,7 +45,12 @@ export const PostRenderer = (props) => {
                                   value={post["address"]}
                 />
 
-            <Button variant="contained" className="messageBtn" startIcon={<MailIcon/>}>Send message</Button>
+            <Button variant="contained" className="messageBtn" startIcon={<MailIcon/>} onClick={() => {
+                conversationHandler.push(post['login']);
+                conversationHandler.push(post['profimg']);
+                localStorage.setItem("conversationHandler", JSON.stringify(conversationHandler));
+                window.location.assign('http://localhost:3000/messenger');
+            }}>Send message</Button>
             <div className="img">
                 <img className="imgCont" src={"data:image/jpeg;base64," + post["handler"]} height="280px"
                      width="230px"/>
