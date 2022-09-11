@@ -1,36 +1,18 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import './messenger.css';
 import {Conversation} from "./Conversations/Conversation";
+import {ConversationRender} from "./Conversations/ConversationRender";
 import {Message} from "./Message/Message";
 import Button from "@mui/material/Button";
 import {ChatOnline} from "./ChatOnline/ChatOnline";
+
 
 export const Messenger = () => {
     let conversationHandler = [];
     conversationHandler = JSON.parse(localStorage.getItem("conversationHandler"));
     let receiver_login = conversationHandler[0];
     let profimg = conversationHandler[1];
-    /*
-    const queryToSave = () => {
-        //const newUser = {login,password};
-        const myLogin = localStorage.getItem("login");
-
-        const newConveration = {"tmp",}
-        console.log(newUser);
-        setLogin(login);
-        fetch("http://localhost:8080/forUsers/user",{
-                method:"POST",
-                headers:{"Content-Type":"application/json"},
-                body:JSON.stringify(newUser)
-            }
-        ).then((response) => {
-            console.log(response.status);
-            setState(response.status);
-            sessionStorage.setItem('state',response.status);
-            if(response.status >= 200 && response.status < 300) window.location.href = "Profile";
-        })
-    }
-     */
+    const[ans,setAns] = useState([]);
 
     const queryToSaveConversation = () => {
         const id = "tmp";
@@ -41,14 +23,19 @@ export const Messenger = () => {
             method: "POST",
             headers:{"Content-Type":"application/json"},
             body: JSON.stringify(newConversation)
-        }).then(response => {
-            console.log(response.state);
+        }).then(async (response) => {
+            let res;
+            res = await fetch("http://localhost:8080/conversation/getUsersConversations?sender_login=" + localStorage.getItem("login"));
+            const data = await res.json();
+            setAns(data);
         })
     }
+
 
     useEffect(()=>{
         queryToSaveConversation();
     },[])
+
 
     return(
         <>
@@ -57,10 +44,7 @@ export const Messenger = () => {
             <div className="chatMenu">
                 <div className="chatMenuWrapper">
                     <input placeholder="Search for people" className="chatMenuInput"/>
-                    <Conversation/>
-                    <Conversation/>
-                    <Conversation/>
-                    <Conversation/>
+                    <ConversationRender data={ans}/>
                 </div>
             </div>
             <div className="chatBox">

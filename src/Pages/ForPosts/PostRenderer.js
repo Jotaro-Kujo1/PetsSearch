@@ -46,6 +46,7 @@ export const PostRenderer = (props) => {
                 />
 
             <Button variant="contained" className="messageBtn" startIcon={<MailIcon/>} onClick={() => {
+                sessionStorage.setItem("conversationId",1);
                 conversationHandler.push(post['login']);
                 conversationHandler.push(post['profimg']);
                 localStorage.setItem("conversationHandler", JSON.stringify(conversationHandler));
