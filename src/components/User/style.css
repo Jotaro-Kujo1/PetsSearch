@@ -12,4 +12,18 @@
     top: 35px;
 }
 
+.keepSignIn{
+    position: relative;
+    top: -25px;
+    right: 45px;
+    width: 200px;
+}
+
+.btnForSignIn{
+    position: relative;
+    width: 200px;
+    right: 60px;
+    top: -25px;
+}
+
 

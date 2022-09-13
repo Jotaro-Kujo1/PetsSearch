@@ -5,6 +5,7 @@ import {ConversationRender} from "./Conversations/ConversationRender";
 import {Message} from "./Message/Message";
 import Button from "@mui/material/Button";
 import {ChatOnline} from "./ChatOnline/ChatOnline";
+import {MessageRender} from "./Message/MessageRender";
 
 
 export const Messenger = () => {
@@ -50,16 +51,7 @@ export const Messenger = () => {
             <div className="chatBox">
                 <div className="chatBoxWrapper">
                     <div className="chatBoxTop">
-                        <Message own={true} />
-                        <Message />
-                        <Message />
-                        <Message />
-                        <Message />
-                        <Message />
-                        <Message />
-                        <Message />
-                        <Message />
-                        <Message />
+                        <MessageRender data={ans}/>
                     </div>
                     <div className="chatBoxBottom">
                         <textarea className="chatMessageInput" placeholder="write something..."></textarea>
@@ -69,9 +61,7 @@ export const Messenger = () => {
             </div>
             <div className="chatOnline">
                 <div className="chatOnlineWrapper">
-                    <ChatOnline/>
-                    <ChatOnline/>
-                    <ChatOnline/>
+
                 </div>
             </div>
         </div>

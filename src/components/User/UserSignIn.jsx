@@ -87,10 +87,10 @@ export default function UserSignIn () {
                                onChange={e => setPassword(e.target.value)}/>
                 </Box>
                 <div className="startBtn">
-                    <Button variant="contained" onClick={handleClick}>Start</Button>
-                    <FormControlLabel control={<Checkbox />} onClick={()=>{
+                    <Button className="btnForSignIn" variant="contained" onClick={handleClick}>Start</Button>
+                    <FormControlLabel className="keepSignIn" control={<Checkbox />} onClick={()=>{
                         localStorage.setItem('state',status);}
-                    } label="Save" />
+                    } label ="Keep me signed in" />
                 </div>
                 </div>
             </>

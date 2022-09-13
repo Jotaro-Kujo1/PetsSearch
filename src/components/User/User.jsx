@@ -72,7 +72,7 @@ export default function User () {
                                onChange={e => setPassword(e.target.value)}/>
                 </Box>
                 <div className="startBtn">
-                    <Button variant="contained" onClick={handleClick}>Start</Button>
+                    <Button className="btnForSignIn" variant="contained" onClick={handleClick}>Start</Button>
                 </div>
                 </div>
             </>
