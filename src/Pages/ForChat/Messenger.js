@@ -25,7 +25,7 @@ export const Messenger = () => {
         const id = "tmp";
         const sender_login = localStorage.getItem("login");
         const newConversation = {id,sender_login,receiver_login,profimg};
-        console.log(newConversation);
+        //console.log(newConversation);
         fetch("http://localhost:8080/conversation/saveConversation", {
             method: "POST",
             headers:{"Content-Type":"application/json"},

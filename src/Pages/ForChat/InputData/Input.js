@@ -7,17 +7,18 @@ export const Input = ({onSendMessage}) => {
     const [text, setText] = useState("")
 
     let onChange = (e) => {
-        setText(e.target.value)
+        setText(e.target.value);
+        console.log(text);
     }
 
     let onSubmit = () => {
-        setText("")
         onSendMessage(text);
+        setText("");
     }
 
     return(
         <>
-        <textarea className="chatMessageInput" placeholder="write something..." onChange={e => onChange(e)} value={text} onKeyPress={event => {
+        <textarea className="chatMessageInput" placeholder="write something..." value={text} onChange={e => onChange(e)} onKeyPress={event => {
             if (event.key === 'Enter') {
                 onSubmit(text);
             }
