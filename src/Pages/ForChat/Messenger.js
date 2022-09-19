@@ -3,10 +3,13 @@ import './messenger.css';
 import {Conversation} from "./Conversations/Conversation";
 import {ConversationRender} from "./Conversations/ConversationRender";
 import {Message} from "./Message/Message";
+import {Input} from "./InputData/Input";
 import Button from "@mui/material/Button";
 import {ChatOnline} from "./ChatOnline/ChatOnline";
 import {MessageRender} from "./Message/MessageRender";
-
+import chatAPI from "./Services/chatAPI";
+import SockJsClient from 'react-stomp';
+const SOCKET_URL = "http://localhost:8080/ws-chat/";
 
 export const Messenger = () => {
     let conversationHandler = [];
@@ -14,6 +17,9 @@ export const Messenger = () => {
     let receiver_login = conversationHandler[0];
     let profimg = conversationHandler[1];
     const[ans,setAns] = useState([]);
+
+    const [messages,setMessages] = useState([]);
+
 
     const queryToSaveConversation = () => {
         const id = "tmp";
@@ -38,9 +44,36 @@ export const Messenger = () => {
     },[])
 
 
+    let onConnected = () => {
+        console.log("Connected");
+    }
+
+    let onMessageReceived = (msg) => {
+        console.log("New message received",msg);
+        setMessages(messages.concat(msg));
+    }
+
+    let onSendMessage = (msgText) => {
+        chatAPI.sendMessage(localStorage.getItem("login"),msgText).then(res => {
+            console.log("Sent", res);
+        }).catch(err => {
+            console.log("Error Occured while sending message to api");
+        })
+    }
+
+
+
+
     return(
         <>
-
+        <SockJsClient
+            url={SOCKET_URL}
+            topics={['/topic/group']}
+            onConnect={onConnected}
+            onDisconnect={console.log("Disconnected")}
+            onMessage={msg => onMessageReceived(msg)}
+            debug={false}
+        />
         <div className="messenger">
             <div className="chatMenu">
                 <div className="chatMenuWrapper">
@@ -51,11 +84,10 @@ export const Messenger = () => {
             <div className="chatBox">
                 <div className="chatBoxWrapper">
                     <div className="chatBoxTop">
-                        <MessageRender data={ans}/>
+                        <Message messages={messages} currentUser={localStorage.getItem("login")}/>
                     </div>
                     <div className="chatBoxBottom">
-                        <textarea className="chatMessageInput" placeholder="write something..."></textarea>
-                        <Button className="chatSubmitButton" variant="contained">Send</Button>
+                        <Input onSendMessage={onSendMessage}/>
                     </div>
                 </div>
             </div>
