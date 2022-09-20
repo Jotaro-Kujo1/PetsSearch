@@ -54,6 +54,7 @@ export const Messenger = () => {
     }
 
     let onSendMessage = (msgText) => {
+        console.log(msgText);
         chatAPI.sendMessage(localStorage.getItem("login"),msgText).then(res => {
             console.log("Sent", res);
         }).catch(err => {

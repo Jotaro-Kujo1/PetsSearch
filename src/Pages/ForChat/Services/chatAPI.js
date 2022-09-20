@@ -1,9 +1,11 @@
 import Axios from "axios";
 import axios from "axios";
 
+
 const api = Axios.create({
     baseURL: 'http://localhost:8080/api/',
 });
+
 
 const chatAPI = {
     getMessages: (groupId) => {
@@ -13,12 +15,18 @@ const chatAPI = {
 
     sendMessage: (username, text) => {
         let msg = {
-            sender: username,
-            content: text
+            sender_name: username,
+            receiver_name: "test",
+            message: text,
+            timestamp: ""
         }
-        return api.post(`send`, msg);
+        console.log(msg);
+        return api.post("send",msg);
+
     }
 }
+
+
 
 
 export default chatAPI;

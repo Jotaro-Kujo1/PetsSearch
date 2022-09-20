@@ -8,10 +8,10 @@ export const Input = ({onSendMessage}) => {
 
     let onChange = (e) => {
         setText(e.target.value);
-        console.log(text);
     }
 
     let onSubmit = () => {
+        console.log(text);
         onSendMessage(text);
         setText("");
     }

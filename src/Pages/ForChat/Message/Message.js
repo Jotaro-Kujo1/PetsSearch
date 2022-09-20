@@ -6,7 +6,7 @@ export const Message = ({messages, currentUser}) => {
 
     let renderMessage = (message) => {
         const {sender,content} = message;
-        const messageFromMe = localStorage.getItem("login") === message.sender;
+        const messageFromMe = currentUser === message.sender;
         return(
             <div className={messageFromMe ? "message own" : "message"}>
                 <div className="messageTop">
