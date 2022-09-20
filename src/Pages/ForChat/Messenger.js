@@ -85,7 +85,8 @@ export const Messenger = () => {
             <div className="chatBox">
                 <div className="chatBoxWrapper">
                     <div className="chatBoxTop">
-                        <Message messages={messages} currentUser={localStorage.getItem("login")}/>
+                        <Message messages={messages} currentUser={{login:localStorage.getItem("login"),
+                        profimg:localStorage.getItem("picId")}}/>
                     </div>
                     <div className="chatBoxBottom">
                         <Input onSendMessage={onSendMessage}/>
