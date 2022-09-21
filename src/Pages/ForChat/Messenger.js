@@ -17,6 +17,7 @@ export const Messenger = () => {
     let receiver_login = conversationHandler[0];
     let profimg = conversationHandler[1];
     const[ans,setAns] = useState([]);
+    const[dialog,setDialog] = useState([]);
 
     const [messages,setMessages] = useState([]);
 
@@ -43,6 +44,20 @@ export const Messenger = () => {
         queryToSaveConversation();
     },[])
 
+    useEffect(()=>{
+        updateDialog();
+    },[dialog])
+
+    const updateDialog = () => {
+        var tmpDialog = sessionStorage.getItem("dialog");
+        if(tmpDialog!=null) {
+            //tmpDialog = tmpDialog.json;
+            if ((dialog[0] != tmpDialog[0]) || (dialog[1] != tmpDialog[1])) {
+                setDialog(tmpDialog);
+            }
+        }
+    }
+
 
     let onConnected = () => {
         console.log("Connected");
@@ -64,7 +79,6 @@ export const Messenger = () => {
 
 
 
-
     return(
         <>
         <SockJsClient
@@ -79,7 +93,7 @@ export const Messenger = () => {
             <div className="chatMenu">
                 <div className="chatMenuWrapper">
                     <input placeholder="Search for people" className="chatMenuInput"/>
-                    <ConversationRender data={ans}/>
+                    <ConversationRender data={ans} update={updateDialog}/>
                 </div>
             </div>
             <div className="chatBox">
