@@ -18,7 +18,8 @@ const chatAPI = {
             sender_name: username,
             receiver_name: "test",
             message: text,
-            timestamp: ""
+            timestamp: "",
+            profimg: localStorage.getItem("picId")
         }
         console.log(msg);
         return api.post("send",msg);

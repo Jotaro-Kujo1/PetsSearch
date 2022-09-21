@@ -5,11 +5,15 @@ import testImage from '../../../components/ModalChooseAvatar/Avatars/10.png';
 export const Message = ({messages, currentUser}) => {
 
     let renderMessage = (message) => {
-        const messageFromMe = currentUser.login === message.sender;
+        const messageFromMe = currentUser.login === message.sender_name
+        console.log("Current" + currentUser.login);
+        console.log(message.sender_name);
+        console.log(messageFromMe);
         return(
-            <div className={messageFromMe ? "message own" : "message"}>
+            <div className={messageFromMe ? "message" : "message own"}>
                 <div className="messageTop">
-                    <img className="messageImage" src={currentUser.profimg} alt=""/>
+
+                    <img className="messageImage" src={message.profimg} alt=""/>
                     <p className="messageText">{message.message}</p>
                 </div>
                 <div className="messageBottom">
