@@ -10,7 +10,7 @@ export const Message = ({messages, currentUser}) => {
         console.log(message.sender_name);
         console.log(messageFromMe);
         return(
-            <div className={messageFromMe ? "message" : "message own"}>
+            <div className={messageFromMe ? "message own" : "message"}>
                 <div className="messageTop">
 
                     <img className="messageImage" src={message.profimg} alt=""/>
