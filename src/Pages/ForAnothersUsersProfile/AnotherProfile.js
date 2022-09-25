@@ -75,7 +75,7 @@ export const AnotherProfile = () => {
                      width="70"
                      className="catPawPic"
                      alt=""/>
-
+            <div className="likesCounter">12</div>
             <div id="posts">
                 <AnotherLostRender data={ans}/>
             </div>

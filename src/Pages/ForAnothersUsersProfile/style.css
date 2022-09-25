@@ -52,10 +52,18 @@
 
 .catPawPic{
     position: relative;
-    top: -100px;
-    left: 315px;
+    top: -255px;
+    left: 245px;
 }
 .catPawPic:hover{
     opacity: 0.2;
+}
+
+.likesCounter{
+    height: 30px;
+    width: 40px;
+    position: relative;
+    top: -305px;
+    left: 272px;
 }
 
