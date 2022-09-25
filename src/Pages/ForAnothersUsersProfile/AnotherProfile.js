@@ -1,14 +1,11 @@
-import React from "react";
-import {useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import {Stack} from "@mui/material";
 import Button from "@mui/material/Button";
 import './style.css';
-import {LostRender} from "../ForProfile/LostRender";
-import {SearchedRender} from "../ForProfile/SearchedRender";
-import first from '../../components/ModalChooseAvatar/Avatars/1.png';
 import MailIcon from "@mui/icons-material/Mail";
 import {AnotherLostRender} from "./AnotherLostRender";
 import {AnotherSearchRender} from "./AnotherSearchRender";
+import catPaw from './petPaw.png';
 
 const areaHandler = () => {
 document.getElementById("search").style.display = "none";
@@ -62,7 +59,10 @@ export const AnotherProfile = () => {
                     width="140"
                     className="rounded-circle z-depth-0, myProfPic"
                     alt="userImg"/>
-                <div className="loginInAnPr"><h3>{login}</h3></div>
+                    <div className="loginInAnPr">
+                        <h3>{login}</h3>
+
+                    </div>
             </div>
 
             <Stack spacing={2} direction="row">
@@ -70,6 +70,12 @@ export const AnotherProfile = () => {
                 <Button className="searchedBtnAn" variant="outlined"  data-bs-dismiss="modal" onClick={searchHandler}>Searched</Button>
                 <Button className="mailBtn" variant="contained" startIcon={<MailIcon/>}>Send message</Button>
             </Stack>
+                <img src={catPaw}
+                     height="33"
+                     width="70"
+                     className="catPawPic"
+                     alt=""/>
+
             <div id="posts">
                 <AnotherLostRender data={ans}/>
             </div>

@@ -50,3 +50,12 @@
     top: -40px;
 }
 
+.catPawPic{
+    position: relative;
+    top: -100px;
+    left: 315px;
+}
+.catPawPic:hover{
+    opacity: 0.2;
+}
+
