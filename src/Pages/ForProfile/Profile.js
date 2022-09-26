@@ -1,4 +1,4 @@
-import def from './def.png'
+import def from '../../resources/def.png'
 import React from "react";
 import './styleProfile.css'
 import {ControlsChooseAvatar} from "../../components/Controls/ControlsChooseAvatar";
@@ -10,6 +10,7 @@ import {useEffect} from "react";
 import {LostRender} from "./LostRender";
 import {useState} from "react";
 import {SearchedRender} from "./SearchedRender";
+import catPaw from "../../resources/petPaw.png";
 
 
 const areaHandler = () => {
@@ -79,6 +80,7 @@ export const Profile = () =>{
                         <Button className="btnChooseAvatar" variant="outlined" data-bs-dismiss="modal">Searched</Button>
                     </div>
                 </Stack>
+
             </>
         )
     }else {
@@ -107,7 +109,12 @@ export const Profile = () =>{
                     <Button className="btnChooseAvatar" variant="outlined" data-bs-dismiss="modal" onClick={searchHandler}>Searched</Button>
                     </div>
                 </Stack>
-
+                <img src={catPaw}
+                     height="33"
+                     width="70"
+                     className="myCatPawPic"
+                     alt=""/>
+                <div className="likesMyCounter">12</div>
                 <div id="posts">
                     <LostRender data={ans}/>
                 </div>

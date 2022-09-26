@@ -136,6 +136,22 @@
     font-family: "YanoneKaffeesatz-Regular";
 }
 
+.myCatPawPic{
+    position: relative;
+    top: -255px;
+    left: 245px;
+}
+
+.likesMyCounter{
+    height: 30px;
+    width: 40px;
+    position: relative;
+    top: -305px;
+    left: 272px;
+    font-family: "YanoneKaffeesatz-Regular";
+    font-size: 18px;
+}
+
 
 
 

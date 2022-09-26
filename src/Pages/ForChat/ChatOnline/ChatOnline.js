@@ -1,6 +1,6 @@
 import React from "react";
 import "./chatOnline.css";
-import testImage from "../../ForProfile/def.png";
+import testImage from "../../../resources/def.png";
 
 export const ChatOnline = () => {
     return(

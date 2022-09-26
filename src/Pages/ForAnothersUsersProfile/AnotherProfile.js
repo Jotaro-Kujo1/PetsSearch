@@ -5,7 +5,7 @@ import './style.css';
 import MailIcon from "@mui/icons-material/Mail";
 import {AnotherLostRender} from "./AnotherLostRender";
 import {AnotherSearchRender} from "./AnotherSearchRender";
-import catPaw from './petPaw.png';
+import catPaw from '../../resources/petPaw.png';
 
 const areaHandler = () => {
 document.getElementById("search").style.display = "none";
@@ -45,6 +45,22 @@ export const AnotherProfile = () => {
         setAns(data);
     }
 
+    const queryToLikes = () => {
+        const id = "";
+        var liker = localStorage.getItem("login");
+        const raitingLogins = [{id,liker}]
+        const newRaiting = {id,login,raitingLogins};
+        fetch("http://localhost:8080/raiting/createRaiting",{
+            method:"POST",
+            headers:{"Content-Type":"application/json"},
+            body:JSON.stringify(newRaiting)
+        })
+            .then((response) => {
+                    console.log("Status is" + response.status);
+                }
+            )
+    }
+
     useEffect(()=>{
         query();
     },[]);
@@ -74,6 +90,9 @@ export const AnotherProfile = () => {
                      height="33"
                      width="70"
                      className="catPawPic"
+                     onClick={()=>{
+                         queryToLikes();
+                     }}
                      alt=""/>
             <div className="likesCounter">12</div>
             <div id="posts">

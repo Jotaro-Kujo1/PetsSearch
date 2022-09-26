@@ -1,6 +1,6 @@
 import React from 'react'
 import {YMaps, Map, Placemark, SearchControl, GeolocationControl} from '@pbe/react-yandex-maps'
-import img from './zoo.png';
+import img from '../../resources/zoo.png';
 
 
 

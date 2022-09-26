@@ -1,5 +1,5 @@
 import React from "react";
-import testImage from "../../ForProfile/def.png";
+import testImage from "../../../resources/def.png";
 import './conversation.css';
 
 export const Conversation = (props) => {
