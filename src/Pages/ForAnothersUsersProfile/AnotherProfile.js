@@ -36,6 +36,7 @@ export const AnotherProfile = () => {
     let login = userHandler[0];
     let profimg = userHandler[1];
     const [ans, setAns] = useState([]);
+    const[likesAmount,setLikesAmount] = useState(0);
 
 
 
@@ -53,16 +54,25 @@ export const AnotherProfile = () => {
         fetch("http://localhost:8080/raiting/createRaiting",{
             method:"POST",
             headers:{"Content-Type":"application/json"},
+            mode: "no-cors",
             body:JSON.stringify(newRaiting)
         })
             .then((response) => {
                     console.log("Status is" + response.status);
+                    queryToGetLikesAmount();
                 }
             )
     }
 
+    const queryToGetLikesAmount = async() => {
+        let res = await fetch("http://localhost:8080/raiting/getLikesAmount?login=" + login);
+        setLikesAmount(await res.json());
+        console.log(likesAmount);
+    }
+
     useEffect(()=>{
         query();
+        queryToGetLikesAmount();
     },[]);
 
     return (
@@ -94,7 +104,7 @@ export const AnotherProfile = () => {
                          queryToLikes();
                      }}
                      alt=""/>
-            <div className="likesCounter">12</div>
+            <div className="likesCounter">{likesAmount}</div>
             <div id="posts">
                 <AnotherLostRender data={ans}/>
             </div>
