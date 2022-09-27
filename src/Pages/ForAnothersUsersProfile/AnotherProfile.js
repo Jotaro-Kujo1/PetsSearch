@@ -54,7 +54,6 @@ export const AnotherProfile = () => {
         fetch("http://localhost:8080/raiting/createRaiting",{
             method:"POST",
             headers:{"Content-Type":"application/json"},
-            mode: "no-cors",
             body:JSON.stringify(newRaiting)
         })
             .then((response) => {
@@ -74,6 +73,8 @@ export const AnotherProfile = () => {
         query();
         queryToGetLikesAmount();
     },[]);
+
+
 
     return (
         <>
