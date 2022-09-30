@@ -105,7 +105,7 @@ export const AnotherProfile = () => {
                          queryToLikes();
                      }}
                      alt=""/>
-            <div className="likesCounter">{likesAmount}</div>
+            <div className={likesAmount < 10 ? "likesCounterOneDigit" : likesAmount>=10 && likesAmount<100 ? "likesCounterTwoDigit" : "likesCounterThreeDigit"}>{likesAmount}</div>
             <div id="posts">
                 <AnotherLostRender data={ans}/>
             </div>

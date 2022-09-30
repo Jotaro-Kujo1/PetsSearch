@@ -40,7 +40,7 @@ const searchHandler = () => {
 
 export const Profile = () =>{
     const [ans, setAns] = useState([]);
-
+    const[likesAmount,setLikesAmount] = useState(0);
 
 
     const query = async () => {
@@ -50,8 +50,17 @@ export const Profile = () =>{
         //localStorage.setItem("postsByUser", JSON.stringify(data));
     }
 
+
+
+    const queryToGetLikesAmount = async() => {
+        let res = await fetch("http://localhost:8080/raiting/getLikesAmount?login=" + localStorage.getItem('login'));
+        setLikesAmount(await res.json());
+        console.log(likesAmount);
+    }
+
     useEffect(()=>{
         query();
+        queryToGetLikesAmount();
     },[]);
 
 
@@ -114,7 +123,7 @@ export const Profile = () =>{
                      width="70"
                      className="myCatPawPic"
                      alt=""/>
-                <div className="likesMyCounter">12</div>
+                <div className={likesAmount < 10 ? "likesCounterOneDigit" : likesAmount>=10 && likesAmount<100 ? "likesCounterTwoDigit" : "likesCounterThreeDigit"}>{likesAmount}</div>
                 <div id="posts">
                     <LostRender data={ans}/>
                 </div>

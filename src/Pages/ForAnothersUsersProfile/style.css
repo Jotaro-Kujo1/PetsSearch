@@ -59,12 +59,32 @@
     opacity: 0.2;
 }
 
-.likesCounter{
+.likesCounterOneDigit{
+    height: 30px;
+    width: 40px;
+    position: relative;
+    top: -305px;
+    left: 276px;
+    font-family: "YanoneKaffeesatz-Regular";
+    font-size: 18px;
+}
+
+.likesAmountTwoDigit{
     height: 30px;
     width: 40px;
     position: relative;
     top: -305px;
     left: 272px;
+    font-family: "YanoneKaffeesatz-Regular";
+    font-size: 18px;
+}
+
+.likesCounterThreeDigit{
+    height: 30px;
+    width: 40px;
+    position: relative;
+    top: -305px;
+    left: 269px;
     font-family: "YanoneKaffeesatz-Regular";
     font-size: 18px;
 }
