@@ -37,7 +37,7 @@ export const AnotherProfile = () => {
     let profimg = userHandler[1];
     const [ans, setAns] = useState([]);
     const[likesAmount,setLikesAmount] = useState(0);
-
+    var conversationHandler = [];
 
 
     const query = async () => {
@@ -95,7 +95,13 @@ export const AnotherProfile = () => {
             <Stack spacing={2} direction="row">
                 <Button className="lostBtnAn" variant="outlined"  data-bs-dismiss="modal" onClick={areaHandler}>Lost</Button>
                 <Button className="searchedBtnAn" variant="outlined"  data-bs-dismiss="modal" onClick={searchHandler}>Searched</Button>
-                <Button className="mailBtn" variant="contained" startIcon={<MailIcon/>}>Send message</Button>
+                <Button className="mailBtn" variant="contained" startIcon={<MailIcon/>} onClick={() => {
+                    sessionStorage.setItem("conversationId",1);
+                    conversationHandler.push(login);
+                    conversationHandler.push(profimg);
+                    localStorage.setItem("conversationHandler", JSON.stringify(conversationHandler));
+                    window.location.assign('http://localhost:3000/messenger');
+                }}>Send message</Button>
             </Stack>
                 <img src={catPaw}
                      height="33"
