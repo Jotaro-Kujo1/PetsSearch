@@ -25,7 +25,11 @@ export const PostRenderer = (props) => {
                         userHandler.push(post['login']);
                         userHandler.push(post['profimg']);
                         localStorage.setItem("userHandler", JSON.stringify(userHandler));
-                        window.location.assign('http://localhost:3000/another');
+                        if(post['login'] === localStorage.getItem("login")){
+                            window.location.assign('http://localhost:3000/profile');
+                        } else{
+                            window.location.assign('http://localhost:3000/another');
+                        }
                     }}
                     alt="userImg"
                 />
