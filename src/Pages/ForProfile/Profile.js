@@ -11,6 +11,7 @@ import {LostRender} from "./LostRender";
 import {useState} from "react";
 import {SearchedRender} from "./SearchedRender";
 import catPaw from "../../resources/petPaw.png";
+import {InputComment} from "./InputComment";
 
 
 const areaHandler = () => {
@@ -126,6 +127,18 @@ export const Profile = () =>{
                 <div className={likesAmount < 10 ? "likesCounterOneDigit" : likesAmount>=10 && likesAmount<100 ? "likesCounterTwoDigit" : "likesCounterThreeDigit"}>{likesAmount}</div>
                 <div id="posts">
                     <LostRender data={ans}/>
+                </div>
+                <div className="commentBoxWrapper">
+                    <div className="commentBoxTop">
+                        <img
+                            src={def}
+                            height="50"
+                            width="50"
+                            className="rounded-circle z-depth-0, myCommentPic"
+                            alt="userImg"
+                        />
+                        <p className="commentText">Если указать text-align: center для встроенного элемента [занимаемого только ширину содержимого], то ничего не произойдёт, поскольку тег не может себя двигать:</p>
+                    </div>
                 </div>
 
                 <div id="search">

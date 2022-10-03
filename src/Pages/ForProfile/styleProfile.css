@@ -153,6 +153,59 @@
 }
 
 
+.commentBoxWrapper {
+    height: 500px;
+    width: 800px;
+    left: 200px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+}
+
+.commentBoxTop {
+    height: 100%;
+    overflow-y: scroll;
+    padding-right: 10px;
+}
+
+.commentBoxBottom{
+    position: relative;
+    top: 50px;
+
+}
+
+.myCommentPic{
+    border: 1px solid black;
+    position: relative;
+    right: 360px;
+}
+
+.commentInput{
+    width: 80%;
+    height: 90px;
+    padding: 10px;
+    position: relative;
+    right: 45px;
+}
+
+.sendCommentButton{
+    position: relative;
+    top: -40px;
+    left: 10px;
+}
+
+.commentText{
+    font-family: "YanoneKaffeesatz-Regular";
+    font-size: 18px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    position: relative;
+    text-align: left;
+}
+
 
 
 

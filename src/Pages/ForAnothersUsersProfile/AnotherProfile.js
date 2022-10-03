@@ -6,6 +6,8 @@ import MailIcon from "@mui/icons-material/Mail";
 import {AnotherLostRender} from "./AnotherLostRender";
 import {AnotherSearchRender} from "./AnotherSearchRender";
 import catPaw from '../../resources/petPaw.png';
+import def from "../../resources/def.png";
+import {InputComment} from "../ForProfile/InputComment";
 
 const areaHandler = () => {
 document.getElementById("search").style.display = "none";
@@ -118,6 +120,21 @@ export const AnotherProfile = () => {
 
             <div id="search">
                 <AnotherSearchRender data={ans}/>
+            </div>
+            <div className="commentBoxWrapper">
+                <div className="commentBoxTop">
+                    <img
+                        src={def}
+                        height="50"
+                        width="50"
+                        className="rounded-circle z-depth-0, myCommentPic"
+                        alt="userImg"
+                    />
+                    <p className="commentText">Если указать text-align: center для встроенного элемента [занимаемого только ширину содержимого], то ничего не произойдёт, поскольку тег не может себя двигать:</p>
+                </div>
+                <div className="commentBoxBottom">
+                    <InputComment/>
+                </div>
             </div>
         </>
     )
