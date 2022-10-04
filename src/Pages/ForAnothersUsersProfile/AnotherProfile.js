@@ -8,6 +8,8 @@ import {AnotherSearchRender} from "./AnotherSearchRender";
 import catPaw from '../../resources/petPaw.png';
 import def from "../../resources/def.png";
 import {InputComment} from "../ForProfile/InputComment";
+import {ConversationRender} from "../ForChat/Conversations/ConversationRender";
+import {CommentRender} from "./CommentRender";
 
 const areaHandler = () => {
 document.getElementById("search").style.display = "none";
@@ -40,6 +42,8 @@ export const AnotherProfile = () => {
     const [ans, setAns] = useState([]);
     const[likesAmount,setLikesAmount] = useState(0);
     var conversationHandler = [];
+    const[comment,setComment] = useState([]);
+    const[text,setText] = useState("");
 
 
     const query = async () => {
@@ -71,10 +75,41 @@ export const AnotherProfile = () => {
         console.log(likesAmount);
     }
 
+    const queryToGetComments = async() => {
+        let res = await fetch("http://localhost:8080/comment/getComments?receiver_login=" + login);
+        setComment(await res.json());
+    }
+
+    const queryToCreateComment = (newText) => {
+        const id = "";
+        var receiver_login = login;
+        var sender_login = localStorage.getItem("login");
+        var profimg = localStorage.getItem("picId");
+        var text = newText;
+        const comments = [{id,sender_login,profimg,text}];
+        const receiver = {id,receiver_login,comments};
+        console.log(receiver);
+        fetch("http://localhost:8080/comment/createComment",{
+            method:"POST",
+            headers:{"Content-Type":"application/json"},
+            body:JSON.stringify(receiver)
+        })
+            .then((response)=>{
+                console.log("Status is" + response.status);
+                queryToGetComments();
+            })
+    }
+
     useEffect(()=>{
         query();
         queryToGetLikesAmount();
+        queryToGetComments();
     },[]);
+
+    const onUpdateText = (newText) => {
+        console.log(newText);
+        queryToCreateComment(newText);
+    }
 
 
 
@@ -123,17 +158,10 @@ export const AnotherProfile = () => {
             </div>
             <div className="commentBoxWrapper">
                 <div className="commentBoxTop">
-                    <img
-                        src={def}
-                        height="50"
-                        width="50"
-                        className="rounded-circle z-depth-0, myCommentPic"
-                        alt="userImg"
-                    />
-                    <p className="commentText">Если указать text-align: center для встроенного элемента [занимаемого только ширину содержимого], то ничего не произойдёт, поскольку тег не может себя двигать:</p>
+                     <CommentRender data={comment}/>
                 </div>
                 <div className="commentBoxBottom">
-                    <InputComment/>
+                    <InputComment onUpdateText={onUpdateText}/>
                 </div>
             </div>
         </>

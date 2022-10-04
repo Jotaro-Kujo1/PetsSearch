@@ -1,7 +1,7 @@
 import Button from "@mui/material/Button";
 import React, {useState} from "react";
 
-export const InputComment = ({onSendMessage}) => {
+export const InputComment = ({onUpdateText}) => {
     const [text, setText] = useState("");
 
     let onChange = (e) => {
@@ -10,9 +10,11 @@ export const InputComment = ({onSendMessage}) => {
 
     let onSubmit = () => {
         console.log(text);
-        onSendMessage(text);
+        onUpdateText(text);
         setText("");
     }
+
+
 
     return(
         <>

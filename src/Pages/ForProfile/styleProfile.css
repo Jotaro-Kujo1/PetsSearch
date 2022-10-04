@@ -179,7 +179,7 @@
 .myCommentPic{
     border: 1px solid black;
     position: relative;
-    right: 360px;
+    right: 362px;
 }
 
 .commentInput{
@@ -205,6 +205,15 @@
     position: relative;
     text-align: left;
 }
+
+.commentatorLogin{
+    font-family: "YanoneKaffeesatz-Regular";
+    font-size: 20px;
+    position: relative;
+    text-align: left;
+}
+
+
 
 
 
