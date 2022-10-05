@@ -12,6 +12,7 @@ import {useState} from "react";
 import {SearchedRender} from "./SearchedRender";
 import catPaw from "../../resources/petPaw.png";
 import {InputComment} from "./InputComment";
+import {CommentRender} from "../ForAnothersUsersProfile/CommentRender";
 
 
 const areaHandler = () => {
@@ -42,7 +43,7 @@ const searchHandler = () => {
 export const Profile = () =>{
     const [ans, setAns] = useState([]);
     const[likesAmount,setLikesAmount] = useState(0);
-
+    const[comment,setComment] = useState([]);
 
     const query = async () => {
         let res = await fetch("http://localhost:8080/posts/getAllUsersPosts/" + localStorage.getItem('login'));
@@ -59,9 +60,15 @@ export const Profile = () =>{
         console.log(likesAmount);
     }
 
+    const queryToGetComments = async() => {
+        let res = await fetch("http://localhost:8080/comment/getComments?receiver_login=" + localStorage.getItem('login'));
+        setComment(await res.json());
+    }
+
     useEffect(()=>{
         query();
         queryToGetLikesAmount();
+        queryToGetComments();
     },[]);
 
 
@@ -130,17 +137,9 @@ export const Profile = () =>{
                 </div>
                 <div className="commentBoxWrapper">
                     <div className="commentBoxTop">
-                        <img
-                            src={def}
-                            height="50"
-                            width="50"
-                            className="rounded-circle z-depth-0, myCommentPic"
-                            alt="userImg"
-                        />
-                        <p className="commentText">Если указать text-align: center для встроенного элемента [занимаемого только ширину содержимого], то ничего не произойдёт, поскольку тег не может себя двигать:</p>
+                        <CommentRender data={comment}/>
                     </div>
                 </div>
-
                 <div id="search">
                     <SearchedRender data={ans}/>
                 </div>

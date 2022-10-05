@@ -182,6 +182,10 @@
     right: 362px;
 }
 
+.myCommentPic:hover{
+    opacity: .2;
+}
+
 .commentInput{
     width: 80%;
     height: 90px;
@@ -200,8 +204,8 @@
     font-family: "YanoneKaffeesatz-Regular";
     font-size: 18px;
     display: flex;
+    margin-top: 10px;
     flex-direction: column;
-    margin-top: 20px;
     position: relative;
     text-align: left;
 }
@@ -210,7 +214,13 @@
     font-family: "YanoneKaffeesatz-Regular";
     font-size: 20px;
     position: relative;
-    text-align: left;
+    top: -35px;
+    left: 55px;
+}
+
+.commentatorLoginBox{
+    height: 5px;
+    width: 50px;
 }
 
 
