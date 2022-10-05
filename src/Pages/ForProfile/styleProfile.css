@@ -214,13 +214,27 @@
     font-family: "YanoneKaffeesatz-Regular";
     font-size: 20px;
     position: relative;
-    top: -35px;
-    left: 55px;
+
 }
 
 .commentatorLoginBox{
-    height: 5px;
-    width: 50px;
+    height: 25px;
+    width: 10px;
+    position: relative;
+    top: -35px;
+    left: 60px;
+}
+
+.commentDate{
+    font-family: "YanoneKaffeesatz-Regular";
+    font-size: 16px;
+    position: relative;
+    text-align: left;
+}
+
+.oneCommentBox{
+    position: relative;
+    margin-bottom: 50px;
 }
 
 

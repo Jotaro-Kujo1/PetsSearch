@@ -7,6 +7,7 @@ export const Comment = (props) => {
 
     return(
         <>
+            <div className="oneCommentBox">
         <img
             src={data["profimg"]}
             height="50"
@@ -27,7 +28,9 @@ export const Comment = (props) => {
             <div className="commentatorLoginBox">
                 <h3 className="commentatorLogin">{data["sender_login"]}</h3>
             </div>
-    <p className="commentText">{data["text"]}</p>
+            <p className="commentText">{data["text"]}</p>
+            <p className="commentDate">{data["date"]}</p>
+            </div>
     </>
     )
 }
