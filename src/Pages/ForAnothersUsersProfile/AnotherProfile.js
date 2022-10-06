@@ -12,23 +12,26 @@ import {ConversationRender} from "../ForChat/Conversations/ConversationRender";
 import {CommentRender} from "./CommentRender";
 
 const areaHandler = () => {
-document.getElementById("search").style.display = "none";
-if(document.getElementById("posts").style.display === "none"){
-    document.getElementById("posts").style.display = "block";
-} else if(document.getElementById("posts").style.display === "block") {
-    document.getElementById("posts").style.display = "none";
-} else{
-    document.getElementById("posts").style.display = "block";
-}
-
+    document.getElementById("search").style.display = "none";
+    document.getElementById("comments").style.display = "none";
+    if(document.getElementById("posts").style.display === "none"){
+        document.getElementById("posts").style.display = "block";
+    } else if(document.getElementById("posts").style.display === "block") {
+        document.getElementById("posts").style.display = "none";
+        document.getElementById("comments").style.display = "block";
+    } else{
+        document.getElementById("posts").style.display = "block";
+    }
 }
 
 const searchHandler = () => {
     document.getElementById("posts").style.display = "none";
+    document.getElementById("comments").style.display = "none";
     if(document.getElementById("search").style.display === "none"){
         document.getElementById("search").style.display = "block";
     } else if(document.getElementById("search").style.display === "block"){
         document.getElementById("search").style.display = "none";
+        document.getElementById("comments").style.display = "block";
     } else{
         document.getElementById("search").style.display = "block";
     }
@@ -156,6 +159,7 @@ export const AnotherProfile = () => {
             <div id="search">
                 <AnotherSearchRender data={ans}/>
             </div>
+            <div id = "comments">
             <div className="commentBoxWrapper">
                 <div className="commentBoxTop">
                      <CommentRender data={comment}/>
@@ -163,6 +167,7 @@ export const AnotherProfile = () => {
                 <div className="commentBoxBottom">
                     <InputComment onUpdateText={onUpdateText}/>
                 </div>
+            </div>
             </div>
         </>
     )
