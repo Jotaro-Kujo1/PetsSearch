@@ -176,6 +176,14 @@
 
 }
 
+.activity{
+    position: relative;
+    height: 500px;
+    width: 800px;
+    left: 1000px;
+    top: -500px;
+}
+
 .myCommentPic{
     border: 1px solid black;
     position: relative;

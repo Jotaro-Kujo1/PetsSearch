@@ -13,26 +13,30 @@ import {SearchedRender} from "./SearchedRender";
 import catPaw from "../../resources/petPaw.png";
 import {InputComment} from "./InputComment";
 import {CommentRender} from "../ForAnothersUsersProfile/CommentRender";
+import {ActivityRender} from "../Activity/ActivityRender";
 
 
 const areaHandler = () => {
     document.getElementById("search").style.display = "none";
+    document.getElementById("comments").style.display = "none";
     if(document.getElementById("posts").style.display === "none"){
         document.getElementById("posts").style.display = "block";
     } else if(document.getElementById("posts").style.display === "block") {
         document.getElementById("posts").style.display = "none";
+        document.getElementById("comments").style.display = "block";
     } else{
         document.getElementById("posts").style.display = "block";
     }
-
 }
 
 const searchHandler = () => {
     document.getElementById("posts").style.display = "none";
+    document.getElementById("comments").style.display = "none";
     if(document.getElementById("search").style.display === "none"){
         document.getElementById("search").style.display = "block";
     } else if(document.getElementById("search").style.display === "block"){
         document.getElementById("search").style.display = "none";
+        document.getElementById("comments").style.display = "block";
     } else{
         document.getElementById("search").style.display = "block";
     }
@@ -44,6 +48,7 @@ export const Profile = () =>{
     const [ans, setAns] = useState([]);
     const[likesAmount,setLikesAmount] = useState(0);
     const[comment,setComment] = useState([]);
+    const[activity,setActivity] = useState([]);
 
     const query = async () => {
         let res = await fetch("http://localhost:8080/posts/getAllUsersPosts/" + localStorage.getItem('login'));
@@ -65,10 +70,16 @@ export const Profile = () =>{
         setComment(await res.json());
     }
 
+    const queryToGetActivity = async() => {
+        let res = await fetch("http://localhost:8080/activity/getActivities?login=" + localStorage.getItem("login"));
+        setActivity(await res.json());
+    }
+
     useEffect(()=>{
         query();
         queryToGetLikesAmount();
         queryToGetComments();
+        queryToGetActivity();
     },[]);
 
 
@@ -135,9 +146,14 @@ export const Profile = () =>{
                 <div id="posts">
                     <LostRender data={ans}/>
                 </div>
+                <div id = "comments">
                 <div className="commentBoxWrapper">
                     <div className="commentBoxTop">
                         <CommentRender data={comment}/>
+                    </div>
+                </div>
+                    <div className="activity">
+                        <ActivityRender data={activity}/>
                     </div>
                 </div>
                 <div id="search">

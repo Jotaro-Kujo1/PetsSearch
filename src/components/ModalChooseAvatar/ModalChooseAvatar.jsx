@@ -48,6 +48,7 @@ export const ModalChooseAvatar = (props) => {
         localStorage.setItem('picId',tmp);
     }
 
+
     const updatePicture = () => {
         let login = localStorage.getItem('login');
         let profimg = localStorage.getItem('picId');
@@ -58,6 +59,8 @@ export const ModalChooseAvatar = (props) => {
             console.log(response.status);
         })
     }
+
+
 
     const backdropClasses = closing ? 'backdrop backdrop-hide' : 'backdrop';
 

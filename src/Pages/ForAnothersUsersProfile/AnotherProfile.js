@@ -168,6 +168,7 @@ export const AnotherProfile = () => {
                     <InputComment onUpdateText={onUpdateText}/>
                 </div>
             </div>
+
             </div>
         </>
     )

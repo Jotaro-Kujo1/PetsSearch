@@ -4,7 +4,7 @@ import {PhotoCamera} from "@mui/icons-material";
 import Button from "@mui/material/Button";
 import SendIcon from '@mui/icons-material/Send';
 import React, {useEffect, useState} from "react";
-
+import activityimg from "../../resources/activity1.png";
 
 
 
@@ -30,6 +30,22 @@ export const Post = () => {
     },[selectedImage]);
 
 
+    const queryToCreatePostActivity = () => {
+        const id = "";
+        const login = localStorage.getItem("login");
+        const activity_name = "разместил пост о пропаже";
+        const date = "";
+        const activities = [{id,activity_name,date,activityimg}];
+        const newActivity = {id,login,activities};
+        fetch("http://localhost:8080/activity/createActivity",{
+            method: "POST",
+            headers:{"Content-Type":"application/json"},
+            body:JSON.stringify(newActivity)
+        })
+            .then((response)=>{
+                console.log("Status is" + response.status);
+            })
+    }
 
     const byteConverter = () => {
         let file = new FormData();
@@ -76,6 +92,7 @@ export const Post = () => {
             }
         ).then((response) => {
             console.log(response.status);
+            queryToCreatePostActivity();
             if(response.status >= 200 && response.status < 300){
                 window.location.assign('http://localhost:3000/Profile');
             }

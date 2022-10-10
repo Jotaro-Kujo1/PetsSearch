@@ -1,0 +1,25 @@
+
+.activityPic{
+    position: relative;
+
+}
+
+.activityText{
+    font-family: "YanoneKaffeesatz-Regular";
+    font-size: 28px;
+    display: flex;
+    margin-top: 10px;
+    flex-direction: column;
+    position: relative;
+    text-align: left;
+    left: 150px;
+    top: -53px;
+}
+
+.activityDate{
+    font-family: "YanoneKaffeesatz-Regular";
+    font-size: 16px;
+    position: relative;
+    left: 25px;
+    top: -50px;
+}
