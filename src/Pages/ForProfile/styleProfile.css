@@ -252,6 +252,48 @@
     top: -7px;
 }
 
+.activityComment{
+    position: relative;
+    margin-right: 30px;
+    margin-left: 30px;
+}
+
+.activityLike{
+    position: relative;
+    margin-right: 30px;
+
+}
+
+.activityPost{
+    position: relative;
+    margin-right: 30px;
+
+}
+
+.activityNumbers{
+    font-family: "YanoneKaffeesatz-Regular";
+    position: relative;
+    right: 460px;
+    top: 50px;
+    width: 200px;
+}
+
+.numbersComment{
+    position: relative;
+    margin-right: 40px;
+}
+
+.numbersLike{
+    position: relative;
+    margin-right: 40px;
+    width: 57px;
+}
+
+.numbersPost{
+    position: relative;
+    margin-right: 50px;
+}
+
 .commentsName{
     font-family: "YanoneKaffeesatz-Regular";
     position: relative;

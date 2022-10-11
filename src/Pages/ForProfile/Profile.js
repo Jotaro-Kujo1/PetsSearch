@@ -18,7 +18,9 @@ import activity2 from '../../resources/activity2.png';
 import activity3 from '../../resources/activity3.png';
 import activity4 from '../../resources/activity4.png';
 import activity5 from '../../resources/activity5.png';
-
+import activityComment from '../../resources/activityComment.png';
+import activityLike from '../../resources/activityLike.png';
+import activityPost from '../../resources/activityPost.png';
 
 const areaHandler = () => {
     document.getElementById("search").style.display = "none";
@@ -130,7 +132,7 @@ export const Profile = () =>{
 
                     <div className="login" ><h3>{localStorage.getItem('login')}</h3></div>
                 </div>
-                <Stack spacing={4} direction="row">
+                <Stack spacing={5} direction="row">
                 <div className="btnChooseAvatar">
                 <ModalContextProviderChooseAvatar>
                     <ControlsChooseAvatar/>
@@ -144,26 +146,33 @@ export const Profile = () =>{
                     </div>
                     <div className="activityStack">
                         <img
-                            src={activity5}
+                            src={activityComment}
                             height="50"
-                            width="90"
-                            className="activityHeart"
+                            width="50"
+                            className="activityComment"
                             alt="userImg"
                         />
                         <img
-                            src={activity2}
+                            src={activityLike}
                             height="50"
-                            width="90"
-                            className="activityDog"
+                            width="50"
+                            className="activityLike"
                             alt="userImg"
                         />
                         <img
-                            src={activity3}
+                            src={activityPost}
                             height="50"
-                            width="90"
-                            className="activityAny"
+                            width="50"
+                            className="activityPost"
                             alt="userImg"
                         />
+                    </div>
+                    <div className="activityNumbers">
+                        <Stack spacing={3} direction="row">
+                        <div className="numbersComment">11</div>
+                        <div className="numbersLike">13</div>
+                        <div className="numbersPost">15</div>
+                        </Stack>
                     </div>
                 </Stack>
                 <img src={catPaw}
