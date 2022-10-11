@@ -14,6 +14,10 @@ import catPaw from "../../resources/petPaw.png";
 import {InputComment} from "./InputComment";
 import {CommentRender} from "../ForAnothersUsersProfile/CommentRender";
 import {ActivityRender} from "../Activity/ActivityRender";
+import activity2 from '../../resources/activity2.png';
+import activity3 from '../../resources/activity3.png';
+import activity4 from '../../resources/activity4.png';
+import activity5 from '../../resources/activity5.png';
 
 
 const areaHandler = () => {
@@ -95,6 +99,7 @@ export const Profile = () =>{
                     alt="userImg"
                 />
                 </div>
+
                 <Stack spacing={3} direction="row">
                     <div className="btnChooseAvatar">
                         <ModalContextProviderChooseAvatar>
@@ -122,9 +127,10 @@ export const Profile = () =>{
                     className="rounded-circle z-depth-0, myProfPic"
                     alt="userImg"
                 />
+
                     <div className="login" ><h3>{localStorage.getItem('login')}</h3></div>
                 </div>
-                <Stack spacing={3} direction="row">
+                <Stack spacing={4} direction="row">
                 <div className="btnChooseAvatar">
                 <ModalContextProviderChooseAvatar>
                     <ControlsChooseAvatar/>
@@ -136,6 +142,29 @@ export const Profile = () =>{
                     <div className="searchedBtn">
                     <Button className="btnChooseAvatar" variant="outlined" data-bs-dismiss="modal" onClick={searchHandler}>Searched</Button>
                     </div>
+                    <div className="activityStack">
+                        <img
+                            src={activity5}
+                            height="50"
+                            width="90"
+                            className="activityHeart"
+                            alt="userImg"
+                        />
+                        <img
+                            src={activity2}
+                            height="50"
+                            width="90"
+                            className="activityDog"
+                            alt="userImg"
+                        />
+                        <img
+                            src={activity3}
+                            height="50"
+                            width="90"
+                            className="activityAny"
+                            alt="userImg"
+                        />
+                    </div>
                 </Stack>
                 <img src={catPaw}
                      height="33"
@@ -143,6 +172,7 @@ export const Profile = () =>{
                      className="myCatPawPic"
                      alt=""/>
                 <div className={likesAmount < 10 ? "likesCounterOneDigit" : likesAmount>=10 && likesAmount<100 ? "likesCounterTwoDigit" : "likesCounterThreeDigit"}>{likesAmount}</div>
+                <h2 className="commentsName">Comments</h2>
                 <div id="posts">
                     <LostRender data={ans}/>
                 </div>
@@ -153,7 +183,7 @@ export const Profile = () =>{
                     </div>
                 </div>
                     <div className="activity">
-                        <ActivityRender data={activity}/>
+
                     </div>
                 </div>
                 <div id="search">

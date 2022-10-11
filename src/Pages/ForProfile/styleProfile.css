@@ -15,6 +15,7 @@
 
 
 
+
 .textArea {
     position: relative;
     left: 0px;
@@ -138,7 +139,7 @@
 
 .myCatPawPic{
     position: relative;
-    top: -255px;
+    top: -267px;
     left: 245px;
 }
 
@@ -243,6 +244,19 @@
 .oneCommentBox{
     position: relative;
     margin-bottom: 50px;
+}
+
+.activityStack{
+    position: relative;
+    right: 200px;
+    top: -7px;
+}
+
+.commentsName{
+    font-family: "YanoneKaffeesatz-Regular";
+    position: relative;
+    left: 200px;
+    top: -25px;
 }
 
 

@@ -10,8 +10,8 @@ export const Activity = (props) => {
             <div className="oneActivityBox">
             <img
                 src={data["activityimg"]}
-                height="100"
-                width="150"
+                height="70"
+                width="70"
                 className="rounded-circle z-depth-0, activityPic"
                 alt="userImg"
             />
