@@ -16,6 +16,21 @@ export default function User () {
         window.location.reload();
     }
 
+    const queryToCreateActivity = () => {
+        const id = "";
+        const comment_activity = 0;
+        const like_activity = 0;
+        const post_activity = 0;
+        const newActivity = {id,comment_activity,like_activity,post_activity,login}
+        fetch("http://localhost:8080/activity/createActivity",{
+            method:"POST",
+            headers:{"Content-Type":"application/json"},
+            body:JSON.stringify(newActivity)
+        }).then((response)=>{
+            console.log(response.status);
+        })
+    }
+
     const handleClick = () => {
         const newUser = {login,password};
         console.log(newUser);
@@ -27,6 +42,7 @@ export default function User () {
         }
     ).then((response) => {
         console.log(response.status);
+        queryToCreateActivity();
         setState(response.status);
         sessionStorage.setItem('state',response.status);
         if(response.status >= 200 && response.status < 300) window.location.href = "Profile";
