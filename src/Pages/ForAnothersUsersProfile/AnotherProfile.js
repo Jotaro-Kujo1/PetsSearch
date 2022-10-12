@@ -69,6 +69,7 @@ export const AnotherProfile = () => {
             .then((response) => {
                     console.log("Status is" + response.status);
                     queryToGetLikesAmount();
+                    queryToUpdateLikeActivity();
                 }
             )
     }
@@ -94,6 +95,17 @@ export const AnotherProfile = () => {
     const queryToUpdateCommentActivity = () => {
         activity["comment_activity"]++;
         fetch("http://localhost:8080/activity/updateComments",{
+            method:"POST",
+            headers:{"Content-Type":"application/json"},
+            body:JSON.stringify(activity)
+        }).then((response)=>{
+            console.log(response.status);
+        })
+    }
+
+    const queryToUpdateLikeActivity = () => {
+        activity["like_activity"]++;
+        fetch("http://localhost:8080/activity/updateLikes",{
             method:"POST",
             headers:{"Content-Type":"application/json"},
             body:JSON.stringify(activity)
