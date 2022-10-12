@@ -56,6 +56,7 @@ export const Profile = () =>{
     const[comment,setComment] = useState([]);
     const[activity,setActivity] = useState([]);
 
+
     const query = async () => {
         let res = await fetch("http://localhost:8080/posts/getAllUsersPosts/" + localStorage.getItem('login'));
         const data = await res.json();
@@ -63,7 +64,12 @@ export const Profile = () =>{
         //localStorage.setItem("postsByUser", JSON.stringify(data));
     }
 
-
+    const queryToGetActivity = async() => {
+        let res = await fetch("http://localhost:8080/activity/getActivity?login=" + localStorage.getItem("login"));
+        setActivity(await res.json());
+        console.log(activity);
+        console.log(res.json());
+    }
 
     const queryToGetLikesAmount = async() => {
         let res = await fetch("http://localhost:8080/raiting/getLikesAmount?login=" + localStorage.getItem('login'));
@@ -76,10 +82,7 @@ export const Profile = () =>{
         setComment(await res.json());
     }
 
-    const queryToGetActivity = async() => {
-        let res = await fetch("http://localhost:8080/activity/getActivities?login=" + localStorage.getItem("login"));
-        setActivity(await res.json());
-    }
+
 
     useEffect(()=>{
         query();
@@ -169,9 +172,9 @@ export const Profile = () =>{
                     </div>
                     <div className="activityNumbers">
                         <Stack spacing={3} direction="row">
-                        <div className="numbersComment">11</div>
-                        <div className="numbersLike">13</div>
-                        <div className="numbersPost">15</div>
+                        <div className="numbersComment">{activity["comment_activity"]}</div>
+                        <div className="numbersLike">{activity["like_activity"]}</div>
+                        <div className="numbersPost">{activity["post_activity"]}</div>
                         </Stack>
                     </div>
                 </Stack>
