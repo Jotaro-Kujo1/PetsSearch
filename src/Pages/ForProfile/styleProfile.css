@@ -301,6 +301,50 @@
     top: -25px;
 }
 
+.numbersCommentOneDigit{
+    position: relative;
+    left: 3px;
+}
+
+.numbersCommentTwoDigit{
+
+}
+
+.numbersCommentThreeDigit{
+    position: relative;
+    right: 3px;
+}
+
+.numbersLikeOneDigit{
+    position: relative;
+    left: 37px;
+}
+
+.numbersLikeTwoDigit{
+    position: relative;
+    left: 34px;
+}
+
+.numbersLikeThreeDigit{
+    position: relative;
+    left: 31px;
+}
+
+.numbersPostOneDigit{
+    position: relative;
+    left: 73px;
+}
+
+.numbersPostTwoDigit{
+    position: relative;
+    left: 71px;
+}
+
+.numbersPostThreeDigit{
+    position: relative;
+    left: 67px;
+}
+
 
 
 

@@ -56,7 +56,7 @@
 
 .catPawPic{
     position: relative;
-    top: -255px;
+    top: -267px;
     left: 245px;
 }
 .catPawPic:hover{
@@ -92,4 +92,62 @@
     font-family: "YanoneKaffeesatz-Regular";
     font-size: 18px;
 }
+
+.activityStackAnother{
+    position: relative;
+    left: 200px;
+    top: -7px;
+}
+
+.activityNumbersAnother{
+    position: relative;
+    right: 55px;
+    top: 50px;
+}
+
+.numbersCommentAnotherOneDigit{
+    position: relative;
+    right: 5px;
+}
+
+.numbersCommentAnotherTwoDigit{
+    position: relative;
+    right: 10px;
+}
+
+.numbersCommentAnotherThreeDigit{
+    position: relative;
+    right: 10px;
+}
+
+.numbersLikeAnotherOneDigit{
+    position: relative;
+    left: 26px;
+}
+
+.numbersLikeAnotherTwoDigit{
+    position: relative;
+    left: 22px;
+}
+
+.numbersLikeAnotherThreeDigit{
+    position: relative;
+    left: 17px;
+}
+.numbersPostAnotherOneDigit{
+    position: relative;
+    left: 57px;
+}
+
+.numbersPostAnotherTwoDigit{
+    position: relative;
+    left: 52px;
+}
+
+.numbersPostAnotherThreeDigit{
+    position: relative;
+    left: 47px;
+}
+
+
 

@@ -172,9 +172,9 @@ export const Profile = () =>{
                     </div>
                     <div className="activityNumbers">
                         <Stack spacing={3} direction="row">
-                        <div className="numbersComment">{activity["comment_activity"]}</div>
-                        <div className="numbersLike">{activity["like_activity"]}</div>
-                        <div className="numbersPost">{activity["post_activity"]}</div>
+                        <div className={activity["comment_activity"] < 10 ? "numbersCommentOneDigit" : activity["comment_activity"] >= 10 && activity["comment_activity"] < 100 ? "numbersCommentTwoDigit" : "numbersCommentThreeDigit"}>{activity["comment_activity"]}</div>
+                        <div className={activity["like_activity"] < 10 ? "numbersLikeOneDigit" : activity["like_activity"] >= 10 && activity["like_activity"] < 100 ? "numbersLikeTwoDigit" : "numbersLikeThreeDigit"}>{activity["like_activity"]}</div>
+                        <div className={activity["post_activity"] < 10 ? "numbersPostOneDigit" : activity["post_activity"] >= 10 && activity["post_activity"] < 100 ? "numbersPostTwoDigit" : "numbersPostThreeDigit"}>{activity["post_activity"]}</div>
                         </Stack>
                     </div>
                 </Stack>

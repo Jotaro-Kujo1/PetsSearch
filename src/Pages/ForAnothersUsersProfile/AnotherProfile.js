@@ -10,6 +10,9 @@ import def from "../../resources/def.png";
 import {InputComment} from "../ForProfile/InputComment";
 import {ConversationRender} from "../ForChat/Conversations/ConversationRender";
 import {CommentRender} from "./CommentRender";
+import activityComment from "../../resources/activityComment.png";
+import activityLike from "../../resources/activityLike.png";
+import activityPost from "../../resources/activityPost.png";
 
 const areaHandler = () => {
     document.getElementById("search").style.display = "none";
@@ -86,7 +89,7 @@ export const AnotherProfile = () => {
     }
 
     const queryToGetActivity = async() => {
-        let res = await fetch("http://localhost:8080/activity/getActivity?login=" + localStorage.getItem("login"));
+        let res = await fetch("http://localhost:8080/activity/getActivity?login=" + login);
         setActivity(await res.json());
         console.log(activity);
         console.log(res.json());
@@ -165,9 +168,14 @@ export const AnotherProfile = () => {
                     </div>
             </div>
 
-            <Stack spacing={2} direction="row">
+            <Stack spacing={5} direction="row">
+                <div className="lostBlock">
                 <Button className="lostBtnAn" variant="outlined"  data-bs-dismiss="modal" onClick={areaHandler}>Lost</Button>
+                </div>
+                <div className="searchedBlock">
                 <Button className="searchedBtnAn" variant="outlined"  data-bs-dismiss="modal" onClick={searchHandler}>Searched</Button>
+                </div>
+                <div className="mailBlock">
                 <Button className="mailBtn" variant="contained" startIcon={<MailIcon/>} onClick={() => {
                     sessionStorage.setItem("conversationId",1);
                     conversationHandler.push(login);
@@ -175,7 +183,39 @@ export const AnotherProfile = () => {
                     localStorage.setItem("conversationHandler", JSON.stringify(conversationHandler));
                     window.location.assign('http://localhost:3000/messenger');
                 }}>Send message</Button>
+                </div>
+                <div className="activityStackAnother">
+                    <img
+                        src={activityComment}
+                        height="50"
+                        width="50"
+                        className="activityComment"
+                        alt="userImg"
+                    />
+                    <img
+                        src={activityLike}
+                        height="50"
+                        width="50"
+                        className="activityLike"
+                        alt="userImg"
+                    />
+                    <img
+                        src={activityPost}
+                        height="50"
+                        width="50"
+                        className="activityPost"
+                        alt="userImg"
+                    />
+                </div>
+                <div className="activityNumbersAnother">
+                    <Stack spacing={3} direction="row">
+                        <div className={activity["comment_activity"] < 10 ? "numbersCommentAnotherOneDigit" : activity["comment_activity"] >= 10 && activity["comment_activity"] < 100 ? "numbersCommentAnotherTwoDigit" : "numbersCommentAnotherThreeDigit"}>{activity["comment_activity"]}</div>
+                        <div className={activity["like_activity"] < 10 ? "numbersLikeAnotherOneDigit" : activity["like_activity"] >= 10 && activity["like_activity"] < 100 ? "numbersLikeAnotherTwoDigit" : "numbersLikeAnotherThreeDigit"}>{activity["like_activity"]}</div>
+                        <div className={activity["post_activity"] < 10 ? "numbersPostAnotherOneDigit" : activity["post_activity"] >= 10 && activity["post_activity"] < 100 ? "numbersPostAnotherTwoDigit" : "numbersPostAnotherThreeDigit"}>{activity["post_activity"]}</div>
+                    </Stack>
+                </div>
             </Stack>
+
                 <img src={catPaw}
                      height="33"
                      width="70"
