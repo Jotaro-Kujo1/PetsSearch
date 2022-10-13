@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import {Stack} from "@mui/material";
+import {Stack, Tooltip} from "@mui/material";
 import Button from "@mui/material/Button";
 import './style.css';
 import MailIcon from "@mui/icons-material/Mail";
@@ -189,6 +189,7 @@ export const AnotherProfile = () => {
                 }}>Send message</Button>
                 </div>
                 <div className="activityStackAnother">
+                    <Tooltip title="Комментариев" placement="top">
                     <img
                         src={activityComment}
                         height="50"
@@ -196,6 +197,8 @@ export const AnotherProfile = () => {
                         className="activityComment"
                         alt="userImg"
                     />
+                    </Tooltip>
+                    <Tooltip title="Лайков" placement="top">
                     <img
                         src={activityLike}
                         height="50"
@@ -203,6 +206,8 @@ export const AnotherProfile = () => {
                         className="activityLike"
                         alt="userImg"
                     />
+                    </Tooltip>
+                    <Tooltip title="Постов" placement="top">
                     <img
                         src={activityPost}
                         height="50"
@@ -210,6 +215,7 @@ export const AnotherProfile = () => {
                         className="activityPost"
                         alt="userImg"
                     />
+                    </Tooltip>
                 </div>
                 <div className="activityNumbersAnother">
                     <Stack spacing={3} direction="row">

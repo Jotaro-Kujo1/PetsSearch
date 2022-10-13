@@ -3,7 +3,7 @@ import React from "react";
 import './styleProfile.css'
 import {ControlsChooseAvatar} from "../../components/Controls/ControlsChooseAvatar";
 import {ModalContextProviderChooseAvatar} from "../../contexts/ModalContext/ModalContextProviderChooseAvatar";
-import {IconButton, Stack, TextareaAutosize} from "@mui/material";
+import {IconButton, Stack, TextareaAutosize, Tooltip} from "@mui/material";
 import Button from "@mui/material/Button";
 import {Delete} from "@mui/icons-material";
 import {useEffect} from "react";
@@ -21,6 +21,7 @@ import activity5 from '../../resources/activity5.png';
 import activityComment from '../../resources/activityComment.png';
 import activityLike from '../../resources/activityLike.png';
 import activityPost from '../../resources/activityPost.png';
+
 
 const areaHandler = () => {
     document.getElementById("search").style.display = "none";
@@ -59,6 +60,7 @@ export const Profile = () =>{
     const[likesAmount,setLikesAmount] = useState(0);
     const[comment,setComment] = useState([]);
     const[activity,setActivity] = useState([]);
+
 
 
     const query = async () => {
@@ -136,7 +138,6 @@ export const Profile = () =>{
                     className="rounded-circle z-depth-0, myProfPic"
                     alt="userImg"
                 />
-
                     <div className="login" ><h3>{localStorage.getItem('login')}</h3></div>
                 </div>
                 <Stack spacing={5} direction="row">
@@ -152,6 +153,7 @@ export const Profile = () =>{
                     <Button className="btnChooseAvatar" variant="outlined" data-bs-dismiss="modal" onClick={searchHandler}>Searched</Button>
                     </div>
                     <div className="activityStack">
+                        <Tooltip title="Комментариев" placement="top">
                         <img
                             src={activityComment}
                             height="50"
@@ -159,6 +161,8 @@ export const Profile = () =>{
                             className="activityComment"
                             alt="userImg"
                         />
+                        </Tooltip>
+                        <Tooltip title="Лайков" placement="top">
                         <img
                             src={activityLike}
                             height="50"
@@ -166,6 +170,8 @@ export const Profile = () =>{
                             className="activityLike"
                             alt="userImg"
                         />
+                        </Tooltip>
+                        <Tooltip title="Постов" placement="top">
                         <img
                             src={activityPost}
                             height="50"
@@ -173,6 +179,7 @@ export const Profile = () =>{
                             className="activityPost"
                             alt="userImg"
                         />
+                        </Tooltip>
                     </div>
                     <div className="activityNumbers">
                         <Stack spacing={3} direction="row">
