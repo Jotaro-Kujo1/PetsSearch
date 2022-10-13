@@ -166,7 +166,7 @@
 
 .commentBoxWrapper {
     height: 500px;
-    width: 800px;
+    width: 680px;
     left: 200px;
     text-align: center;
     display: flex;
@@ -179,6 +179,21 @@
     height: 100%;
     overflow-y: scroll;
     padding-right: 10px;
+}
+
+.commentBoxTop::-webkit-scrollbar{
+    width: 10px;
+}
+
+.commentBoxTop::-webkit-scrollbar-track{
+    -webkit-box-shadow: 5px 5px 5px -5px rgba(34, 60, 80, 0.2) inset;
+    background-color: #f9f9fd;
+    border-radius: 10px;
+}
+
+.commentBoxTop::-webkit-scrollbar-thumb{
+    border-radius: 10px;
+    background: linear-gradient(180deg, #00c6fb, #005bea);
 }
 
 .commentBoxBottom{
@@ -198,7 +213,7 @@
 .myCommentPic{
     border: 1px solid black;
     position: relative;
-    right: 362px;
+    right: 305px;
 }
 
 .myCommentPic:hover{
@@ -327,32 +342,32 @@
 
 .numbersLikeOneDigit{
     position: relative;
-    left: 37px;
+    left: 51px;
 }
 
 .numbersLikeTwoDigit{
     position: relative;
-    left: 34px;
+    left: 41px;
 }
 
 .numbersLikeThreeDigit{
     position: relative;
-    left: 31px;
+    left: 32px;
 }
 
 .numbersPostOneDigit{
     position: relative;
-    left: 73px;
+    left: 101px;
 }
 
 .numbersPostTwoDigit{
     position: relative;
-    left: 71px;
+    left: 85px;
 }
 
 .numbersPostThreeDigit{
     position: relative;
-    left: 67px;
+    left: 68px;
 }
 
 

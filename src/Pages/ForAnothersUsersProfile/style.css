@@ -108,17 +108,17 @@
 .activityNumbersAnother{
     position: relative;
     right: 55px;
-    top: 50px;
+    top: 49px;
 }
 
 .numbersCommentAnotherOneDigit{
     position: relative;
-    right: 5px;
+    right: 3px;
 }
 
 .numbersCommentAnotherTwoDigit{
     position: relative;
-    right: 10px;
+    right: 5px;
 }
 
 .numbersCommentAnotherThreeDigit{
@@ -128,31 +128,31 @@
 
 .numbersLikeAnotherOneDigit{
     position: relative;
-    left: 26px;
+    left: 43px;
 }
 
 .numbersLikeAnotherTwoDigit{
     position: relative;
-    left: 22px;
+    left: 31px;
 }
 
 .numbersLikeAnotherThreeDigit{
     position: relative;
-    left: 17px;
+    left: 18px;
 }
 .numbersPostAnotherOneDigit{
     position: relative;
-    left: 57px;
+    left: 92px;
 }
 
 .numbersPostAnotherTwoDigit{
     position: relative;
-    left: 52px;
+    left: 70px;
 }
 
 .numbersPostAnotherThreeDigit{
     position: relative;
-    left: 47px;
+    left: 48px;
 }
 
 
