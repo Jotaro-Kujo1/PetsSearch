@@ -25,10 +25,12 @@ import activityPost from '../../resources/activityPost.png';
 const areaHandler = () => {
     document.getElementById("search").style.display = "none";
     document.getElementById("comments").style.display = "none";
+    document.getElementById("commentName").style.display = "none";
     if(document.getElementById("posts").style.display === "none"){
         document.getElementById("posts").style.display = "block";
     } else if(document.getElementById("posts").style.display === "block") {
         document.getElementById("posts").style.display = "none";
+        document.getElementById("commentName").style.display = "block";
         document.getElementById("comments").style.display = "block";
     } else{
         document.getElementById("posts").style.display = "block";
@@ -38,10 +40,12 @@ const areaHandler = () => {
 const searchHandler = () => {
     document.getElementById("posts").style.display = "none";
     document.getElementById("comments").style.display = "none";
+    document.getElementById("commentName").style.display = "none";
     if(document.getElementById("search").style.display === "none"){
         document.getElementById("search").style.display = "block";
     } else if(document.getElementById("search").style.display === "block"){
         document.getElementById("search").style.display = "none";
+        document.getElementById("commentName").style.display = "block";
         document.getElementById("comments").style.display = "block";
     } else{
         document.getElementById("search").style.display = "block";
@@ -184,7 +188,9 @@ export const Profile = () =>{
                      className="myCatPawPic"
                      alt=""/>
                 <div className={likesAmount < 10 ? "likesCounterOneDigit" : likesAmount>=10 && likesAmount<100 ? "likesCounterTwoDigit" : "likesCounterThreeDigit"}>{likesAmount}</div>
+                <div id="commentName">
                 <h2 className="commentsName">Comments</h2>
+                </div>
                 <div id="posts">
                     <LostRender data={ans}/>
                 </div>
@@ -194,9 +200,7 @@ export const Profile = () =>{
                         <CommentRender data={comment}/>
                     </div>
                 </div>
-                    <div className="activity">
 
-                    </div>
                 </div>
                 <div id="search">
                     <SearchedRender data={ans}/>

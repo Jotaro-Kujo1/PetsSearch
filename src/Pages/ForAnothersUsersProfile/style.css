@@ -47,6 +47,12 @@
 
 #comments{
     display: block;
+    font-family: "YanoneKaffeesatz-Regular";
+}
+
+#commentName{
+    display: block;
+    font-family: "YanoneKaffeesatz-Regular";
 }
 
 .textAreaAnother{
