@@ -1,26 +1,19 @@
 import def from '../../resources/def.png'
-import React from "react";
+import React, {useEffect, useState} from "react";
 import './styleProfile.css'
 import {ControlsChooseAvatar} from "../../components/Controls/ControlsChooseAvatar";
 import {ModalContextProviderChooseAvatar} from "../../contexts/ModalContext/ModalContextProviderChooseAvatar";
-import {IconButton, Stack, TextareaAutosize, Tooltip} from "@mui/material";
+import {IconButton, Stack, Tooltip} from "@mui/material";
 import Button from "@mui/material/Button";
-import {Delete} from "@mui/icons-material";
-import {useEffect} from "react";
 import {LostRender} from "./LostRender";
-import {useState} from "react";
 import {SearchedRender} from "./SearchedRender";
 import catPaw from "../../resources/petPaw.png";
-import {InputComment} from "./InputComment";
 import {CommentRender} from "../ForAnothersUsersProfile/CommentRender";
-import {ActivityRender} from "../Activity/ActivityRender";
-import activity2 from '../../resources/activity2.png';
-import activity3 from '../../resources/activity3.png';
-import activity4 from '../../resources/activity4.png';
-import activity5 from '../../resources/activity5.png';
 import activityComment from '../../resources/activityComment.png';
 import activityLike from '../../resources/activityLike.png';
 import activityPost from '../../resources/activityPost.png';
+import NotificationsIcon from '@mui/icons-material/Notifications';
+import {CSSTransition} from "react-transition-group";
 
 
 const areaHandler = () => {
@@ -60,7 +53,7 @@ export const Profile = () =>{
     const[likesAmount,setLikesAmount] = useState(0);
     const[comment,setComment] = useState([]);
     const[activity,setActivity] = useState([]);
-
+    const [show,setShow] = useState(false);
 
 
     const query = async () => {
@@ -138,7 +131,9 @@ export const Profile = () =>{
                     className="rounded-circle z-depth-0, myProfPic"
                     alt="userImg"
                 />
+
                     <div className="login" ><h3>{localStorage.getItem('login')}</h3></div>
+
                 </div>
                 <Stack spacing={5} direction="row">
                 <div className="btnChooseAvatar">
@@ -195,6 +190,7 @@ export const Profile = () =>{
                      className="myCatPawPic"
                      alt=""/>
                 <div className={likesAmount < 10 ? "likesCounterOneDigit" : likesAmount>=10 && likesAmount<100 ? "likesCounterTwoDigit" : "likesCounterThreeDigit"}>{likesAmount}</div>
+
                 <div id="commentName">
                 <h2 className="commentsName">Comments</h2>
                 </div>
@@ -207,7 +203,14 @@ export const Profile = () =>{
                         <CommentRender data={comment}/>
                     </div>
                 </div>
-
+                    <IconButton color="primary" aria-label="upload picture" component="label" className="notificationsProfile" onClick={() => setShow(!show)}>
+                        <NotificationsIcon/>
+                    </IconButton>
+                    <CSSTransition in={show} classNames='alert' timeout={300} unmountOnExit>
+                    <div className="usersActivity">
+                        <p>activity)))</p>
+                    </div>
+                    </CSSTransition>
                 </div>
                 <div id="search">
                     <SearchedRender data={ans}/>
