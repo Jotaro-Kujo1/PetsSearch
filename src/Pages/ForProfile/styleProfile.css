@@ -28,6 +28,10 @@
     top: -183px;
 }
 
+.myLost{
+    font-family: "YanoneKaffeesatz-Regular";
+}
+
 .login {
     width: 300px;
     position: relative;
@@ -93,6 +97,10 @@
     position: relative;
     right: 350px;
     top:35px;
+}
+
+.mySearched{
+    font-family: "YanoneKaffeesatz-Regular";
 }
 
 .dateSearched{
@@ -382,8 +390,8 @@
 }
 
 .notificationsProfile{
-    position: relative;
-    top: -900px;
+
+
 }
 
 .alert-enter {
@@ -405,6 +413,8 @@
     transform: scale(0.9);
     transition: opacity 300ms, transform 300ms;
 }
+
+
 
 
 

@@ -61,7 +61,7 @@ export const LostRender = (props) => {
     return (
         <>
             <div>
-                <h3 align="center">My Lost</h3>
+                <h3 align="center" className="myLost">My Lost</h3>
                 {elements}
             </div>
         </>

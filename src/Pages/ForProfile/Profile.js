@@ -16,35 +16,7 @@ import NotificationsIcon from '@mui/icons-material/Notifications';
 import {CSSTransition} from "react-transition-group";
 
 
-const areaHandler = () => {
-    document.getElementById("search").style.display = "none";
-    document.getElementById("comments").style.display = "none";
-    document.getElementById("commentName").style.display = "none";
-    if(document.getElementById("posts").style.display === "none"){
-        document.getElementById("posts").style.display = "block";
-    } else if(document.getElementById("posts").style.display === "block") {
-        document.getElementById("posts").style.display = "none";
-        document.getElementById("commentName").style.display = "block";
-        document.getElementById("comments").style.display = "block";
-    } else{
-        document.getElementById("posts").style.display = "block";
-    }
-}
 
-const searchHandler = () => {
-    document.getElementById("posts").style.display = "none";
-    document.getElementById("comments").style.display = "none";
-    document.getElementById("commentName").style.display = "none";
-    if(document.getElementById("search").style.display === "none"){
-        document.getElementById("search").style.display = "block";
-    } else if(document.getElementById("search").style.display === "block"){
-        document.getElementById("search").style.display = "none";
-        document.getElementById("commentName").style.display = "block";
-        document.getElementById("comments").style.display = "block";
-    } else{
-        document.getElementById("search").style.display = "block";
-    }
-}
 
 
 
@@ -54,7 +26,9 @@ export const Profile = () =>{
     const[comment,setComment] = useState([]);
     const[activity,setActivity] = useState([]);
     const [show,setShow] = useState(false);
-
+    const [showPost,setShowPost] = useState(false);
+    const [showSearched,setShowSearched] = useState(false);
+    const [showCommentBox,setShowCommentBox] = useState(true);
 
     const query = async () => {
         let res = await fetch("http://localhost:8080/posts/getAllUsersPosts/" + localStorage.getItem('login'));
@@ -111,7 +85,7 @@ export const Profile = () =>{
                         </ModalContextProviderChooseAvatar>
                     </div>
                     <div className="postBtn">
-                        <Button className="btnChooseAvatar" variant="outlined" data-bs-dismiss="modal" onClick={areaHandler}>Posts</Button>
+                        <Button className="btnChooseAvatar" variant="outlined" data-bs-dismiss="modal">Posts</Button>
                     </div>
                     <div className="searchedBtn">
                         <Button className="btnChooseAvatar" variant="outlined" data-bs-dismiss="modal">Searched</Button>
@@ -123,6 +97,9 @@ export const Profile = () =>{
     }else {
         return (
             <>
+                <IconButton color="primary" aria-label="upload picture" component="label" className="notificationsProfile" onClick={() => setShow(!show)}>
+                    <NotificationsIcon/>
+                </IconButton>
                 <div className="imgSettings">
                 <img
                     src={localStorage.getItem('picId')}
@@ -142,10 +119,34 @@ export const Profile = () =>{
                 </ModalContextProviderChooseAvatar>
                 </div>
                     <div className="postBtn">
-                    <Button className="btnChooseAvatar" variant="outlined" data-bs-dismiss="modal" onClick={areaHandler}>Posts</Button>
+                    <Button className="btnChooseAvatar" variant="outlined" data-bs-dismiss="modal" onClick={() => {
+                        setShowPost(!showPost)
+                        if(showSearched === true){
+                            setShowSearched(!showSearched);
+                            if(showCommentBox === false){
+                                setShowCommentBox(showCommentBox)
+                            }else {
+                                setShowCommentBox(!showCommentBox)
+                            }
+                        }else{
+                            setShowCommentBox(!showCommentBox)
+                        }
+                    }}>Posts</Button>
                     </div>
                     <div className="searchedBtn">
-                    <Button className="btnChooseAvatar" variant="outlined" data-bs-dismiss="modal" onClick={searchHandler}>Searched</Button>
+                    <Button className="btnChooseAvatar" variant="outlined" data-bs-dismiss="modal"  onClick={() => {
+                        setShowSearched(!showSearched)
+                        if(showPost === true){
+                            setShowPost(!showPost);
+                            if(showCommentBox === false){
+                                setShowCommentBox(showCommentBox)
+                            }else {
+                                setShowCommentBox(!showCommentBox)
+                            }
+                        }else{
+                            setShowCommentBox(!showCommentBox)
+                        }
+                    }}>Searched</Button>
                     </div>
                     <div className="activityStack">
                         <Tooltip title="Комментариев" placement="top">
@@ -191,30 +192,35 @@ export const Profile = () =>{
                      alt=""/>
                 <div className={likesAmount < 10 ? "likesCounterOneDigit" : likesAmount>=10 && likesAmount<100 ? "likesCounterTwoDigit" : "likesCounterThreeDigit"}>{likesAmount}</div>
 
-                <div id="commentName">
-                <h2 className="commentsName">Comments</h2>
-                </div>
-                <div id="posts">
+                <CSSTransition in={showCommentBox} classNames='alert' timeout={300} unmountOnExit>
+                    <h2 className="commentsName">Comments</h2>
+                </CSSTransition>
+
+                    <CSSTransition in={showPost} classNames='alert' timeout={300} unmountOnExit>
                     <LostRender data={ans}/>
-                </div>
-                <div id = "comments">
+                    </CSSTransition>
+
+
+                <CSSTransition in={showCommentBox} classNames='alert' timeout={300} unmountOnExit>
                 <div className="commentBoxWrapper">
                     <div className="commentBoxTop">
+
                         <CommentRender data={comment}/>
+
                     </div>
                 </div>
-                    <IconButton color="primary" aria-label="upload picture" component="label" className="notificationsProfile" onClick={() => setShow(!show)}>
-                        <NotificationsIcon/>
-                    </IconButton>
+                </CSSTransition>
+
+
                     <CSSTransition in={show} classNames='alert' timeout={300} unmountOnExit>
                     <div className="usersActivity">
                         <p>activity)))</p>
                     </div>
                     </CSSTransition>
-                </div>
-                <div id="search">
+
+                <CSSTransition in={showSearched} classNames='alert' timeout={300} unmountOnExit>
                     <SearchedRender data={ans}/>
-                </div>
+                </CSSTransition>
             </>
         );
     }
