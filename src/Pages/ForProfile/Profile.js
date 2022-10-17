@@ -14,6 +14,7 @@ import activityLike from '../../resources/activityLike.png';
 import activityPost from '../../resources/activityPost.png';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import {CSSTransition} from "react-transition-group";
+import {Activity} from "../Activity/Activity";
 
 
 
@@ -214,7 +215,7 @@ export const Profile = () =>{
 
                     <CSSTransition in={show} classNames='alert' timeout={300} unmountOnExit>
                     <div className="usersActivity">
-                        <p>activity)))</p>
+                        <Activity/>
                     </div>
                     </CSSTransition>
 

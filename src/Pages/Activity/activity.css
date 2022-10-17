@@ -1,25 +1,40 @@
-
-.activityPic{
+.oneActivityBox{
     position: relative;
-
+    top: 15px;
+    margin-left: 25px;
+    background-color: #282c34;
+    height: 100px;
+    width: 350px;
+    font-family: "YanoneKaffeesatz-Regular";
 }
 
-.activityText{
-    font-family: "YanoneKaffeesatz-Regular";
-    font-size: 18px;
-    display: flex;
-    margin-top: 10px;
-    flex-direction: column;
+.activityPic{
+    object-fit: cover;
+    margin-right: 10px;
     position: relative;
-    text-align: left;
-    left: 25px;
-    top: -5px;
+    right: 135px;
+}
+.activityLogin{
+    position: relative;
+    top: -70px;
+    right: 70px;
+    font-size: 18px;
+    color: white;
+}
+.activityText{
+    position: relative;
+    top: -80px;
+    right: 7px;
+    font-size: 18px;
+    color: white;
 }
 
 .activityDate{
-    font-family: "YanoneKaffeesatz-Regular";
     font-size: 16px;
     position: relative;
-    left: 25px;
-    top: -10px;
+    top:-90px;
+    text-align: left;
+    left: 10px;
+    color: white;
 }
+

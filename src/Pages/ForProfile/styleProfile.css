@@ -191,13 +191,13 @@
 
 .usersActivity{
     position: relative;
-    height: 700px;
+    height: 860px;
     width: 400px;
     flex-direction: column;
-    left: 1400px;
-    top: -900px;
+    left: 1000px;
+    top: -860px;
     text-align: center;
-    background-color: #61dafb;
+    background-color: white;
 }
 
 .commentBoxTop::-webkit-scrollbar{
