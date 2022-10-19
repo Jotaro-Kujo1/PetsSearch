@@ -28,6 +28,7 @@ export const AnotherProfile = () => {
     const [showPost,setShowPost] = useState(false);
     const [showSearched,setShowSearched] = useState(false);
     const [showCommentBox,setShowCommentBox] = useState(true);
+    const [anotherActivity,setAnotherActivity] = useState([]);
 
 
     const query = async () => {
@@ -39,7 +40,21 @@ export const AnotherProfile = () => {
     const queryToLikeNotification = () => {
         const id = "";
         const profimg = localStorage.getItem("picId");
-        const text = "liked your profile";
+        const text = "Liked your profile";
+        const sender_login = localStorage.getItem("login");
+        const receiver_login = login;
+        const newNotification = {id,profimg,text,sender_login,receiver_login};
+        fetch("http://localhost:8080/notification/createNotification",{
+            method:"POST",
+            headers:{"Content-Type":"application/json"},
+            body:JSON.stringify(newNotification)
+        })
+    }
+
+    const queryToCommentNotification = () => {
+        const id = "";
+        const profimg = localStorage.getItem("picId");
+        const text = "Wrote a comment";
         const sender_login = localStorage.getItem("login");
         const receiver_login = login;
         const newNotification = {id,profimg,text,sender_login,receiver_login};
@@ -78,6 +93,7 @@ export const AnotherProfile = () => {
     const queryToGetComments = async() => {
         let res = await fetch("http://localhost:8080/comment/getComments?receiver_login=" + login);
         setComment(await res.json());
+        queryToCommentNotification();
     }
 
     const queryToGetActivity = async() => {
@@ -87,23 +103,28 @@ export const AnotherProfile = () => {
         console.log(res.json());
     }
 
+    const queryToGetLikerActivity = async() => {
+        let res = await fetch("http://localhost:8080/activity/getActivity?login=" + localStorage.getItem("login"));
+        setAnotherActivity(await res.json());
+    }
+
     const queryToUpdateCommentActivity = () => {
-        activity["comment_activity"]++;
+        anotherActivity["comment_activity"]++;
         fetch("http://localhost:8080/activity/updateComments",{
             method:"POST",
             headers:{"Content-Type":"application/json"},
-            body:JSON.stringify(activity)
+            body:JSON.stringify(anotherActivity)
         }).then((response)=>{
             console.log(response.status);
         })
     }
 
     const queryToUpdateLikeActivity = () => {
-        activity["like_activity"]++;
+        anotherActivity["like_activity"]++;
         fetch("http://localhost:8080/activity/updateLikes",{
             method:"POST",
             headers:{"Content-Type":"application/json"},
-            body:JSON.stringify(activity)
+            body:JSON.stringify(anotherActivity)
         }).then((response)=>{
             console.log(response.status);
         })
@@ -135,6 +156,7 @@ export const AnotherProfile = () => {
         queryToGetLikesAmount();
         queryToGetComments();
         queryToGetActivity();
+        queryToGetLikerActivity();
     },[]);
 
     const onUpdateText = (newText) => {

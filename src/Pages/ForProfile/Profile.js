@@ -41,9 +41,12 @@ export const Profile = () =>{
     }
 
     const queryToGetLikeNotification = async() => {
-        setShow(!show);
         let res = await fetch("http://localhost:8080/notification/getNotifications?receiver_login=" + localStorage.getItem("login"));
+
         setNotification(await res.json());
+        if(notification){
+            setShow(!show);
+        }
         console.log(notification);
         console.log(res.json());
     }
