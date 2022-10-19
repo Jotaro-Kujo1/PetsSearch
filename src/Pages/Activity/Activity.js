@@ -4,6 +4,7 @@ import './activity.css';
 
 export const Activity = (props) => {
     const data = props.data;
+    console.log(data);
     return(
         <>
             <div className="oneActivityBox">
@@ -16,7 +17,7 @@ export const Activity = (props) => {
             />
                 <p className="activityLogin">{data["sender_login"]}</p>
             <p className="activityText">{data["text"]}</p>
-            <p className="activityDate">18:16 17.10.2022</p>
+            <p className="activityDate">{data["date"]}</p>
             </div>
         </>
     )
