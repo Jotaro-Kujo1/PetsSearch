@@ -6,43 +6,13 @@ import MailIcon from "@mui/icons-material/Mail";
 import {AnotherLostRender} from "./AnotherLostRender";
 import {AnotherSearchRender} from "./AnotherSearchRender";
 import catPaw from '../../resources/petPaw.png';
-import def from "../../resources/def.png";
 import {InputComment} from "../ForProfile/InputComment";
-import {ConversationRender} from "../ForChat/Conversations/ConversationRender";
 import {CommentRender} from "./CommentRender";
 import activityComment from "../../resources/activityComment.png";
 import activityLike from "../../resources/activityLike.png";
 import activityPost from "../../resources/activityPost.png";
+import {CSSTransition} from "react-transition-group";
 
-const areaHandler = () => {
-    document.getElementById("search").style.display = "none";
-    document.getElementById("comments").style.display = "none";
-    document.getElementById("commentName").style.display = "none";
-    if(document.getElementById("posts").style.display === "none"){
-        document.getElementById("posts").style.display = "block";
-    } else if(document.getElementById("posts").style.display === "block") {
-        document.getElementById("posts").style.display = "none";
-        document.getElementById("commentName").style.display = "block";
-        document.getElementById("comments").style.display = "block";
-    } else{
-        document.getElementById("posts").style.display = "block";
-    }
-}
-
-const searchHandler = () => {
-    document.getElementById("posts").style.display = "none";
-    document.getElementById("comments").style.display = "none";
-    document.getElementById("commentName").style.display = "none";
-    if(document.getElementById("search").style.display === "none"){
-        document.getElementById("search").style.display = "block";
-    } else if(document.getElementById("search").style.display === "block"){
-        document.getElementById("search").style.display = "none";
-        document.getElementById("commentName").style.display = "block";
-        document.getElementById("comments").style.display = "block";
-    } else{
-        document.getElementById("search").style.display = "block";
-    }
-}
 
 export const AnotherProfile = () => {
     let userHandler = [];
@@ -55,6 +25,9 @@ export const AnotherProfile = () => {
     const[comment,setComment] = useState([]);
     const[text,setText] = useState("");
     const[activity,setActivity] = useState([]);
+    const [showPost,setShowPost] = useState(false);
+    const [showSearched,setShowSearched] = useState(false);
+    const [showCommentBox,setShowCommentBox] = useState(true);
 
 
     const query = async () => {
@@ -174,10 +147,34 @@ export const AnotherProfile = () => {
 
             <Stack spacing={5} direction="row">
                 <div className="lostBlock">
-                <Button className="lostBtnAn" variant="outlined"  data-bs-dismiss="modal" onClick={areaHandler}>Lost</Button>
+                <Button className="lostBtnAn" variant="outlined"  data-bs-dismiss="modal" onClick={() => {
+                    setShowPost(!showPost)
+                    if(showSearched === true){
+                        setShowSearched(!showSearched);
+                        if(showCommentBox === false){
+                            setShowCommentBox(showCommentBox)
+                        }else {
+                            setShowCommentBox(!showCommentBox)
+                        }
+                    }else{
+                        setShowCommentBox(!showCommentBox)
+                    }
+                }}>Lost</Button>
                 </div>
                 <div className="searchedBlock">
-                <Button className="searchedBtnAn" variant="outlined"  data-bs-dismiss="modal" onClick={searchHandler}>Searched</Button>
+                <Button className="searchedBtnAn" variant="outlined"  data-bs-dismiss="modal" onClick={() => {
+                    setShowSearched(!showSearched)
+                    if(showPost === true){
+                        setShowPost(!showPost);
+                        if(showCommentBox === false){
+                            setShowCommentBox(showCommentBox)
+                        }else {
+                            setShowCommentBox(!showCommentBox)
+                        }
+                    }else{
+                        setShowCommentBox(!showCommentBox)
+                    }
+                }}>Searched</Button>
                 </div>
                 <div className="mailBlock">
                 <Button className="mailBtn" variant="contained" startIcon={<MailIcon/>} onClick={() => {
@@ -235,17 +232,17 @@ export const AnotherProfile = () => {
                      }}
                      alt=""/>
             <div className={likesAmount < 10 ? "likesCounterOneDigit" : likesAmount>=10 && likesAmount<100 ? "likesCounterTwoDigit" : "likesCounterThreeDigit"}>{likesAmount}</div>
-            <div id="commentName">
+            <CSSTransition in={showCommentBox} classNames='alert' timeout={300} unmountOnExit>
             <h2 className="commentsName">Comments</h2>
-            </div>
-            <div id="posts">
+            </CSSTransition>
+            <CSSTransition in={showPost} classNames='alert' timeout={300} unmountOnExit>
                 <AnotherLostRender data={ans}/>
-            </div>
+            </CSSTransition>
 
-            <div id="search">
+            <CSSTransition in={showSearched} classNames='alert' timeout={300} unmountOnExit>
                 <AnotherSearchRender data={ans}/>
-            </div>
-            <div id = "comments">
+            </CSSTransition>
+            <CSSTransition in={showCommentBox} classNames='alert' timeout={300} unmountOnExit>
             <div className="commentBoxWrapper">
                 <div className="commentBoxTop">
                      <CommentRender data={comment}/>
@@ -254,8 +251,7 @@ export const AnotherProfile = () => {
                     <InputComment onUpdateText={onUpdateText}/>
                 </div>
             </div>
-
-            </div>
+            </CSSTransition>
         </>
     )
 }
