@@ -6,6 +6,7 @@
     height: 100px;
     width: 350px;
     font-family: "YanoneKaffeesatz-Regular";
+    margin-bottom: 15px;
 }
 
 .activityPic{
@@ -17,14 +18,16 @@
 .activityLogin{
     position: relative;
     top: -70px;
-    right: 70px;
+    text-align: left;
+    left: 70px;
     font-size: 18px;
     color: white;
 }
 .activityText{
     position: relative;
     top: -80px;
-    right: 7px;
+    text-align: left;
+    left: 70px;
     font-size: 18px;
     color: white;
 }

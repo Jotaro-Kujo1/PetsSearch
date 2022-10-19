@@ -15,6 +15,7 @@ import activityPost from '../../resources/activityPost.png';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import {CSSTransition} from "react-transition-group";
 import {Activity} from "../Activity/Activity";
+import {ActivityRender} from "../Activity/ActivityRender";
 
 
 
@@ -30,12 +31,21 @@ export const Profile = () =>{
     const [showPost,setShowPost] = useState(false);
     const [showSearched,setShowSearched] = useState(false);
     const [showCommentBox,setShowCommentBox] = useState(true);
+    const [notification,setNotification] = useState([]);
 
     const query = async () => {
         let res = await fetch("http://localhost:8080/posts/getAllUsersPosts/" + localStorage.getItem('login'));
         const data = await res.json();
         setAns(data);
         //localStorage.setItem("postsByUser", JSON.stringify(data));
+    }
+
+    const queryToGetLikeNotification = async() => {
+        setShow(!show);
+        let res = await fetch("http://localhost:8080/notification/getNotifications?receiver_login=" + localStorage.getItem("login"));
+        setNotification(await res.json());
+        console.log(notification);
+        console.log(res.json());
     }
 
     const queryToGetActivity = async() => {
@@ -98,7 +108,7 @@ export const Profile = () =>{
     }else {
         return (
             <>
-                <IconButton color="primary" aria-label="upload picture" component="label" className="notificationsProfile" onClick={() => setShow(!show)}>
+                <IconButton color="primary" aria-label="upload picture" component="label" className="notificationsProfile" onClick={() => queryToGetLikeNotification()}>
                     <NotificationsIcon/>
                 </IconButton>
                 <div className="imgSettings">
@@ -215,7 +225,7 @@ export const Profile = () =>{
 
                     <CSSTransition in={show} classNames='alert' timeout={300} unmountOnExit>
                     <div className="usersActivity">
-                        <Activity/>
+                        <ActivityRender data = {notification}/>
                     </div>
                     </CSSTransition>
 

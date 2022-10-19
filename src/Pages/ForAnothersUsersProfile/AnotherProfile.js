@@ -36,6 +36,20 @@ export const AnotherProfile = () => {
         setAns(data);
     }
 
+    const queryToLikeNotification = () => {
+        const id = "";
+        const profimg = localStorage.getItem("picId");
+        const text = "liked your profile";
+        const sender_login = localStorage.getItem("login");
+        const receiver_login = login;
+        const newNotification = {id,profimg,text,sender_login,receiver_login};
+        fetch("http://localhost:8080/notification/createNotification",{
+            method:"POST",
+            headers:{"Content-Type":"application/json"},
+            body:JSON.stringify(newNotification)
+        })
+    }
+
     const queryToLikes = () => {
         const id = "";
         var liker = localStorage.getItem("login");
@@ -50,6 +64,7 @@ export const AnotherProfile = () => {
                     console.log("Status is" + response.status);
                     queryToGetLikesAmount();
                     queryToUpdateLikeActivity();
+                    queryToLikeNotification();
                 }
             )
     }
