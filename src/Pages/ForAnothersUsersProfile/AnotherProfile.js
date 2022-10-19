@@ -93,7 +93,6 @@ export const AnotherProfile = () => {
     const queryToGetComments = async() => {
         let res = await fetch("http://localhost:8080/comment/getComments?receiver_login=" + login);
         setComment(await res.json());
-        queryToCommentNotification();
     }
 
     const queryToGetActivity = async() => {
@@ -148,6 +147,7 @@ export const AnotherProfile = () => {
                 console.log("Status is" + response.status);
                 queryToGetComments();
                 queryToUpdateCommentActivity();
+                queryToCommentNotification();
             })
     }
 
