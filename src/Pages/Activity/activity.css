@@ -41,3 +41,10 @@
     color: white;
 }
 
+.clearBtn{
+    position: relative;
+    top: -210px;
+    left: 155px;
+
+}
+

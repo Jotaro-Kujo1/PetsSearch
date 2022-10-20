@@ -78,6 +78,10 @@ export const Profile = () =>{
         queryToGetActivity();
     },[]);
 
+    const deleteNotification = () => {
+        window.location.reload();
+    }
+
 
     if(localStorage.getItem('picId')==null){
         return (
@@ -228,7 +232,7 @@ export const Profile = () =>{
 
                     <CSSTransition in={show} classNames='alert' timeout={300} unmountOnExit>
                     <div className="usersActivity">
-                        <ActivityRender data = {notification}/>
+                        <ActivityRender data = {notification} deleteNotification={deleteNotification}/>
                     </div>
                     </CSSTransition>
 
