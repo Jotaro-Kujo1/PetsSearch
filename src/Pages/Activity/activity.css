@@ -15,6 +15,11 @@
     position: relative;
     right: 135px;
 }
+
+.activityPic:hover{
+    opacity: .2;
+}
+
 .activityLogin{
     position: relative;
     top: -70px;

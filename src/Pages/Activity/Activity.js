@@ -8,6 +8,7 @@ import {IconButton} from "@mui/material";
 export const Activity = (props,{deleteNotification}) => {
     const data = props.data;
     console.log(data);
+    var userHandler = [];
 
     const queryToDeleteNotification = (id) => {
         fetch("http://localhost:8080/notification/deleteNotification?id=" + id,{
@@ -26,6 +27,12 @@ export const Activity = (props,{deleteNotification}) => {
                 height="80"
                 width="70"
                 className="rounded-circle z-depth-0, activityPic"
+                onClick={()=>{
+                    userHandler.push(data['sender_login']);
+                    userHandler.push(data['profimg']);
+                    localStorage.setItem("userHandler", JSON.stringify(userHandler));
+                    window.location.assign('http://localhost:3000/another');
+                }}
                 alt="userImg"
             />
                 <p className="activityLogin">{data["sender_login"]}</p>
