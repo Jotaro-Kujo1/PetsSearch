@@ -22,12 +22,6 @@
     font-family: "YanoneKaffeesatz-Regular";
 }
 
-.imgProfile {
-    position: relative;
-    left: 950px;
-    top: -183px;
-}
-
 .myLost{
     font-family: "YanoneKaffeesatz-Regular";
     margin-bottom: 50px;
@@ -54,22 +48,6 @@
 }
 
 
-.dateProf{
-    position: relative;
-    left: 665px;
-    top: -25px;
-    font-size: 18px;
-    font-style: inherit;
-    font-family: "YanoneKaffeesatz-Regular";
-}
-.userName{
-    position: relative;
-    left: 700px;
-    font-style: inherit;
-    font-size: 20px;
-    top: -40px;
-    font-family: "YanoneKaffeesatz-Regular";
-}
 
 .btnChooseAvatar {
     padding: 0px 200px;
@@ -94,71 +72,7 @@
     margin: auto;
 }
 
-.profileImg {
-    position: relative;
-    left: 0px;
-    top: -30px;
-}
-
-.imgContSearched{
-    position: relative;
-    right: 350px;
-    top:35px;
-}
-
 .mySearched{
-    font-family: "YanoneKaffeesatz-Regular";
-}
-
-.dateSearched{
-    position: relative;
-    left: 660px;
-    top: -100px;
-    font-style: inherit;
-    font-family: "YanoneKaffeesatz-Regular";
-    font-size: 18px;
-}
-
-.imgContSearchedMain{
-    position: relative;
-    right: 350px;
-    top:40px;
-}
-
-.messageBtnSearched{
-    position: relative;
-    left: 850px;
-    top: 170px;
-}
-
-.myPostPicSearched{
-    border: 1px solid black;
-    position: relative;
-    left: 600px;
-    top: 170px;
-}
-.myPostPicSearched:hover{
-    opacity: .2;
-}
-
-
-#posts {
-    display: none;
-    font-family: "YanoneKaffeesatz-Regular";
-}
-
-#search {
-    display: none;
-    font-family: "YanoneKaffeesatz-Regular";
-}
-
-#comments {
-    display: block;
-    font-family: "YanoneKaffeesatz-Regular";
-}
-
-#commentName{
-    display: block;
     font-family: "YanoneKaffeesatz-Regular";
 }
 
@@ -394,11 +308,6 @@
 .numbersPostThreeDigit{
     position: relative;
     left: 68px;
-}
-
-.notificationsProfile{
-
-
 }
 
 .alert-enter {
