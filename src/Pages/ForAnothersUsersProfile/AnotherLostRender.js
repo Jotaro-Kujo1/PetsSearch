@@ -41,7 +41,7 @@ export const AnotherLostRender = (props) => {
     return (
         <>
             <div>
-                <h3 align="center">Lost</h3>
+                <h3 align="center" className="anotherLost">Lost</h3>
                 {elements}
             </div>
         </>

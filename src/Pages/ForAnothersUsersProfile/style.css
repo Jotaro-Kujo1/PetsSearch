@@ -58,6 +58,15 @@
 .textAreaAnother{
     position: relative;
     top: -40px;
+    font-family: "YanoneKaffeesatz-Regular";
+}
+
+.anotherLost{
+    font-family: "YanoneKaffeesatz-Regular";
+}
+
+.anotherSearched{
+    font-family: "YanoneKaffeesatz-Regular";
 }
 
 .catPawPic{

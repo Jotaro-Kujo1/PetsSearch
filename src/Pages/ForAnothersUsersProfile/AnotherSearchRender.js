@@ -41,7 +41,7 @@ export const AnotherSearchRender = (props) => {
     return (
         <>
             <div>
-                <h3 align="center">Searched</h3>
+                <h3 align="center" className="anotherSearched">Searched</h3>
                 {elements}
             </div>
         </>

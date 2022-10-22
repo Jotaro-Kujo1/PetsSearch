@@ -1,4 +1,4 @@
-import {IconButton, TextareaAutosize} from "@mui/material";
+import {IconButton, Stack, TextareaAutosize} from "@mui/material";
 import {Delete} from "@mui/icons-material";
 import React from "react";
 import './styleProfile.css';
@@ -31,29 +31,36 @@ export const LostRender = (props) => {
     let elements = null;
     elements = Array.isArray(postsLost) ? postsLost.map(post =>
         <>
-            <div className="textArea">
-                <TextareaAutosize className="description"
-                                  aria-label="minimum height"
-                                  minRows={6}
-                                  style={{width: 400}}
-                                  value={post["description"]}
-                />
-                <TextareaAutosize className="address"
-                                  aria-label="minimum height"
-                                  minRows={1}
-                                  style={{width: 300}}
-                                  value={post["address"]}
-                />
-            </div>
-            <IconButton color="primary" aria-label="upload picture" component="label" className="delBtn" onClick={()=>deleteHandler(post["id"])}>
-                <Delete/>
-            </IconButton>
-            <div className="imgProfile">
-                <img className="imgCont" src={"data:image/jpeg;base64," + post["handler"]} height="280px"
-                     width="230px"/>
-            </div>
-            <div className="dateProfile">
-                <p>{post["date"]}</p>
+            <div className="onePost">
+                <Stack spacing={2} direction="row">
+                    <Stack spacing={2} direction="column">
+                        <img className="imgCont" src={"data:image/jpeg;base64," + post["handler"]} height="280px"
+                        width="230px"/>
+                        <div className="dateProfile">
+                            <p className="dateDate">{post["date"]}</p>
+                        </div>
+                    </Stack>
+                <div className="textArea">
+                    <TextareaAutosize className="description"
+                                      aria-label="minimum height"
+                                      minRows={6}
+                                      style={{width: 400}}
+                                      value={post["description"]}
+                    />
+                    <TextareaAutosize className="address"
+                                      aria-label="minimum height"
+                                      minRows={1}
+                                      style={{width: 300}}
+                                      value={post["address"]}
+                    />
+                    <div className="deleteBlock">
+                        <IconButton color="primary" aria-label="upload picture" component="label" className="delBtn" onClick={()=>deleteHandler(post["id"])}>
+                            <Delete/>
+                        </IconButton>
+                    </div>
+                </div>
+                </Stack>
+
             </div>
         </>
     ): console.log(posts.type);

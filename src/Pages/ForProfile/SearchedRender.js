@@ -1,4 +1,4 @@
-import {IconButton, TextareaAutosize} from "@mui/material";
+import {IconButton, Stack, TextareaAutosize} from "@mui/material";
 import {Delete} from "@mui/icons-material";
 import React from "react";
 import './styleProfile.css';
@@ -31,6 +31,15 @@ export const SearchedRender = (props) => {
     let elements = null;
     elements = Array.isArray(postsSearched) ? postsSearched.map(post =>
         <>
+            <div className="onePost">
+                <Stack spacing={2} direction="row">
+                    <Stack spacing={2} direction="column">
+                    <img className="imgCont" src={"data:image/jpeg;base64," + post["handler"]} height="280px"
+                         width="230px"/>
+                    <div className="dateProfile">
+                        <p className="dateDate">{post["date"]}</p>
+                    </div>
+                    </Stack>
             <div className="textArea">
                 <TextareaAutosize className="description"
                                   aria-label="minimum height"
@@ -44,16 +53,13 @@ export const SearchedRender = (props) => {
                                   style={{width: 300}}
                                   value={post["address"]}
                 />
+                <div className="deleteBlock">
+                    <IconButton color="primary" aria-label="upload picture" component="label" className="delBtn" onClick={()=>deleteHandler(post["id"])}>
+                        <Delete/>
+                    </IconButton>
+                </div>
             </div>
-            <IconButton color="primary" aria-label="upload picture" component="label" className="delBtn" onClick={()=>deleteHandler(post["id"])}>
-                <Delete/>
-            </IconButton>
-            <div className="img">
-                <img className="imgContSearched" src={"data:image/jpeg;base64," + post["handler"]} height="280px"
-                     width="230px"/>
-            </div>
-            <div className="dateSearched">
-                <p>{post["date"]}</p>
+                </Stack>
             </div>
         </>
     ): console.log(posts.type);

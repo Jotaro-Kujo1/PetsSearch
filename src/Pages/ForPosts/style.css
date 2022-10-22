@@ -1,7 +1,5 @@
 .description {
-    position: relative;
-    left: 850px;
-    top: 120px;
+
     font-family: "YanoneKaffeesatz-Regular";
     font-size: 20px;
 }
@@ -33,11 +31,9 @@
 }
 
 .address {
-    position: relative;
-    left: 450px;
-    top: 160px;
     font-family: "YanoneKaffeesatz-Regular";
     font-size: 18px;
+    margin-bottom: 10px;
 }
 
 .imgBtn {
@@ -58,11 +54,21 @@
     top: 137px;
 }
 
-.textArea {
-    position: relative;
-    left: 80px;
-    font-family: "YanoneKaffeesatz-Regular";
+.onePost{
+    height: 300px;
+    width: 800px;
+    margin: auto auto 150px;
 }
+
+.textArea {
+    font-family: "YanoneKaffeesatz-Regular";
+    width: 400px;
+    height: 227px;
+    margin-left: auto;
+    margin-right: 0;
+
+}
+
 
 .img {
     position: relative;
@@ -72,8 +78,8 @@
 
 .imgCont{
     position: relative;
-    right: 350px;
-    top: 70px;
+    margin-right: 50px;
+    margin-left: 50px;
 }
 
 .title{
