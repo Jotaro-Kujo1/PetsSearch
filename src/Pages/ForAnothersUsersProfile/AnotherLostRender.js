@@ -1,4 +1,4 @@
-import {TextareaAutosize} from "@mui/material";
+import {Stack, TextareaAutosize} from "@mui/material";
 import React from "react";
 
 export const AnotherLostRender = (props) => {
@@ -13,7 +13,16 @@ export const AnotherLostRender = (props) => {
     let elements = null;
     elements = Array.isArray(postsLost) ? postsLost.map(post =>
         <>
-            <div className="textAreaAnother">
+            <div className="onePost">
+                <Stack spacing={2} direction="row">
+                    <Stack spacing={2} direction="column">
+                        <img className="imgCont" src={"data:image/jpeg;base64," + post["handler"]} height="280px"
+                             width="230px"/>
+                        <div className="dateProfile">
+                            <p className="dateDate">{post["date"]}</p>
+                        </div>
+                    </Stack>
+            <div className="textArea">
                 <TextareaAutosize className="description"
                                   aria-label="minimum height"
                                   minRows={6}
@@ -27,13 +36,7 @@ export const AnotherLostRender = (props) => {
                                   value={post["address"]}
                 />
             </div>
-
-            <div className="imgProfile">
-                <img className="imgCont" src={"data:image/jpeg;base64," + post["handler"]} height="280px"
-                     width="230px"/>
-            </div>
-            <div className="dateProfile">
-                <p>{post["date"]}</p>
+                </Stack>
             </div>
         </>
     ): console.log(posts.type);
