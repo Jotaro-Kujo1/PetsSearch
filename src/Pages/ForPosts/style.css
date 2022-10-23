@@ -34,6 +34,10 @@
     margin: 150px auto 150px;
 }
 
+.buttonsBlock{
+    margin-top: 25px;
+}
+
 .loginAndPicBox{
     width: 230px;
     margin-left: 48px;
@@ -138,11 +142,11 @@
     top: 215px;
 }
 
-.checkBoxCreate{
-    position: relative;
-    left: 850px;
-    top: 110px;
+.checkBoxes{
+    margin-top: 15px;
 }
+
+
 
 
 

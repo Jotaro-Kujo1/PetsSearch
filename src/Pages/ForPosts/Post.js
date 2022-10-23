@@ -1,4 +1,4 @@
-import {Checkbox, FormControlLabel, IconButton, TextareaAutosize} from "@mui/material";
+import {Checkbox, FormControlLabel, IconButton, Stack, TextareaAutosize} from "@mui/material";
 import './style.css'
 import {PhotoCamera} from "@mui/icons-material";
 import Button from "@mui/material/Button";
@@ -109,39 +109,42 @@ export const Post = () => {
 
     return (
         <>
-
+            <div className="onePostInPostRender">
+                <Stack spacing={2} direction="row">
+                    <img className="imgCont" src={url} height="280px" width="230px" />
+            <div className="textArea">
             <TextareaAutosize className="description"
                 aria-label="minimum height"
                 minRows={5}
                 placeholder="Input description"
                 style={{ width: 400 }}
                               onChange={e => setDescription(e.target.value)}
-        />
-
-
-
+            />
             <TextareaAutosize className="address"
                 aria-label="minimum height"
                 minRows={1}
                 placeholder="Октябрьский 72,Зашекснинский"
                 style={{ width: 300 }}
                               onChange={e => setAddress(e.target.value)}
-        />
+            />
 
-
-            <IconButton color="primary" aria-label="upload picture" component="label" className="imgBtnCreate">
+            <Stack spacing={2} direction="row" className="buttonsBlock">
+            <IconButton color="primary" aria-label="upload picture" component="label" >
                 <input hidden accept="image/*" type="file" onChange={e => setSelectedImage(e.target.files[0])}/>
                 <PhotoCamera/>
             </IconButton>
-                <Button variant="contained" className="publicBtnCreate" startIcon={<SendIcon/>} onClick={byteConverter}>Public post</Button>
-
-            <img className="imageCreatePost" src={url} height="280px" width="230px" />
-
-            <div className="checkBoxCreate">
-                <FormControlLabel className="text" control={<Checkbox />} onChange={() => setLost(true)} label="Пропал"/>
+                <Button variant="contained" startIcon={<SendIcon/>} onClick={byteConverter}>Public post</Button>
+            </Stack>
+                <Stack spacing={2} direction="row" className="checkBoxes">
+                    <div className="lostCheckBox">
+                        <FormControlLabel control={<Checkbox />} onChange={() => setLost(true)} label="Пропал"/>
+                    </div>
+                    <div className="searchedCheckBox">
+                        <FormControlLabel control={<Checkbox />} onChange={()=>setSearched(true)} label="Найден"/>
+                    </div>
+                </Stack>
             </div>
-            <div className="checkBoxCreate">
-                <FormControlLabel className="text" control={<Checkbox />} onChange={()=>setSearched(true)} label="Найден"/>
+                </Stack>
             </div>
         </>
     )
