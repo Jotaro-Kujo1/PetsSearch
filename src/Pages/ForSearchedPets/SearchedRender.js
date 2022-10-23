@@ -1,4 +1,4 @@
-import {TextareaAutosize} from "@mui/material";
+import {Stack, TextareaAutosize} from "@mui/material";
 import Button from "@mui/material/Button";
 import MailIcon from "@mui/icons-material/Mail";
 import React from "react";
@@ -6,6 +6,7 @@ import React from "react";
 export const SearchedRender = (props) => {
     var userHandler = [];
     var area;
+    var conversationHandler = [];
     if (localStorage.getItem('area') === '') {
         area = 'Все';
     } else area = localStorage.getItem('area');
@@ -13,11 +14,13 @@ export const SearchedRender = (props) => {
     let elements = null;
     elements = Array.isArray(posts) ? posts.map(post =>
         <>
+            <div className="onePostInPostRender">
+                <Stack spacing={2} direction = "row" className="loginAndPicBox">
             <img
                 src={post["profimg"]}
                 height="50"
                 width="50"
-                className="rounded-circle z-depth-0, myPostPicSearched"
+                className="rounded-circle z-depth-0, myPostPic"
                 onClick={() => {
                     userHandler.push(post['login']);
                     userHandler.push(post['profimg']);
@@ -27,7 +30,16 @@ export const SearchedRender = (props) => {
                 alt="userImg"
             />
             <p className="loginWithPic">{post["login"]}</p>
-            <div>
+                </Stack>
+                <Stack spacing={2} direction="row">
+                    <Stack spacing={2} direction="column">
+                        <img className="imgCont" src={"data:image/jpeg;base64," + post["handler"]} height="280px"
+                             width="230px"/>
+                        <div className="dateProfile">
+                            <p className="dateDate">{post["date"]}</p>
+                        </div>
+                    </Stack>
+                    <div className="textArea">
                 <TextareaAutosize className="description"
                                   aria-label="minimum height"
                                   minRows={6}
@@ -40,14 +52,17 @@ export const SearchedRender = (props) => {
                                   style={{width: 300}}
                                   value={post["address"]}
                 />
+                        <div className="deleteBlock">
+                        <Button variant="contained" className="delBtn" startIcon={<MailIcon/>} onClick={() => {
+                            sessionStorage.setItem("conversationId",1);
+                            conversationHandler.push(post['login']);
+                            conversationHandler.push(post['profimg']);
+                            localStorage.setItem("conversationHandler", JSON.stringify(conversationHandler));
+                            window.location.assign('http://localhost:3000/messenger');
+                        }}>Send message</Button>
+                        </div>
             </div>
-            <Button variant="contained" className="messageBtnSearched" startIcon={<MailIcon/>}>Send message</Button>
-            <div className="img">
-                <img className="imgContSearchedMain" src={"data:image/jpeg;base64," + post["handler"]} height="280px"
-                     width="230px"/>
-            </div>
-            <div className="dateSearched">
-                <p>{post["date"]}</p>
+                </Stack>
             </div>
         </>
     ): console.log(posts.type);

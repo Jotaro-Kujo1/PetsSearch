@@ -1,4 +1,4 @@
-import {TextareaAutosize} from "@mui/material";
+import {Stack, TextareaAutosize} from "@mui/material";
 import React from "react";
 import './style.css';
 import MailIcon from '@mui/icons-material/Mail';
@@ -16,26 +16,38 @@ export const PostRenderer = (props) => {
     let elements = null;
     elements = Array.isArray(posts) ? posts.map(post =>
         <>
-                <img
-                    src={post["profimg"]}
-                    height="50"
-                    width="50"
-                    className="rounded-circle z-depth-0, myPostPic"
-                    onClick={() => {
-                        userHandler.push(post['login']);
-                        userHandler.push(post['profimg']);
-                        localStorage.setItem("userHandler", JSON.stringify(userHandler));
-                        if(post['login'] === localStorage.getItem("login")){
-                            window.location.assign('http://localhost:3000/profile');
-                        } else{
-                            window.location.assign('http://localhost:3000/another');
-                        }
-                    }}
-                    alt="userImg"
-                />
-                <p className="loginWithPic">{post["login"]}</p>
+            <div className="onePostInPostRender">
+                <Stack spacing={2} direction = "row" className="loginAndPicBox">
+                    <img
+                        src={post["profimg"]}
+                        height="50"
+                        width="50"
+                        className="rounded-circle z-depth-0, myPostPic"
+                        onClick={() => {
+                            userHandler.push(post['login']);
+                            userHandler.push(post['profimg']);
+                            localStorage.setItem("userHandler", JSON.stringify(userHandler));
+                            if(post['login'] === localStorage.getItem("login")){
+                                window.location.assign('http://localhost:3000/profile');
+                            } else{
+                                window.location.assign('http://localhost:3000/another');
+                            }
+                        }}
+                        alt="userImg"
+                    />
+                    <p className="loginWithPic">{post["login"]}</p>
+                </Stack>
+                <Stack spacing={2} direction="row">
+                    <Stack spacing={2} direction="column">
+                        <img className="imgCont" src={"data:image/jpeg;base64," + post["handler"]} height="280px"
+                             width="230px"/>
+                        <div className="dateProfile">
+                            <p className="dateDate">{post["date"]}</p>
+                        </div>
+                    </Stack>
 
 
+                    <div className="textArea">
                 <TextareaAutosize className="description"
                                   aria-label="minimum height"
                                   minRows={6}
@@ -48,20 +60,18 @@ export const PostRenderer = (props) => {
                                   style={{width: 300}}
                                   value={post["address"]}
                 />
+                        <div className="deleteBlock">
+                        <Button variant="contained" className="delBtn" startIcon={<MailIcon/>} onClick={() => {
+                            sessionStorage.setItem("conversationId",1);
+                            conversationHandler.push(post['login']);
+                            conversationHandler.push(post['profimg']);
+                            localStorage.setItem("conversationHandler", JSON.stringify(conversationHandler));
+                            window.location.assign('http://localhost:3000/messenger');
+                        }}>Send message</Button>
+                        </div>
+                    </div>
+                    </Stack>
 
-            <Button variant="contained" className="messageBtn" startIcon={<MailIcon/>} onClick={() => {
-                sessionStorage.setItem("conversationId",1);
-                conversationHandler.push(post['login']);
-                conversationHandler.push(post['profimg']);
-                localStorage.setItem("conversationHandler", JSON.stringify(conversationHandler));
-                window.location.assign('http://localhost:3000/messenger');
-            }}>Send message</Button>
-            <div className="img">
-                <img className="imgCont" src={"data:image/jpeg;base64," + post["handler"]} height="280px"
-                     width="230px"/>
-            </div>
-            <div className="date">
-                <p>{post["date"]}</p>
             </div>
         </>
     ): console.log(posts.type);

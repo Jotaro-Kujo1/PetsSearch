@@ -13,8 +13,7 @@
 .myPostPic{
     border: 1px solid black;
     position: relative;
-    left: 600px;
-    top: 170px;
+
 }
 
 .myPostPic:hover{
@@ -23,11 +22,23 @@
 
 
 .loginWithPic{
-    position: relative;
     font-family: "YanoneKaffeesatz-Regular";
     font-size: 26px;
-    left: 660px;
-    top:130px;
+    position: relative;
+    top: 5px;
+}
+
+.onePostInPostRender{
+    height: 400px;
+    width: 800px;
+    margin: 150px auto 150px;
+}
+
+.loginAndPicBox{
+    width: 230px;
+    margin-left: 48px;
+    margin-right: auto;
+    margin-bottom: 10px;
 }
 
 .address {
