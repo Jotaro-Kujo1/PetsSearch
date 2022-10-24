@@ -16,7 +16,7 @@ import NotificationsIcon from '@mui/icons-material/Notifications';
 import {CSSTransition} from "react-transition-group";
 import {Activity} from "../Activity/Activity";
 import {ActivityRender} from "../Activity/ActivityRender";
-
+import NotificationImportantIcon from '@mui/icons-material/NotificationImportant';
 
 
 
@@ -25,6 +25,7 @@ import {ActivityRender} from "../Activity/ActivityRender";
 export const Profile = () =>{
     const [ans, setAns] = useState([]);
     const[likesAmount,setLikesAmount] = useState(0);
+    const[notificationsAmount,setNotificationAmount] = useState(false);
     const[comment,setComment] = useState([]);
     const[activity,setActivity] = useState([]);
     const [show,setShow] = useState(false);
@@ -41,6 +42,7 @@ export const Profile = () =>{
     }
 
     const queryToGetLikeNotification = async() => {
+        if(notificationsAmount) setNotificationAmount(false);
         let res = await fetch("http://localhost:8080/notification/getNotifications?receiver_login=" + localStorage.getItem("login"));
 
         setNotification(await res.json());
@@ -69,6 +71,17 @@ export const Profile = () =>{
         setComment(await res.json());
     }
 
+    const queryToGetNotificationsAmount = async() => {
+        let res = await fetch("http://localhost:8080/notification/getNotificationsAmount?receiver_login=" + localStorage.getItem('login'));
+        let tmp = await res.json();
+        console.log(tmp);
+        if(localStorage.getItem("notificationsAmount")){
+            if(localStorage.getItem("notificationsAmount") < tmp){
+                setNotificationAmount(true);
+            }
+        }
+        localStorage.setItem("notificationsAmount",tmp);
+    }
 
 
     useEffect(()=>{
@@ -76,6 +89,7 @@ export const Profile = () =>{
         queryToGetLikesAmount();
         queryToGetComments();
         queryToGetActivity();
+        queryToGetNotificationsAmount();
     },[]);
 
     const deleteNotification = () => {
@@ -115,9 +129,12 @@ export const Profile = () =>{
     }else {
         return (
             <>
-                <IconButton color="primary" aria-label="upload picture" component="label" className="notificationsProfile" onClick={() => queryToGetLikeNotification()}>
+                {notificationsAmount === false&&<IconButton color="primary" aria-label="upload picture" component="label" className="notificationsProfile" onClick={() => queryToGetLikeNotification()}>
                     <NotificationsIcon/>
-                </IconButton>
+                </IconButton>}
+                {notificationsAmount === true&&<IconButton color="primary" aria-label="upload picture" component="label" className="notificationsProfile" onClick={() => queryToGetLikeNotification()}>
+                    <NotificationImportantIcon/>
+                </IconButton>}
                 <div className="imgSettings">
                 <img
                     src={localStorage.getItem('picId')}
