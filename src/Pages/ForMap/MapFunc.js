@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import {YMaps, Map, Placemark, SearchControl, GeolocationControl} from '@pbe/react-yandex-maps'
 import img from '../../resources/zoo.png';
 
@@ -17,10 +17,14 @@ const MapFunc = (props) => {
     var coord = [];
     var counter = 0;
 
+
+
+
     for(var i=0;i<(dataArr.length)/2;i++){
         coord.push([dataArr[counter], dataArr[counter+1]]);
         counter +=2;
     }
+
 
     return (
         <YMaps
@@ -36,8 +40,8 @@ const MapFunc = (props) => {
                         iconLayout: 'default#image',
                         iconImageHref: img,
                     }}properties={{
-                        //hintContent: 'Это хинт',
-                        //balloonContentBody: '<div>{desc[0]}</div>'
+                        //hintContent: '<p>{description[0]}</p>',
+                        //balloonContentBody: <p>{description[0].getContent()}</p>
                     }}modules={
                         ['geoObject.addon.balloon', 'geoObject.addon.hint']
                     }

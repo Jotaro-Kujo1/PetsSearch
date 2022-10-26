@@ -32,7 +32,8 @@ export default function User () {
     }
 
     const handleClick = () => {
-        const newUser = {login,password};
+        const verified = false;
+        const newUser = {login,password,verified};
         console.log(newUser);
         setLogin(login);
         fetch("http://localhost:8080/forUsers/user",{

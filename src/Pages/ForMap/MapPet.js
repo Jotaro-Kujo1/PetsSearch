@@ -7,6 +7,7 @@ export const MapPet = () => {
     const [ans, setAns] = useState([]);
     const [adr,setAdr] = useState([]);
     const [newDataArr,setNewDataArr] = useState([]);
+    const[description,setNewDescription] = useState([]);
 
 
     const arrTreatment = (arr) => {
@@ -30,11 +31,12 @@ export const MapPet = () => {
         let res;
         res = await fetch("http://localhost:8080/posts/getAllPosts");
         const data = await res.json();
-
         for(var i=0;i<data.length;i++){
             let tmp = data[i];
             adr.push(tmp["address"]);
+            description.push(tmp["description"]);
         }
+
 
 
         for(var j =0;j<adr.length;j++){
