@@ -38,13 +38,11 @@ export const AnotherProfile = () => {
     }
 
     const queryToLikeNotification = () => {
-        const id = "";
         const profimg = localStorage.getItem("picId");
         const text = "Liked your profile";
         const sender_login = localStorage.getItem("login");
         const receiver_login = login;
-        const date = "";
-        const newNotification = {id,profimg,text,sender_login,receiver_login,date};
+        const newNotification = {profimg,text,sender_login,receiver_login};
         fetch("http://localhost:8080/notification/createNotification",{
             method:"POST",
             headers:{"Content-Type":"application/json"},
@@ -53,13 +51,11 @@ export const AnotherProfile = () => {
     }
 
     const queryToCommentNotification = () => {
-        const id = "";
         const profimg = localStorage.getItem("picId");
         const text = "Wrote a comment";
         const sender_login = localStorage.getItem("login");
         const receiver_login = login;
-        const date = "";
-        const newNotification = {id,profimg,text,sender_login,receiver_login,date};
+        const newNotification = {profimg,text,sender_login,receiver_login};
         fetch("http://localhost:8080/notification/createNotification",{
             method:"POST",
             headers:{"Content-Type":"application/json"},
@@ -68,10 +64,9 @@ export const AnotherProfile = () => {
     }
 
     const queryToLikes = () => {
-        const id = "";
         var liker = localStorage.getItem("login");
-        const raitingLogins = [{id,liker}]
-        const newRaiting = {id,login,raitingLogins};
+        const raitingLogins = [{liker}]
+        const newRaiting = {login,raitingLogins};
         fetch("http://localhost:8080/raiting/createRaiting",{
             method:"POST",
             headers:{"Content-Type":"application/json"},
@@ -132,13 +127,12 @@ export const AnotherProfile = () => {
     }
 
     const queryToCreateComment = (newText) => {
-        const id = "";
         var receiver_login = login;
         var sender_login = localStorage.getItem("login");
         var profimg = localStorage.getItem("picId");
         var text = newText;
-        const comments = [{id,sender_login,profimg,text}];
-        const receiver = {id,receiver_login,comments};
+        const comments = [{sender_login,profimg,text}];
+        const receiver = {receiver_login,comments};
         console.log(receiver);
         fetch("http://localhost:8080/comment/createComment",{
             method:"POST",

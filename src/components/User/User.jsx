@@ -17,11 +17,7 @@ export default function User () {
     }
 
     const queryToCreateActivity = () => {
-        const id = "";
-        const comment_activity = 0;
-        const like_activity = 0;
-        const post_activity = 0;
-        const newActivity = {id,comment_activity,like_activity,post_activity,login}
+        const newActivity = {login}
         fetch("http://localhost:8080/activity/createActivity",{
             method:"POST",
             headers:{"Content-Type":"application/json"},
@@ -32,8 +28,7 @@ export default function User () {
     }
 
     const handleClick = () => {
-        const verified = false;
-        const newUser = {login,password,verified};
+        const newUser = {login,password};
         console.log(newUser);
         setLogin(login);
         fetch("http://localhost:8080/forUsers/user",{

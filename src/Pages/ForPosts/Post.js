@@ -66,15 +66,13 @@ export const Post = () => {
 
     const savePost = (handler) => {
         let state;
-        let date = '';
-        let area = '';
         if(lost===true){
             state = true;
         }else if(searched===true){
             state = false;
         }
         let profimg = localStorage.getItem('picId');
-        const newPost = {img,description,address,login,handler,date,area,state,profimg};
+        const newPost = {img,description,address,login,handler,state,profimg};
         console.log(newPost);
         fetch("http://localhost:8080/posts/createPost",{
                 mode:"cors",
